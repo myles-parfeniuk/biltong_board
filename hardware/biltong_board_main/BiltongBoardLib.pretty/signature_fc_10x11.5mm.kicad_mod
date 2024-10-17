@@ -1,0 +1,76 @@
+(footprint "signature_fc_10x11.5mm" (version 20221018) (generator pcbnew)
+  (layer "F.Cu")
+  (attr board_only exclude_from_pos_files exclude_from_bom)
+  (fp_text reference "G***" (at 0 0) (layer "F.SilkS") hide
+      (effects (font (size 1.5 1.5) (thickness 0.3)))
+    (tstamp e57151e3-1b6c-4e5c-a679-0d065f445d01)
+  )
+  (fp_text value "LOGO" (at 0.75 0) (layer "F.SilkS") hide
+      (effects (font (size 1.5 1.5) (thickness 0.3)))
+    (tstamp 6123ba77-bdfc-4bce-854c-14e03c20965d)
+  )
+  (fp_poly
+    (pts
+      (xy -0.08 1.69)
+      (xy 0.224945 1.932199)
+      (xy 0.486081 2.178922)
+      (xy 0.750451 2.479111)
+      (xy 0.855296 2.631772)
+      (xy 0.861684 2.655291)
+      (xy 0.853891 2.661318)
+      (xy 0.39 2.21)
+      (xy -0.02 1.75)
+      (xy 0.06 1.83)
+    )
+
+    (stroke (width 0.1) (type solid)) (fill solid) (layer "F.Cu") (tstamp 01f29bc4-2537-48d8-8641-82a1c2db60f0))
+  (fp_poly
+    (pts
+      (xy -1.36 1.49)
+      (xy -1.5 1.54)
+      (xy -1.69 1.55)
+      (xy -1.06 1.2)
+      (xy -0.71 0.87)
+      (xy -0.44 0.49)
+      (xy -0.44 0.66)
+      (xy -0.480254 0.730259)
+      (xy -0.51 0.78)
+      (xy -0.69 0.98)
+      (xy -0.9 1.19)
+    )
+
+    (stroke (width 0.1) (type solid)) (fill solid) (layer "F.Cu") (tstamp bf976e54-f357-4340-9dc5-e470be1d7942))
+  (fp_poly
+    (pts
+      (xy -0.964174 2.365883)
+      (xy -1.03 2.23)
+      (xy -0.55 3.18)
+      (xy -0.5 3.28)
+      (xy -0.5 3.3)
+      (xy -0.58 3.22)
+      (xy -0.63 3.15)
+      (xy -0.73 2.96)
+      (xy -0.89 2.62)
+      (xy -1 2.36)
+      (xy -1.04 2.19)
+    )
+
+    (stroke (width 0.1) (type solid)) (fill solid) (layer "F.Cu") (tstamp edf377d0-fb66-41f2-a596-df80243eee9f))
+  (fp_poly
+    (pts
+      (xy 1.694886 1.473978)
+      (xy 0.403121 0.886669)
+      (xy 0.397986 0.874349)
+      (xy 0.41725 0.87232)
+      (xy 0.84 1)
+      (xy 1.376501 1.239721)
+      (xy 1.56127 1.343862)
+      (xy 1.674862 1.42598)
+      (xy 1.707956 1.479685)
+      (xy 1.658861 1.457978)
+      (xy 1.602287 1.43276)
+      (xy 1.615339 1.442368)
+    )
+
+    (stroke (width 0.1) (type solid)) (fill solid) (layer "F.Cu") (tstamp 536b05bc-0a8a-4658-904e-a48dedee067d))
+)
