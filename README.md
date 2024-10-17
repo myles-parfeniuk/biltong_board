@@ -15,6 +15,8 @@ Intended to be used with drying enclosures like biltong-boxes to produce sun-dri
   - [Layout](#layout)
   - [Schematics](#schematics)
 - [Firmware](#firmware)
+- [License](#license)
+- [Contact](#contact)
 
 # Hardware
 
@@ -69,6 +71,7 @@ Sensor Breakout Board:
 | DISP_RES     | 48    | PB9   | GPIO                             | SH1122 display reset signal.                                                                |
 | TRIAC_TRIG   | 42    | PB3   | GPIO                             | Triac dimmer trigger, single pulse enables triac until instantaneous AC voltage crosses 0V. |
 | HEAT_LAMP_EN | 43    | PB4   | GPIO                             | Normally open heat lamp saftey relay enable. When held high heat lamp circuit is closed.    |
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## PCB Renders
@@ -113,9 +116,24 @@ See [myles-parfeniuk/wsen_hids_breakout](https://github.com/myles-parfeniuk/wsen
 
 ### Sensor Breakout Board
 See [myles-parfeniuk/wsen_hids_breakout](https://github.com/myles-parfeniuk/wsen_hids_breakout).
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Firmware
 
 The firmware is currently being developed. This repo will updated as work is completed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# License
+Distributed under the GPL-3.0 License. See LICENSE.md for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# Contact
+
+Myles Parfeniuk - myles.parfenyuk@gmail.com
+
+Project Link: [myles-parfeniuk/biltong_board](https://github.com/myles-parfeniuk/biltong_board)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
