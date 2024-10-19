@@ -1290,7 +1290,7 @@
     (pin "5" (uuid 63b8ccce-4931-4d91-be01-f9fddc3b1344))
     (pin "6" (uuid 63abf6d0-a388-4e3b-8710-13688e945275))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "U?") (unit 1)
         )
@@ -1318,7 +1318,7 @@
     )
     (pin "1" (uuid 9e8c83b4-3d93-4614-96e1-216e30982567))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "#PWR?") (unit 1)
         )
@@ -1347,7 +1347,7 @@
     (pin "1" (uuid ffa2fa55-d438-43b8-914b-684a311d5f58))
     (pin "2" (uuid afbc27d0-a12e-4212-9945-6cfa431cf21d))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "R?") (unit 1)
         )
@@ -1376,7 +1376,7 @@
     (pin "1" (uuid 519567ac-229f-4b5a-a512-963b2dffdc2e))
     (pin "2" (uuid f1a55bcd-ba22-4a22-9caa-2a07bb555f94))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "C?") (unit 1)
         )
@@ -1405,7 +1405,7 @@
     (pin "1" (uuid 30cbe687-9e04-41c9-b4ac-07c1464d23ff))
     (pin "2" (uuid e818f2dc-0ed7-4934-9c40-1df5d2c74ab6))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "D?") (unit 1)
         )
@@ -1434,7 +1434,7 @@
     (pin "1" (uuid e2a032cd-4574-4bc0-9151-7d1e3b30cd73))
     (pin "2" (uuid b730023d-d45c-4ec6-b417-e5ed84a79b40))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "C?") (unit 1)
         )
@@ -1464,7 +1464,7 @@
     (pin "2" (uuid 0df2c6ea-d654-401a-a482-5777c1af23d9))
     (pin "3" (uuid 3b4f622c-7497-4b67-a2f2-a3b8d4c46ddc))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce/a5e11ec9-af5a-425f-88ff-1c4b8c23459d"
           (reference "Q1") (unit 1)
         )
@@ -1490,7 +1490,7 @@
     (pin "1" (uuid f8826dc6-263b-4f11-a703-017b6119dd0f))
     (pin "2" (uuid e6cc1273-2c8e-48fb-a861-46160bfb4321))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "R?") (unit 1)
         )
@@ -1519,7 +1519,7 @@
     (pin "1" (uuid d9d89e79-c647-4a53-8f0a-d836a7553c40))
     (pin "2" (uuid 46225cda-366f-45c1-810d-f458a9c81595))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "R?") (unit 1)
         )
@@ -1554,7 +1554,7 @@
     (pin "7" (uuid ff5c10de-17cf-449d-8da9-93303fd5ff36))
     (pin "8" (uuid 392d4543-bcfe-473f-8c84-d9f434d5e48f))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce/a5e11ec9-af5a-425f-88ff-1c4b8c23459d"
           (reference "U4") (unit 1)
         )
@@ -1580,7 +1580,7 @@
     (pin "1" (uuid 55da12b4-d0f3-4e9e-b2d1-6c6248f8acfd))
     (pin "2" (uuid a9cc0791-969a-4df3-afdb-5d6c1164390f))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "R?") (unit 1)
         )
@@ -1609,7 +1609,7 @@
     (pin "1" (uuid 6469438f-05f4-482e-9920-ae7ebf7a1337))
     (pin "2" (uuid faf90487-0ca3-412a-8ca3-1ec4ec0d2972))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "D?") (unit 1)
         )
@@ -1637,7 +1637,7 @@
     )
     (pin "1" (uuid 32875454-bc5a-404d-aa61-1f22791350e5))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "#PWR02") (unit 1)
         )
@@ -1665,7 +1665,7 @@
     )
     (pin "1" (uuid 3f0c4cd3-c44b-46e1-ad70-21745a27e1c0))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "#PWR02") (unit 1)
         )
@@ -1696,7 +1696,7 @@
     (pin "3" (uuid 99ad080a-e3fa-45bc-9512-484219e604aa))
     (pin "5" (uuid 2dc48281-b8c0-4b6b-bc6a-803d96bd5e6d))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "K1") (unit 1)
         )
@@ -1724,7 +1724,7 @@
     )
     (pin "1" (uuid d9730aa6-22d8-4811-bd52-72b472e541a3))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "#PWR?") (unit 1)
         )
@@ -1753,7 +1753,7 @@
     (pin "1" (uuid 8ad10048-62ac-4a4d-b25f-3d826c26b432))
     (pin "2" (uuid 252404d5-fec7-4432-b3ac-2636323be0a8))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "R?") (unit 1)
         )
@@ -1782,7 +1782,7 @@
     (pin "1" (uuid ad4420cd-11d7-40a5-b633-55601c0b6df0))
     (pin "2" (uuid 004680b3-4964-47ad-9f18-25bdfff7f76b))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "R?") (unit 1)
         )
@@ -1811,7 +1811,7 @@
     (pin "1" (uuid 1de5833b-68c3-4c76-aa38-8b14c47cf77d))
     (pin "2" (uuid 6663e0ae-8ec0-49df-b048-e3d8f8041b6c))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "C?") (unit 1)
         )
@@ -1839,7 +1839,7 @@
     )
     (pin "1" (uuid 451aad10-ba9e-4ab0-bd4f-06d13444c63c))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "#PWR02") (unit 1)
         )
@@ -1867,7 +1867,7 @@
     )
     (pin "1" (uuid e55a5508-4b28-43d2-8b26-3c17bc855fdf))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "#PWR02") (unit 1)
         )
@@ -1895,7 +1895,7 @@
     )
     (pin "1" (uuid 2a0687ef-d8ca-4a39-8d55-4af077f0035d))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "#PWR02") (unit 1)
         )
@@ -1923,7 +1923,7 @@
     )
     (pin "1" (uuid 7bb86f4d-1c89-4bd3-905f-1cfd8b2974f7))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "#PWR02") (unit 1)
         )
@@ -1951,7 +1951,7 @@
     )
     (pin "1" (uuid e734dd86-f5dc-4f17-9a28-a5854abbd045))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce/a5e11ec9-af5a-425f-88ff-1c4b8c23459d"
           (reference "#PWR011") (unit 1)
         )
@@ -1977,7 +1977,7 @@
     (pin "1" (uuid 42648519-d694-4be6-9b99-6817b8cd91eb))
     (pin "2" (uuid dea6cd9a-ac6b-49db-8e56-730095935e90))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "C?") (unit 1)
         )
@@ -2007,7 +2007,7 @@
     (pin "2" (uuid 3d9713e4-86ac-4865-b957-5a00fdb8e95c))
     (pin "3" (uuid 3181b346-aee1-4765-b9a0-12d1d2d5eabb))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "D?") (unit 1)
         )
@@ -2035,7 +2035,7 @@
     )
     (pin "1" (uuid 9a63f02d-e47d-4416-a9c7-99e327e7ef8c))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "#PWR?") (unit 1)
         )
@@ -2064,7 +2064,7 @@
     (pin "1" (uuid 4ef63d49-896b-49b9-9069-8329960cdbd7))
     (pin "2" (uuid 26508192-749a-4ab5-85ba-256e8354311f))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "R?") (unit 1)
         )
@@ -2093,7 +2093,7 @@
     (pin "1" (uuid 326d27e0-e656-4ec8-82a6-cf6e9ccb47d7))
     (pin "2" (uuid 951e1f6f-d66a-47c9-a1a3-bfb5ef25d647))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce"
           (reference "D?") (unit 1)
         )
@@ -2137,7 +2137,7 @@
     (pin "1" (uuid c479ae3b-b2f4-48e6-9cfd-336783c3b19c))
     (pin "2" (uuid 38581089-ea77-49a0-98ea-8bba8a77c7b1))
     (instances
-      (project "biltong_board"
+      (project "biltong_board_main"
         (path "/0a1e579b-8207-4868-883c-1f24490f13ce/a5e11ec9-af5a-425f-88ff-1c4b8c23459d"
           (reference "H5") (unit 1)
         )

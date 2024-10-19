@@ -63,7 +63,7 @@ Sensor Breakout Board:
 | FAN_A_PWM    | 20    | PB1   | TIM14_CH1                        | Fan A PWM signal.                                                                           |
 | UART_TX      | 22    | PB10  | USART3                           | Serial console UART TX signal for development.                                              |
 | UART_RX      | 23    | PB11  | USART3                           | Serial console UART RX signal  for development.                                             |
-| I_SENSE      | 24    | PB12  | ADC_IN16                         | Heat lamp current sensor output, analog signal from 0 -> vcc/2 (0A) ->vcc.                  |
+| I_SENSE      | 21    | PB2  | ADC_IN10                         | Heat lamp current sensor output, analog signal from 0 -> vcc/2 (0A) ->vcc.                  |
 | ZERO_CROSS   | 44    | PB5   | GPIO                             | Live/mains signal for sine wave zero cross detection (triac shut off point).                |
 | BUZZ         | 45    | PB6   | GPIO or TIM1_CH3 or  TIM16_CH1N  | Buzzer alarm signal, frequency modulated PWM.                                               |
 | DISP_CS      | 46    | PB7   | GPIO                             | SH1122 display SPI chip select signal.                                                      |
