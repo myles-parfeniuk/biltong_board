@@ -105,14 +105,14 @@ See [myles-parfeniuk/wsen_hids_breakout](https://github.com/myles-parfeniuk/wsen
 ## Schematics
 
 ### Main Board
-<img src="documentation/README_IMAGES/biltong_board_main.svg" alt="Alt text" />
+<img src="hardware/biltong_board_main/biltong_board_main.svg" alt="Alt text" />
 
-<img src="documentation/README_IMAGES/biltong_board_main-power_section.svg" alt="Alt text" />
+<img src="hardware/biltong_board_main/biltong_board_main-power_section.svg" alt="Alt text" />
 
-<img src="documentation/README_IMAGES/biltong_board_main-TriacDimmer.svg" alt="Alt text" />
+<img src="hardware/biltong_board_main/biltong_board_main-TriacDimmer.svg" alt="Alt text" />
 
 ### Control Deck Board
-<img src="documentation/README_IMAGES/biltong_board_control_deck.svg" alt="Alt text" />
+<img src="hardware/biltong_board_control_deck/biltong_board_control_deck.svg" alt="Alt text" />
 
 ### Sensor Breakout Board
 See [myles-parfeniuk/wsen_hids_breakout](https://github.com/myles-parfeniuk/wsen_hids_breakout).
