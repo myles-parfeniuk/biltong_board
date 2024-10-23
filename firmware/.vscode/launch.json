@@ -12,8 +12,8 @@
             "device": "STM32G070CB",
             "interface": "swd",
             "runToEntryPoint": "app_main", 
-            //"preLaunchTask": 
-            // "preLaunchCommands": 
+            //"preLaunchTask":,
+            // "preLaunchCommands":, 
             "svdFile": "C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.1.300.202404050853/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32G070.svd", 
             "swoConfig": {} 
 
@@ -27,8 +27,8 @@
             "servertype": "stlink",
             "device": "STM32G070CB",
             "interface": "swd",
-            //"preLaunchTask": 
-            // "preLaunchCommands": 
+            //"preLaunchTask": ,
+            // "preLaunchCommands": ,
             "svdFile": "C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.1.300.202404050853/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32G070.svd",
             "swoConfig": {} 
         },
