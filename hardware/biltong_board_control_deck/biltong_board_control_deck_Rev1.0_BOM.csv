@@ -1,11 +1,11 @@
 #,Reference,Qty,Value,Footprint,Digikey Product #,Alt URL
-1,BZ1,1,Buzzer,BiltongBoardControlDeck:GT-111P,433-1020-ND,
+1,BZ1,1,GT-111P,BiltongBoardControlDeck:GT-111P,433-1020-ND,
 2,C1,1,DNP,Capacitor_SMD:C_0603_1608Metric,n/a,
 3,C2,1,10u,Capacitor_THT:CP_Radial_D5.0mm_P2.00mm,732-8937-1-ND,
 4,"C3, C4, C5",3,10n,Capacitor_SMD:C_0603_1608Metric,490-4781-2-ND,
 5,C6,1,1u,Capacitor_SMD:C_0603_1608Metric,1276-1946-2-ND,
-6,D1,1,D_Schottky,Diode_SMD:D_SOD-323,SD101AWSTPMSTR-ND,
-7,D2,1,LED,LED_SMD:LED_0603_1608Metric,732-4980-2-ND,
+6,D1,1,SD101AWS-TP,Diode_SMD:D_SOD-323,SD101AWSTPMSTR-ND,
+7,D2,1,150060VS7500,LED_SMD:LED_0603_1608Metric,732-4980-2-ND,
 9,J1,1,SH1122_DISP,Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical,n/a,SH1122 display
 10,J2,1,JST_PH_B11B-PH-K_1x11,Connector_JST:JST_PH_B11B-PH-K_1x11_P2.00mm_Vertical,455-1713-ND,
 11,J2,1,JST_PH_B11B-PH-K_1x11,Connector_JST:JST_PH_B11B-PH-K_1x11_P2.00mm_Vertical,455-1157-ND,
