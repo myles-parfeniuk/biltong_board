@@ -10,9 +10,6 @@
 * @author         : Myles Parfeniuk
 * @date           : 2024-10-23
 *
-* @attention
-*
-*
 * Usage:
 * Execute from root firmware directory after CubeMX code generation session.
 * Ensure to run build.bat after executing this script, not before. 

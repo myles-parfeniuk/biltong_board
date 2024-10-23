@@ -3,7 +3,7 @@
 ![image](documentation/README_IMAGES/banner.png)
 
 # About
-Sun drying emulation controller for biltong and other dried foodstuffs,  based around STM32G030 series controller.  
+Sun drying emulation controller for biltong and other dried foodstuffs,  based around STM32G070 series controller.  
 Intended to be used with drying enclosures like biltong-boxes to produce sun-dried foods in non-ideal climates. 
 
 # Table of Contents
