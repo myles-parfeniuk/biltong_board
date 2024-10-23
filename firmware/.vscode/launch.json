@@ -1,5 +1,3 @@
-// Configure debug launch settings
-// Feel free to copy these and modify them for your debugger and MCU
 {
     "version": "0.0.0",
     "projectName": "biltong_board_fw",
@@ -13,11 +11,13 @@
             "servertype": "stlink",
             "device": "STM32G070CB",
             "interface": "swd",
-            "runToMain": true, 
+            "runToEntryPoint": "app_main", 
             //"preLaunchTask": 
             // "preLaunchCommands": 
             "svdFile": "C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.1.300.202404050853/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32G070.svd", 
             "swoConfig": {} 
+
+        },
         {
             "name": "STlink attach",
             "cwd": "${workspaceRoot}",
@@ -27,7 +27,6 @@
             "servertype": "stlink",
             "device": "STM32G070CB",
             "interface": "swd",
-            "runToMain": true, 
             //"preLaunchTask": 
             // "preLaunchCommands": 
             "svdFile": "C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.1.300.202404050853/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32G070.svd",

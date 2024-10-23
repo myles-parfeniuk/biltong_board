@@ -1,11 +1,3 @@
 {
-
     "cortex-debug.armToolchainPath": "C:/gcc-arm-none-eabi-10.3-2021.10/bin",
-    
-    "files.associations": {
-        "cmsis_os.h": "c",
-        "usart.h": "c"
-    }
-
-
 }
