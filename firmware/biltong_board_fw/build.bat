@@ -1,1 +1,1 @@
-cmake -Bbuild -G Ninja -DCMAKE_TOOLCHAIN_FILE=D:\[your path here]\biltong_board\firmware\biltong_board_fw\gcc-arm-none-eabi.cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=true
+cmake -Bbuild -G Ninja -DCMAKE_TOOLCHAIN_FILE=[your path here]\biltong_board\firmware\biltong_board_fw\gcc-arm-none-eabi.cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=true
