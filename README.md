@@ -64,7 +64,7 @@ Sensor Breakout Board:
 | UART_TX      | 22    | PB10  | USART3                           | Serial console UART TX signal for development.                                              |
 | UART_RX      | 23    | PB11  | USART3                           | Serial console UART RX signal  for development.                                             |
 | I_SENSE      | 21    | PB2  | ADC_IN10                         | Heat lamp current sensor output, analog signal from 0 -> vcc/2 (0A) ->vcc.                  |
-| ZERO_CROSS   | 44    | PB5   | GPIO                             | Live/mains signal for sine wave zero cross detection (triac shut off point).                |
+| ZERO_CROSS   | 40    | PD2   | GPIO                             | Live/mains signal for sine wave zero cross detection (triac shut off point).                |
 | BUZZ         | 45    | PB6   | GPIO or TIM1_CH3 or  TIM16_CH1N  | Buzzer alarm signal, frequency modulated PWM.                                               |
 | DISP_CS      | 46    | PB7   | GPIO                             | SH1122 display SPI chip select signal.                                                      |
 | DISP_DC      | 47    | PB8   | GPIO                             | SH1122 display data/!command signal, held low for data, high for commands.                  |
