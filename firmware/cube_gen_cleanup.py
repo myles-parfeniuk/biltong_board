@@ -1,7 +1,27 @@
+"""
+========================================================================== 
+* @file           : cube_gen_cleanup.py
+* @brief          : Script to cleanup codebase after CubeMX code generation.
+*
+* @details        : This script is to remove unwanted auto-generated code from 
+                    CubeMX that cannot be disabled (for ex. unwanted freeRTOS
+                    boilerplate code like the default task).
+*
+* @author         : Myles Parfeniuk
+* @date           : 2024-10-23
+*
+* @attention
+*
+*
+* Usage:
+* Execute from root firmware directory after CubeMX code generation session.
+* Ensure to run build.bat after executing this script, not before. 
+========================================================================== 
+"""
 import os
 
 def remove_freertos_init(main_filepath, freertos_app_filepath):
-    # Define the lines to remove
+    #unwanted CubeMX CMSIS garbage
     lines_to_remove = [
         "void MX_FREERTOS_Init(void);\n",
         "  /* Call init function for freertos objects (in cmsis_os2.c) */\n",
@@ -21,6 +41,7 @@ def remove_freertos_init(main_filepath, freertos_app_filepath):
     with open(main_filepath, 'w') as file:
         file.writelines(new_content)
 
+    #entire file of unwanted CubeMX CMSIS garbage
     if os.path.exists(freertos_app_filepath):
         os.remove(freertos_app_filepath)
 
