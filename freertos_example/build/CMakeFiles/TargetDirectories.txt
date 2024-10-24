@@ -1,0 +1,3 @@
+D:/projects/biltong_board/freertos_example/build/CMakeFiles/freertos_example.dir
+D:/projects/biltong_board/freertos_example/build/CMakeFiles/edit_cache.dir
+D:/projects/biltong_board/freertos_example/build/CMakeFiles/rebuild_cache.dir
