@@ -1,1 +1,1 @@
-cmake -Bbuild -G Ninja -DCMAKE_TOOLCHAIN_FILE=C:\Users\myles\Downloads\pwm_test\gcc-arm-none-eabi.cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=true
+cmake -Bbuild -G Ninja -DCMAKE_TOOLCHAIN_FILE=D:\projects\biltong_board\freertos_example\gcc-arm-none-eabi.cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=true

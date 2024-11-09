@@ -22,6 +22,12 @@
 #include "stm32f7xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "FreeRTOS.h"
+#include "queue.h"
+#include "timers.h"
+#include <stdbool.h>
+#include "app_main.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,7 +64,11 @@
 extern TIM_HandleTypeDef htim1;
 
 /* USER CODE BEGIN EV */
-
+extern QueueHandle_t queue;
+extern TimerHandle_t debounceTimer;
+extern bool buttonState;
+extern bool debounceFlag;
+extern huart4;
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -158,6 +168,28 @@ void DebugMon_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f7xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles EXTI line[9:5] interrupts.
+  */
+void EXTI9_5_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+  if(debounceFlag == false)
+  {
+    buttonState = !buttonState;
+    xQueueSendFromISR(queue, &buttonState, pdFALSE);
+    xTimerStartFromISR(debounceTimer, pdTRUE);
+  }
+  //char* test = "we are in the interrupt";
+  //HAL_UART_Transmit(&huart4, (uint8_t*)test, strlen(test), HAL_MAX_DELAY);
+
+  /* USER CODE END EXTI9_5_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
+  /* USER CODE BEGIN EXTI9_5_IRQn 1 */
+  
+  /* USER CODE END EXTI9_5_IRQn 1 */
+}
 
 /**
   * @brief This function handles TIM1 update interrupt and TIM10 global interrupt.
