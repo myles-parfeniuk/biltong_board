@@ -28,6 +28,7 @@
 #include <stdbool.h>
 #include "app_main.h"
 #include <string.h>
+#include "semphr.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -66,6 +67,7 @@ extern TIM_HandleTypeDef htim1;
 /* USER CODE BEGIN EV */
 extern QueueHandle_t queue;
 extern TimerHandle_t debounceTimer;
+extern SemaphoreHandle_t xSemaphore;
 extern bool buttonState;
 extern bool debounceFlag;
 extern huart4;
@@ -168,6 +170,27 @@ void DebugMon_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f7xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles EXTI line0 interrupt.
+  */
+void EXTI0_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI0_IRQn 0 */
+
+  if(debounceFlag == false)
+  {
+    xSemaphoreGiveFromISR(xSemaphore, pdTRUE);
+    xTimerStartFromISR(debounceTimer, pdTRUE);
+  }
+
+
+  /* USER CODE END EXTI0_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+  /* USER CODE BEGIN EXTI0_IRQn 1 */
+
+  /* USER CODE END EXTI0_IRQn 1 */
+}
 
 /**
   * @brief This function handles EXTI line[9:5] interrupts.

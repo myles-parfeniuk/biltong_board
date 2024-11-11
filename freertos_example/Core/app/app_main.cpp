@@ -8,6 +8,7 @@
 #include "timers.h"
 #include <cstring>
 #include "usart.h"
+#include "semphr.h"
 
 #define MAX_STR_LEN 50
 
@@ -15,10 +16,12 @@ void red_led_task(void* arg);
 void blue_led_task(void* arg);
 void send_uart(void* arg);
 void read_button_state(void* arg);
+void semaphoreExample(void* arg);
 
 TaskHandle_t task_test_hdl;
 QueueHandle_t queue;
 TimerHandle_t debounceTimer = NULL;
+SemaphoreHandle_t xSemaphore;
 
 bool buttonState;
 bool debounceFlag;
@@ -56,6 +59,7 @@ QueueHandle_t queueSetup()
 
 int app_main()
 {
+    /* Instantiate data */
     static BlinkingTaskParams blink_params = 
     {
         .pin_number = GPIO_PIN_7, 
@@ -72,17 +76,20 @@ int app_main()
         },
         .message_count = 0
     };
+    debounceFlag = false;
+    buttonState = false;
 
+    /* Setup queue */
     queue = queueSetup();
     
+    /* Create tasks */
     xTaskCreate(blue_led_task, "Blue LED Task", 128, (void*)&blink_params, 1, &task_test_hdl);
     xTaskCreate(red_led_task, "Red LED Task", 128, (void*)&blink_params, 1, &task_test_hdl);
     xTaskCreate(send_uart, "UART transmission Task", 128, (void*)&uart_cycle, 1, &task_test_hdl);
-    
+    xTaskCreate(semaphoreExample, "Example of task using semaphore", 128, NULL, 1, &task_test_hdl);
+
+    /* Create timer */  
     debounceTimer = xTimerCreate("debounce timer", pdMS_TO_TICKS(150), pdFALSE, NULL, vDebounceCallback);
-    
-    debounceFlag = false;
-        
 
     vTaskStartScheduler();
 
@@ -116,7 +123,7 @@ void red_led_task(void* arg)
         }
         else
         {
-            if(!buttonState)
+            if(!buttonState) //button is not pressed (exti interrupt is on rising/falling edge)
             {
                 HAL_GPIO_TogglePin(GPIOB, RED_LED);
             }
@@ -143,5 +150,23 @@ void blue_led_task(void* arg)
             vTaskDelay(params->short_delay_time/portTICK_PERIOD_MS);
         }
 
+    }
+}
+
+/* task using semaphores */
+void semaphoreExample(void* arg)
+{
+    char* msg = "inside the semaphore task\n\r";
+    xSemaphore = xSemaphoreCreateBinary();
+    while(1)
+    {
+        if ( xSemaphore != NULL )
+        {
+            if (xSemaphoreTake(xSemaphore, 10) == pdTRUE)
+            {
+                HAL_GPIO_TogglePin(GPIOB, RED_LED);
+                HAL_UART_Transmit(&huart4, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+            }
+        }
     }
 }
