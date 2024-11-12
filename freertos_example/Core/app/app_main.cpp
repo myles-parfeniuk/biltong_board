@@ -9,6 +9,7 @@
 #include <cstring>
 #include "usart.h"
 #include "semphr.h"
+#include "task_class.h"
 
 #define MAX_STR_LEN 50
 
