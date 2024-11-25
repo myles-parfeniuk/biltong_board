@@ -1,0 +1,3 @@
+D:/projects/biltong_board/temp_humidity_wiz/build/CMakeFiles/temp_humidity_wiz.dir
+D:/projects/biltong_board/temp_humidity_wiz/build/CMakeFiles/edit_cache.dir
+D:/projects/biltong_board/temp_humidity_wiz/build/CMakeFiles/rebuild_cache.dir

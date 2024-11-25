@@ -1,0 +1,42 @@
+// Configure debug launch settings
+// Feel free to copy these and modify them for your debugger and MCU
+{
+    "version": "0.2.0",
+    "projectName": "temp_humidity_wiz",
+    "configurations": [
+        {
+            "name": "STlink launch",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/build/temp_humidity_wiz.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "stm32cubeprogrammer": "D:/STM32CubeProgrammer/bin",
+            "servertype": "stlink",
+            "stlinkPath": "D:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_2.1.300.202403291623/tools/bin/ST-LINK_gdbserver.exe",
+            "device": "STM32F767ZI",
+            "interface": "swd",
+            "runToMain": true, // else it starts at reset handler - not interested
+            //"preLaunchTask": "Build all", // configured in tasks.json
+            // "preLaunchCommands": ["Build all"], // you can execute command instead of task
+            "svdFile": "D:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.1.300.202404050853/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32F767.svd", // Include svd to watch device peripherals, // Include svd to watch device peripherals
+            "swoConfig": {} // currently (v1.7.0) not supported
+        },
+        {
+            "name": "STlink attach",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/build/temp_humidity_wiz.elf",
+            "request": "attach",
+            "type": "cortex-debug",
+            "stm32cubeprogrammer": "D:/STM32CubeProgrammer/bin",
+            "servertype": "stlink",
+            "stlinkPath": "D:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_2.1.300.202403291623/tools/bin/ST-LINK_gdbserver.exe",
+            "device": "STM32F767ZI",
+            "interface": "swd",
+            "runToMain": true, // else it starts at reset handler - not interested
+            //"preLaunchTask": "Build all", // configured in tasks.json
+            // "preLaunchCommands": ["Build all"], // you can execute command instead of task
+            "svdFile": "D:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.1.300.202404050853/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32F767.svd",
+            "swoConfig": {} // currently (v1.7.0) not supported
+        },
+    ]
+}
