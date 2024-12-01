@@ -6,6 +6,7 @@ cmake_minimum_required(VERSION 3.12)
 # his Github: https://github.com/prtzl/Embedded_videos/tree/master/046_BUILDING-PT5-cmake/sample-f407vg
 project(temp_humidity_wiz)
 set(PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Core/app)
+set(VENDOR_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Core/vendor)
 
 set(MCU_FAMILY STM32F7xx)
 set(MCU_MODEL STM32F767xx)
@@ -29,6 +30,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 # Headers
 set(CUBEMX_INCLUDE_DIRECTORIES
+    # Can add other includes like DSP
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/app
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Inc
@@ -36,43 +38,40 @@ set(CUBEMX_INCLUDE_DIRECTORIES
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Device/ST/${MCU_FAMILY}/Include
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Include)
 set(PROJECT_INCLUDE_DIRECTORIES
+    # Can add other folders in the project here   
     ${PROJECT_DIR}
     ${PROJECT_DIR}/temp_humidity_sensor)
 set(THIRD_PARTY_INCLUDE_DIRECTORIES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/third_party/WSEN_HIDS
-    ${PROJECT_DIR}/third_party/etl)
+    # Can add third party folders here
+    ${VENDOR_DIR}
+    ${VENDOR_DIR}/WSEN_HIDS)
 
 # Sources
 file(GLOB_RECURSE STM32CUBEMX_SOURCES
+    # Can add other sources like DSP
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/*.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/*.c)
 file(GLOB_RECURSE THIRD_PARTY_SOURCES
-    ${PROJECT_DIR}/third_party/*.c
-    ${PROJECT_DIR}/third_party/*.cpp)
+    ${VENDOR_DIR}/WSEN_HIDS/*.c
+    ${VENDOR_DIR}/WSEN_HIDS/*.cpp)
 file(GLOB_RECURSE PROJECT_SOURCES
     ${PROJECT_DIR}/*.c
     ${PROJECT_DIR}/*.cpp)
 
 # Exclude unwanted files from the sources
 file(GLOB_RECURSE EXCLUDE_TEMPLATE_FILES
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Core/*.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/DSP/*.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/NN/*.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/RTOS/*.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/RTOS2/*.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Core_A/*.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/WSEN_HIDS_2525020210002_EXAMPLE.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F7xx_HAL_Driver/stm32f7xx_hal_timebase_rtc_alarm_template.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F7xx_HAL_Driver/stm32f7xx_hal_timebase_rtc_wakeup_template.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F7xx_HAL_Driver/stm32f7xx_hal_timebase_tim_template.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F7xx_HAL_Driver/stm32f7xx_hal_msp_template.c
-    )
+    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F7xx_HAL_Driver/stm32f7xx_hal_msp_template.c)
 
 # Remove the files from STM32CUBEMX_SOURCES
 list(REMOVE_ITEM STM32CUBEMX_SOURCES ${EXCLUDE_TEMPLATE_FILES})
 
 file(GLOB_RECURSE PROJECT_SOURCES FOLLOW_SYMLINKS
+    # Can add more files to project sources with FOLLOW_SYMLINKS option here
     ${PROJECT_DIR}/*.cpp
     ${PROJECT_DIR}/*.c
     ${PROJECT_DIR}/temp_humidity_sensor/*.cpp
@@ -87,6 +86,7 @@ add_executable(${EXECUTABLE}
 
 # Embedded macros(defines)
 target_compile_definitions(${EXECUTABLE} PRIVATE
+    # Add different defines, such as ARM_MATH_CM7 or __FPU_PRESENT = 1
     ${MCU_MODEL}
     USE_HAL_DRIVER)
 
