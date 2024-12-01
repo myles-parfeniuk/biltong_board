@@ -39,7 +39,8 @@ set(PROJECT_INCLUDE_DIRECTORIES
     ${PROJECT_DIR}
     ${PROJECT_DIR}/temp_humidity_sensor)
 set(THIRD_PARTY_INCLUDE_DIRECTORIES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/third_party/WSEN_HIDS)
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/third_party/WSEN_HIDS
+    ${PROJECT_DIR}/third_party/etl)
 
 # Sources
 file(GLOB_RECURSE STM32CUBEMX_SOURCES

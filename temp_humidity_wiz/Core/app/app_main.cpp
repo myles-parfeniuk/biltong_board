@@ -1,6 +1,7 @@
 #include "app_main.h"
 #include "temp_humidity_sensor/tempHumiditySensor.h"
 #include <cstring>
+#include <etl/vector.h>
 
 static void debugPrintln(char _out[])
 {
@@ -20,6 +21,9 @@ extern "C" int app_main()
     debugPrintln("");
     debugPrintln("");
     test.init();
+
+    etl::vector<uint8_t, 10> my_vec; //create a statically allocated vector with a max storage of 10
+    my_vec.push_back(5);
     while(1)
     {
         HAL_Delay(500);
