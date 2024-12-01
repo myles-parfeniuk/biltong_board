@@ -1,40 +1,40 @@
 Archive member included to satisfy reference by file (symbol)
 
-d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
+c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
                               CMakeFiles/freertos_example.dir/Core/Src/syscalls.c.obj (__errno)
-d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
-                              d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o (exit)
-d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
-                              d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o) (_global_impure_ptr)
-d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
-                              d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o (__libc_init_array)
-d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
+                              c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o (exit)
+c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+                              c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o) (_global_impure_ptr)
+c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+                              c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o (__libc_init_array)
+c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
                               CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj (memcpy)
-d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
-                              d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o (memset)
-d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
+c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+                              c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o (memset)
+c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
                               CMakeFiles/freertos_example.dir/Core/app/app_main.cpp.obj (strlen)
-d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
                               CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.c.obj (__aeabi_uldivmod)
-d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
-                              d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o) (__udivmoddi4)
-d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
-                              d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o) (__aeabi_ldiv0)
+c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+                              c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o) (__udivmoddi4)
+c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
+                              c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o) (__aeabi_ldiv0)
 
 Discarded input sections
 
- .text          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
- .data          0x00000000        0x4 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .rodata        0x00000000       0x24 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .text          0x00000000       0x7c d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
- .ARM.extab     0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
- .ARM.exidx     0x00000000       0x10 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+ .text          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+ .data          0x00000000        0x4 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .rodata        0x00000000       0x24 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .text          0x00000000       0x7c c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+ .ARM.extab     0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+ .ARM.exidx     0x00000000       0x10 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
  .ARM.attributes
-                0x00000000       0x1c d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+                0x00000000       0x1c c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
  .group         0x00000000        0xc CMakeFiles/freertos_example.dir/Core/Src/gpio.c.obj
  .group         0x00000000        0xc CMakeFiles/freertos_example.dir/Core/Src/gpio.c.obj
  .group         0x00000000        0xc CMakeFiles/freertos_example.dir/Core/Src/gpio.c.obj
@@ -636,7 +636,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x189 CMakeFiles/freertos_example.dir/Core/Src/syscalls.c.obj
  .debug_macro   0x00000000       0x16 CMakeFiles/freertos_example.dir/Core/Src/syscalls.c.obj
  .debug_macro   0x00000000       0xce CMakeFiles/freertos_example.dir/Core/Src/syscalls.c.obj
- .debug_line    0x00000000      0x714 CMakeFiles/freertos_example.dir/Core/Src/syscalls.c.obj
+ .debug_line    0x00000000      0x72d CMakeFiles/freertos_example.dir/Core/Src/syscalls.c.obj
  .debug_str     0x00000000     0x8a85 CMakeFiles/freertos_example.dir/Core/Src/syscalls.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Core/Src/syscalls.c.obj
  .debug_frame   0x00000000      0x190 CMakeFiles/freertos_example.dir/Core/Src/syscalls.c.obj
@@ -699,7 +699,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 CMakeFiles/freertos_example.dir/Core/Src/sysmem.c.obj
  .debug_macro   0x00000000       0x6a CMakeFiles/freertos_example.dir/Core/Src/sysmem.c.obj
  .debug_macro   0x00000000      0x1df CMakeFiles/freertos_example.dir/Core/Src/sysmem.c.obj
- .debug_line    0x00000000      0x38c CMakeFiles/freertos_example.dir/Core/Src/sysmem.c.obj
+ .debug_line    0x00000000      0x3a5 CMakeFiles/freertos_example.dir/Core/Src/sysmem.c.obj
  .debug_str     0x00000000     0x5dc1 CMakeFiles/freertos_example.dir/Core/Src/sysmem.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Core/Src/sysmem.c.obj
  .debug_frame   0x00000000       0x28 CMakeFiles/freertos_example.dir/Core/Src/sysmem.c.obj
@@ -1142,7 +1142,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c.obj
  .ARM.attributes
@@ -1245,7 +1245,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c.obj
- .debug_line    0x00000000      0x67b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c.obj
+ .debug_line    0x00000000      0x68f CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c.obj
  .debug_str     0x00000000    0xf3ad4 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c.obj
  .ARM.attributes
@@ -1348,7 +1348,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_can.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_can.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_can.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_can.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_can.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_can.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_can.c.obj
  .ARM.attributes
@@ -1451,7 +1451,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cec.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cec.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cec.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cec.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cec.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cec.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cec.c.obj
  .ARM.attributes
@@ -1675,7 +1675,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc.c.obj
  .ARM.attributes
@@ -1778,7 +1778,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc_ex.c.obj
- .debug_line    0x00000000      0x67b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc_ex.c.obj
+ .debug_line    0x00000000      0x68f CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc_ex.c.obj
  .debug_str     0x00000000    0xf3ad4 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc_ex.c.obj
  .ARM.attributes
@@ -1881,7 +1881,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp.c.obj
  .ARM.attributes
@@ -1984,7 +1984,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp_ex.c.obj
- .debug_line    0x00000000      0x67c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp_ex.c.obj
+ .debug_line    0x00000000      0x690 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp_ex.c.obj
  .debug_str     0x00000000    0xf3ad5 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp_ex.c.obj
  .ARM.attributes
@@ -2087,7 +2087,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac.c.obj
  .ARM.attributes
@@ -2190,7 +2190,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac_ex.c.obj
- .debug_line    0x00000000      0x67b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac_ex.c.obj
+ .debug_line    0x00000000      0x68f CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac_ex.c.obj
  .debug_str     0x00000000    0xf3ad4 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac_ex.c.obj
  .ARM.attributes
@@ -2293,7 +2293,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c.obj
  .ARM.attributes
@@ -2396,7 +2396,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c.obj
- .debug_line    0x00000000      0x67c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c.obj
+ .debug_line    0x00000000      0x690 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c.obj
  .debug_str     0x00000000    0xf3ad5 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c.obj
  .ARM.attributes
@@ -2499,7 +2499,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dfsdm.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dfsdm.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dfsdm.c.obj
- .debug_line    0x00000000      0x67a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dfsdm.c.obj
+ .debug_line    0x00000000      0x68e CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dfsdm.c.obj
  .debug_str     0x00000000    0xf3ad3 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dfsdm.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dfsdm.c.obj
  .ARM.attributes
@@ -2636,7 +2636,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c.obj
- .debug_line    0x00000000     0x12d4 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c.obj
+ .debug_line    0x00000000     0x12e8 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c.obj
  .debug_str     0x00000000    0xf40bb CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c.obj
  .debug_frame   0x00000000      0x188 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c.obj
@@ -2740,7 +2740,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c.obj
- .debug_line    0x00000000      0x67a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c.obj
+ .debug_line    0x00000000      0x68e CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c.obj
  .debug_str     0x00000000    0xf3ad3 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c.obj
  .ARM.attributes
@@ -2853,7 +2853,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c.obj
- .debug_line    0x00000000      0xe68 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c.obj
+ .debug_line    0x00000000      0xe7c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c.obj
  .debug_str     0x00000000    0xf3e6a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c.obj
  .debug_frame   0x00000000       0x74 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c.obj
@@ -2957,7 +2957,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dsi.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dsi.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dsi.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dsi.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dsi.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dsi.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dsi.c.obj
  .ARM.attributes
@@ -3060,7 +3060,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.c.obj
  .ARM.attributes
@@ -3183,7 +3183,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c.obj
- .debug_line    0x00000000      0xaa5 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c.obj
+ .debug_line    0x00000000      0xab9 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c.obj
  .debug_str     0x00000000    0xf3d02 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c.obj
  .debug_frame   0x00000000       0xe8 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c.obj
@@ -3324,7 +3324,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c.obj
- .debug_line    0x00000000      0xc34 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c.obj
+ .debug_line    0x00000000      0xc48 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c.obj
  .debug_str     0x00000000    0xf3e9f CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c.obj
  .debug_frame   0x00000000      0x168 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c.obj
@@ -3464,7 +3464,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c.obj
- .debug_line    0x00000000      0xc68 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c.obj
+ .debug_line    0x00000000      0xc7c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c.obj
  .debug_str     0x00000000    0xf3f50 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c.obj
  .debug_frame   0x00000000      0x190 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c.obj
@@ -3667,7 +3667,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash.c.obj
  .ARM.attributes
@@ -3770,7 +3770,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash_ex.c.obj
- .debug_line    0x00000000      0x67c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash_ex.c.obj
+ .debug_line    0x00000000      0x690 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash_ex.c.obj
  .debug_str     0x00000000    0xf3ad5 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash_ex.c.obj
  .ARM.attributes
@@ -3873,7 +3873,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c.obj
  .ARM.attributes
@@ -4140,7 +4140,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c.obj
- .debug_line    0x00000000     0x566d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c.obj
+ .debug_line    0x00000000     0x5681 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c.obj
  .debug_str     0x00000000    0xf4f8f CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c.obj
  .debug_frame   0x00000000      0x984 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c.obj
@@ -4254,7 +4254,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c.obj
- .debug_line    0x00000000      0x844 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c.obj
+ .debug_line    0x00000000      0x858 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c.obj
  .debug_str     0x00000000    0xf420e CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c.obj
  .debug_frame   0x00000000       0x60 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c.obj
@@ -4358,7 +4358,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2s.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2s.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2s.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2s.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2s.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2s.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2s.c.obj
  .ARM.attributes
@@ -4461,7 +4461,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_irda.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_irda.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_irda.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_irda.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_irda.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_irda.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_irda.c.obj
  .ARM.attributes
@@ -4564,7 +4564,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_iwdg.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_iwdg.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_iwdg.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_iwdg.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_iwdg.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_iwdg.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_iwdg.c.obj
  .ARM.attributes
@@ -4667,7 +4667,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_jpeg.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_jpeg.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_jpeg.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_jpeg.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_jpeg.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_jpeg.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_jpeg.c.obj
  .ARM.attributes
@@ -4770,7 +4770,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_lptim.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_lptim.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_lptim.c.obj
- .debug_line    0x00000000      0x67a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_lptim.c.obj
+ .debug_line    0x00000000      0x68e CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_lptim.c.obj
  .debug_str     0x00000000    0xf3ad3 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_lptim.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_lptim.c.obj
  .ARM.attributes
@@ -4873,7 +4873,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c.obj
  .ARM.attributes
@@ -4976,7 +4976,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc_ex.c.obj
- .debug_line    0x00000000      0x67c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc_ex.c.obj
+ .debug_line    0x00000000      0x690 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc_ex.c.obj
  .debug_str     0x00000000    0xf3ad5 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc_ex.c.obj
  .ARM.attributes
@@ -5079,7 +5079,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mdios.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mdios.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mdios.c.obj
- .debug_line    0x00000000      0x67a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mdios.c.obj
+ .debug_line    0x00000000      0x68e CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mdios.c.obj
  .debug_str     0x00000000    0xf3ad3 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mdios.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mdios.c.obj
  .ARM.attributes
@@ -5182,7 +5182,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mmc.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mmc.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mmc.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mmc.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mmc.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mmc.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mmc.c.obj
  .ARM.attributes
@@ -5285,7 +5285,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c.obj
  .ARM.attributes
@@ -5388,7 +5388,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c.obj
  .ARM.attributes
@@ -5491,7 +5491,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd.c.obj
  .ARM.attributes
@@ -5594,7 +5594,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd_ex.c.obj
- .debug_line    0x00000000      0x67b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd_ex.c.obj
+ .debug_line    0x00000000      0x68f CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd_ex.c.obj
  .debug_str     0x00000000    0xf3ad4 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd_ex.c.obj
  .ARM.attributes
@@ -5733,7 +5733,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c.obj
- .debug_line    0x00000000      0x909 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c.obj
+ .debug_line    0x00000000      0x91d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c.obj
  .debug_str     0x00000000    0xf401d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c.obj
  .debug_frame   0x00000000      0x128 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c.obj
@@ -5865,7 +5865,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c.obj
- .debug_line    0x00000000      0xa08 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c.obj
+ .debug_line    0x00000000      0xa1c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c.obj
  .debug_str     0x00000000    0xf3feb CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c.obj
  .debug_frame   0x00000000      0x134 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c.obj
@@ -5969,7 +5969,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_qspi.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_qspi.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_qspi.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_qspi.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_qspi.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_qspi.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_qspi.c.obj
  .ARM.attributes
@@ -6284,7 +6284,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rng.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rng.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rng.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rng.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rng.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rng.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rng.c.obj
  .ARM.attributes
@@ -6387,7 +6387,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc.c.obj
  .ARM.attributes
@@ -6490,7 +6490,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc_ex.c.obj
- .debug_line    0x00000000      0x67b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc_ex.c.obj
+ .debug_line    0x00000000      0x68f CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc_ex.c.obj
  .debug_str     0x00000000    0xf3ad4 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc_ex.c.obj
  .ARM.attributes
@@ -6593,7 +6593,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai.c.obj
  .ARM.attributes
@@ -6696,7 +6696,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai_ex.c.obj
- .debug_line    0x00000000      0x67b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai_ex.c.obj
+ .debug_line    0x00000000      0x68f CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai_ex.c.obj
  .debug_str     0x00000000    0xf3ad4 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai_ex.c.obj
  .ARM.attributes
@@ -6799,7 +6799,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sd.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sd.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sd.c.obj
- .debug_line    0x00000000      0x677 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sd.c.obj
+ .debug_line    0x00000000      0x68b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sd.c.obj
  .debug_str     0x00000000    0xf3ad0 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sd.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sd.c.obj
  .ARM.attributes
@@ -6902,7 +6902,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c.obj
- .debug_line    0x00000000      0x67a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c.obj
+ .debug_line    0x00000000      0x68e CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c.obj
  .debug_str     0x00000000    0xf3ad3 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c.obj
  .ARM.attributes
@@ -7005,7 +7005,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard.c.obj
- .debug_line    0x00000000      0x67e CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard.c.obj
+ .debug_line    0x00000000      0x692 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard.c.obj
  .debug_str     0x00000000    0xf3ad7 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard.c.obj
  .ARM.attributes
@@ -7108,7 +7108,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard_ex.c.obj
- .debug_line    0x00000000      0x681 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard_ex.c.obj
+ .debug_line    0x00000000      0x695 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard_ex.c.obj
  .debug_str     0x00000000    0xf3ada CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard_ex.c.obj
  .ARM.attributes
@@ -7211,7 +7211,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smbus.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smbus.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smbus.c.obj
- .debug_line    0x00000000      0x67a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smbus.c.obj
+ .debug_line    0x00000000      0x68e CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smbus.c.obj
  .debug_str     0x00000000    0xf3ad3 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smbus.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smbus.c.obj
  .ARM.attributes
@@ -7314,7 +7314,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spdifrx.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spdifrx.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spdifrx.c.obj
- .debug_line    0x00000000      0x67c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spdifrx.c.obj
+ .debug_line    0x00000000      0x690 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spdifrx.c.obj
  .debug_str     0x00000000    0xf3ad5 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spdifrx.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spdifrx.c.obj
  .ARM.attributes
@@ -7417,7 +7417,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi.c.obj
- .debug_line    0x00000000      0x678 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi.c.obj
+ .debug_line    0x00000000      0x68c CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi.c.obj
  .debug_str     0x00000000    0xf3ad1 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi.c.obj
  .ARM.attributes
@@ -7520,7 +7520,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi_ex.c.obj
- .debug_line    0x00000000      0x67b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi_ex.c.obj
+ .debug_line    0x00000000      0x68f CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi_ex.c.obj
  .debug_str     0x00000000    0xf3ad4 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi_ex.c.obj
  .ARM.attributes
@@ -7623,7 +7623,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c.obj
  .ARM.attributes
@@ -8459,7 +8459,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c.obj
- .debug_line    0x00000000      0xf3d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c.obj
+ .debug_line    0x00000000      0xf51 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c.obj
  .debug_str     0x00000000    0xf429e CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c.obj
  .debug_frame   0x00000000      0x138 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c.obj
@@ -8563,7 +8563,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_usart.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_usart.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_usart.c.obj
- .debug_line    0x00000000      0x67a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_usart.c.obj
+ .debug_line    0x00000000      0x68e CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_usart.c.obj
  .debug_str     0x00000000    0xf3ad3 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_usart.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_usart.c.obj
  .ARM.attributes
@@ -8666,7 +8666,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_wwdg.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_wwdg.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_wwdg.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_wwdg.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_wwdg.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_wwdg.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_wwdg.c.obj
  .ARM.attributes
@@ -8859,7 +8859,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c.obj
- .debug_line    0x00000000      0x677 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c.obj
+ .debug_line    0x00000000      0x68b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c.obj
  .debug_str     0x00000000    0xf3ad0 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c.obj
  .ARM.attributes
@@ -9067,7 +9067,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.obj
- .debug_line    0x00000000      0x679 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.obj
+ .debug_line    0x00000000      0x68d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.obj
  .debug_str     0x00000000    0xf3ad2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.obj
  .ARM.attributes
@@ -9215,7 +9215,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x5ba CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c.obj
  .debug_macro   0x00000000       0x44 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c.obj
  .debug_macro   0x00000000      0x15b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c.obj
- .debug_line    0x00000000      0x677 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c.obj
+ .debug_line    0x00000000      0x68b CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c.obj
  .debug_str     0x00000000    0xf3ad0 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c.obj
  .ARM.attributes
@@ -9346,7 +9346,7 @@ Discarded input sections
  .debug_macro   0x00000000      0xbee CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_utils.c.obj
  .debug_macro   0x00000000      0x279 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_utils.c.obj
  .debug_macro   0x00000000      0x12f CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_utils.c.obj
- .debug_line    0x00000000      0xd32 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_utils.c.obj
+ .debug_line    0x00000000      0xd46 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_utils.c.obj
  .debug_str     0x00000000    0xfec79 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_utils.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_utils.c.obj
  .debug_frame   0x00000000       0xec CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_utils.c.obj
@@ -9549,7 +9549,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x19 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
  .debug_macro   0x00000000       0xcf CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
  .debug_macro   0x00000000       0xc7 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_line    0x00000000     0x1576 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_line    0x00000000     0x158f CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
  .debug_str     0x00000000     0xdb6e CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
  .debug_frame   0x00000000      0x5c0 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
@@ -9597,7 +9597,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xb5 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .debug_macro   0x00000000       0xaa CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .debug_macro   0x00000000       0x43 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
- .debug_line    0x00000000      0x403 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
+ .debug_line    0x00000000      0x417 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .debug_str     0x00000000     0x82b2 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .ARM.attributes
@@ -9702,7 +9702,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xaa CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .debug_macro   0x00000000       0x91 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .debug_macro   0x00000000       0x19 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
- .debug_line    0x00000000      0xc58 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
+ .debug_line    0x00000000      0xc71 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .debug_str     0x00000000     0xbaaa CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .debug_frame   0x00000000      0x128 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
@@ -10103,7 +10103,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xb5 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .debug_macro   0x00000000       0xaa CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .debug_macro   0x00000000       0x18 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
- .debug_line    0x00000000     0x1693 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
+ .debug_line    0x00000000     0x16ac CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .debug_str     0x00000000     0xba43 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .debug_frame   0x00000000      0x32c CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
@@ -10522,7 +10522,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x4e1 CMakeFiles/freertos_example.dir/Core/app/task_class.cpp.obj
  .debug_macro   0x00000000       0xb5 CMakeFiles/freertos_example.dir/Core/app/task_class.cpp.obj
  .debug_macro   0x00000000       0xaa CMakeFiles/freertos_example.dir/Core/app/task_class.cpp.obj
- .debug_line    0x00000000      0x472 CMakeFiles/freertos_example.dir/Core/app/task_class.cpp.obj
+ .debug_line    0x00000000      0x486 CMakeFiles/freertos_example.dir/Core/app/task_class.cpp.obj
  .debug_str     0x00000000     0x8641 CMakeFiles/freertos_example.dir/Core/app/task_class.cpp.obj
  .comment       0x00000000       0x4a CMakeFiles/freertos_example.dir/Core/app/task_class.cpp.obj
  .debug_frame   0x00000000       0x60 CMakeFiles/freertos_example.dir/Core/app/task_class.cpp.obj
@@ -10531,59 +10531,59 @@ Discarded input sections
  .text          0x00000000       0x14 CMakeFiles/freertos_example.dir/CubeMX/startup_stm32f767xx.s.obj
  .data          0x00000000        0x0 CMakeFiles/freertos_example.dir/CubeMX/startup_stm32f767xx.s.obj
  .bss           0x00000000        0x0 CMakeFiles/freertos_example.dir/CubeMX/startup_stm32f767xx.s.obj
- .text          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
- .text.__errno  0x00000000        0xc d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
- .debug_frame   0x00000000       0x20 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
+ .text          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
+ .text.__errno  0x00000000        0xc c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
+ .debug_frame   0x00000000       0x20 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x00000000       0x34 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
- .text          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
- .text.exit     0x00000000       0x28 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
- .debug_frame   0x00000000       0x28 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
+                0x00000000       0x34 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
+ .text          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
+ .text.exit     0x00000000       0x28 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
+ .debug_frame   0x00000000       0x28 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
  .ARM.attributes
-                0x00000000       0x34 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
- .text          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+                0x00000000       0x34 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o)
+ .text          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
  .data._impure_ptr
-                0x00000000        0x4 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+                0x00000000        0x4 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
  .data.impure_data
-                0x00000000       0x60 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+                0x00000000       0x60 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
  .rodata._global_impure_ptr
-                0x00000000        0x4 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+                0x00000000        0x4 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000000       0x34 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
- .text          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
- .text          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
- .text          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
- .ARM.extab     0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
- .text          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
- .rodata        0x00000000       0x24 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
- .eh_frame      0x00000000        0x4 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
+                0x00000000       0x34 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+ .text          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+ .text          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+ .text          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .ARM.extab     0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .rodata        0x00000000       0x24 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .eh_frame      0x00000000        0x4 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
  .ARM.attributes
-                0x00000000       0x34 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
- .text          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
- .data          0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
- .bss           0x00000000        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x00000000       0x34 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .text          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .data          0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .bss           0x00000000        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
 
 Memory Configuration
 
@@ -10594,11 +10594,11 @@ FLASH            0x08000000         0x00200000         xr
 
 Linker script and memory map
 
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 START GROUP
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libstdc++_nano.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libstdc++_nano.a
 END GROUP
 LOAD CMakeFiles/freertos_example.dir/Core/Src/gpio.c.obj
 LOAD CMakeFiles/freertos_example.dir/Core/Src/main.c.obj
@@ -10709,26 +10709,26 @@ LOAD CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/tim
 LOAD CMakeFiles/freertos_example.dir/Core/app/app_main.cpp.obj
 LOAD CMakeFiles/freertos_example.dir/Core/app/task_class.cpp.obj
 LOAD CMakeFiles/freertos_example.dir/CubeMX/startup_stm32f767xx.s.obj
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libstdc++_nano.a
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libstdc++_nano.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
 START GROUP
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
 END GROUP
 START GROUP
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a
 END GROUP
 START GROUP
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a
 END GROUP
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
                 0x20080000                _estack = (ORIGIN (RAM) + LENGTH (RAM))
                 0x00000200                _Min_Heap_Size = 0x200
                 0x00000400                _Min_Stack_Size = 0x400
@@ -10743,14 +10743,14 @@ LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib
 .text           0x08000200     0x44e4
                 0x08000200                . = ALIGN (0x4)
  *(.text)
- .text          0x08000200       0x40 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .text          0x08000240       0x10 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
+ .text          0x08000200       0x40 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .text          0x08000240       0x10 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
                 0x08000240                strlen
- .text          0x08000250       0x30 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .text          0x08000250       0x30 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
                 0x08000250                __aeabi_uldivmod
- .text          0x08000280      0x2d0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .text          0x08000280      0x2d0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
                 0x08000280                __udivmoddi4
- .text          0x08000550        0x4 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
+ .text          0x08000550        0x4 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
                 0x08000550                __aeabi_idiv0
                 0x08000550                __aeabi_ldiv0
  *(.text*)
@@ -11280,26 +11280,26 @@ LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib
                 0x08004654                DMA1_Stream3_IRQHandler
  *fill*         0x08004656        0x2 
  .text.__libc_init_array
-                0x08004658       0x48 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+                0x08004658       0x48 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
                 0x08004658                __libc_init_array
- .text.memcpy   0x080046a0       0x1c d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+ .text.memcpy   0x080046a0       0x1c c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
                 0x080046a0                memcpy
- .text.memset   0x080046bc       0x10 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+ .text.memset   0x080046bc       0x10 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
                 0x080046bc                memset
  *(.glue_7)
  .glue_7        0x080046cc        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x080046cc        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x080046cc        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x080046cc        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x080046cc        0x4 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+ .init          0x080046cc        0x4 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
                 0x080046cc                _init
- .init          0x080046d0        0x8 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x080046d0        0x8 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x080046d8        0x4 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+ .fini          0x080046d8        0x4 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
                 0x080046d8                _fini
- .fini          0x080046dc        0x8 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .fini          0x080046dc        0x8 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
                 0x080046e4                . = ALIGN (0x4)
                 0x080046e4                _etext = .
 
@@ -11310,7 +11310,7 @@ LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib
  .v4_bx         0x080046e4        0x0 linker stubs
 
 .iplt           0x080046e4        0x0
- .iplt          0x080046e4        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .iplt          0x080046e4        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
 .rodata         0x080046e4      0x150
                 0x080046e4                . = ALIGN (0x4)
@@ -11351,11 +11351,11 @@ LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib
 .ARM            0x08004834        0x8
                 0x08004834                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x08004834        0x8 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x08004834        0x8 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
                 0x0800483c                __exidx_end = .
 
 .rel.dyn        0x0800483c        0x0
- .rel.iplt      0x0800483c        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .rel.iplt      0x0800483c        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
 .preinit_array  0x0800483c        0x0
                 0x0800483c                PROVIDE (__preinit_array_start = .)
@@ -11366,14 +11366,14 @@ LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib
                 0x0800483c                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0800483c        0x4 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .init_array    0x0800483c        0x4 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x08004840                PROVIDE (__init_array_end = .)
 
 .fini_array     0x08004840        0x4
                 [!provide]                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08004840        0x4 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x08004840        0x4 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                PROVIDE (__fini_array_end = .)
                 0x08004844                _sidata = LOADADDR (.data)
 
@@ -11403,14 +11403,14 @@ LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib
                 0x20000028                _edata = .
 
 .igot.plt       0x20000028        0x0 load address 0x0800486c
- .igot.plt      0x20000028        0x0 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .igot.plt      0x20000028        0x0 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x20000028                . = ALIGN (0x4)
 
 .bss            0x20000028     0x3ed0 load address 0x0800486c
                 0x20000028                _sbss = .
                 0x20000028                __bss_start__ = _sbss
  *(.bss)
- .bss           0x20000028       0x1c d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .bss           0x20000028       0x1c c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.bss*)
  .bss.htim1     0x20000044       0x4c CMakeFiles/freertos_example.dir/Core/Src/stm32f7xx_hal_timebase_tim.c.obj
                 0x20000044                htim1
@@ -11535,9 +11535,9 @@ LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib
                 0x00000000       0x30
  *(.ARM.attributes)
  .ARM.attributes
-                0x00000000       0x1e d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x00000000       0x1e c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
  .ARM.attributes
-                0x0000001e       0x34 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0000001e       0x34 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  .ARM.attributes
                 0x00000052       0x34 CMakeFiles/freertos_example.dir/Core/Src/gpio.c.obj
  .ARM.attributes
@@ -11585,26 +11585,26 @@ LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib
  .ARM.attributes
                 0x000004ca       0x21 CMakeFiles/freertos_example.dir/CubeMX/startup_stm32f767xx.s.obj
  .ARM.attributes
-                0x000004eb       0x34 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+                0x000004eb       0x34 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x0000051f       0x34 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+                0x0000051f       0x34 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x00000553       0x34 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+                0x00000553       0x34 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x00000587       0x17 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
+                0x00000587       0x17 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
  .ARM.attributes
-                0x0000059e       0x1e d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+                0x0000059e       0x1e c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x000005bc       0x34 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+                0x000005bc       0x34 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
  .ARM.attributes
-                0x000005f0       0x1e d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
+                0x000005f0       0x1e c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x0000060e       0x1e d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x0000060e       0x1e c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
 OUTPUT(freertos_example.elf elf32-littlearm)
 LOAD linker stubs
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
-LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
+LOAD c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
 .debug_info     0x00000000    0x1a577
  .debug_info    0x00000000      0x807 CMakeFiles/freertos_example.dir/Core/Src/gpio.c.obj
@@ -11847,30 +11847,30 @@ LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib
  .debug_macro   0x0002c26c       0x35 CMakeFiles/freertos_example.dir/Core/app/app_main.cpp.obj
  .debug_macro   0x0002c2a1       0x8e CMakeFiles/freertos_example.dir/Core/app/app_main.cpp.obj
 
-.debug_line     0x00000000    0x1c0ac
- .debug_line    0x00000000      0x6f0 CMakeFiles/freertos_example.dir/Core/Src/gpio.c.obj
- .debug_line    0x000006f0      0xa59 CMakeFiles/freertos_example.dir/Core/Src/main.c.obj
- .debug_line    0x00001149      0x68f CMakeFiles/freertos_example.dir/Core/Src/stm32f7xx_hal_msp.c.obj
- .debug_line    0x000017d8      0x74e CMakeFiles/freertos_example.dir/Core/Src/stm32f7xx_hal_timebase_tim.c.obj
- .debug_line    0x00001f26      0xa8f CMakeFiles/freertos_example.dir/Core/Src/stm32f7xx_it.c.obj
- .debug_line    0x000029b5      0x73d CMakeFiles/freertos_example.dir/Core/Src/system_stm32f7xx.c.obj
- .debug_line    0x000030f2      0x7ad CMakeFiles/freertos_example.dir/Core/Src/usart.c.obj
- .debug_line    0x0000389f      0xa49 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c.obj
- .debug_line    0x000042e8      0xc4d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.c.obj
- .debug_line    0x00004f35      0xbd2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.c.obj
- .debug_line    0x00005b07     0x1135 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.c.obj
- .debug_line    0x00006c3c     0x10d0 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc_ex.c.obj
- .debug_line    0x00007d0c     0x536d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.c.obj
- .debug_line    0x0000d079     0x22e2 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim_ex.c.obj
- .debug_line    0x0000f35b     0x54fc CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.c.obj
- .debug_line    0x00014857      0x6a5 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_line    0x00014efc      0x84c CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1/port.c.obj
- .debug_line    0x00015748      0x947 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_line    0x0001608f     0x1d6e CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_line    0x00017dfd     0x2629 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_line    0x0001a426      0xf1a CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
- .debug_line    0x0001b340      0xcc4 CMakeFiles/freertos_example.dir/Core/app/app_main.cpp.obj
- .debug_line    0x0001c004       0xa8 CMakeFiles/freertos_example.dir/CubeMX/startup_stm32f767xx.s.obj
+.debug_line     0x00000000    0x1c296
+ .debug_line    0x00000000      0x704 CMakeFiles/freertos_example.dir/Core/Src/gpio.c.obj
+ .debug_line    0x00000704      0xa6d CMakeFiles/freertos_example.dir/Core/Src/main.c.obj
+ .debug_line    0x00001171      0x6a3 CMakeFiles/freertos_example.dir/Core/Src/stm32f7xx_hal_msp.c.obj
+ .debug_line    0x00001814      0x762 CMakeFiles/freertos_example.dir/Core/Src/stm32f7xx_hal_timebase_tim.c.obj
+ .debug_line    0x00001f76      0xaa8 CMakeFiles/freertos_example.dir/Core/Src/stm32f7xx_it.c.obj
+ .debug_line    0x00002a1e      0x751 CMakeFiles/freertos_example.dir/Core/Src/system_stm32f7xx.c.obj
+ .debug_line    0x0000316f      0x7c1 CMakeFiles/freertos_example.dir/Core/Src/usart.c.obj
+ .debug_line    0x00003930      0xa5d CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c.obj
+ .debug_line    0x0000438d      0xc61 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.c.obj
+ .debug_line    0x00004fee      0xbe6 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.c.obj
+ .debug_line    0x00005bd4     0x1149 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.c.obj
+ .debug_line    0x00006d1d     0x10e4 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc_ex.c.obj
+ .debug_line    0x00007e01     0x5381 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.c.obj
+ .debug_line    0x0000d182     0x22f6 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim_ex.c.obj
+ .debug_line    0x0000f478     0x5510 CMakeFiles/freertos_example.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.c.obj
+ .debug_line    0x00014988      0x6be CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_line    0x00015046      0x860 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1/port.c.obj
+ .debug_line    0x000158a6      0x960 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_line    0x00016206     0x1d87 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_line    0x00017f8d     0x2642 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_line    0x0001a5cf      0xf33 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+ .debug_line    0x0001b502      0xcec CMakeFiles/freertos_example.dir/Core/app/app_main.cpp.obj
+ .debug_line    0x0001c1ee       0xa8 CMakeFiles/freertos_example.dir/CubeMX/startup_stm32f767xx.s.obj
 
 .debug_str      0x00000000   0x105b77
  .debug_str     0x00000000    0xf3c30 CMakeFiles/freertos_example.dir/Core/Src/gpio.c.obj
@@ -11968,11 +11968,11 @@ LOAD d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib
  .debug_frame   0x00002478      0x554 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .debug_frame   0x000029cc      0x258 CMakeFiles/freertos_example.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
  .debug_frame   0x00002c24       0xc4 CMakeFiles/freertos_example.dir/Core/app/app_main.cpp.obj
- .debug_frame   0x00002ce8       0x2c d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
- .debug_frame   0x00002d14       0x28 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00002d3c       0x20 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
- .debug_frame   0x00002d5c       0x2c d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00002d88       0x34 d:/gnu_arm_toolchain/arm-compiler/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00002ce8       0x2c c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+ .debug_frame   0x00002d14       0x28 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00002d3c       0x20 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x00002d5c       0x2c c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00002d88       0x34 c:/users/eddie/documents/dev/tools/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
 
 .debug_loc      0x00000000    0x1273a
  .debug_loc     0x00000000       0x42 CMakeFiles/freertos_example.dir/Core/Src/main.c.obj

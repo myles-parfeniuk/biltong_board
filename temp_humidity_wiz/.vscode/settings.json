@@ -52,4 +52,5 @@
       "xutility": "cpp",
       "stm32f7xx_hal.h": "c"
     },
+    "cortex-debug.variableUseNaturalFormat": false,
 }

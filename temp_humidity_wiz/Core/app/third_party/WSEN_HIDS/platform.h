@@ -34,7 +34,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "../Inc/WeSensorsSDK.h"
+#include "WeSensorsSDK.h"
 
 /* Read a register's content */
 extern int8_t WE_ReadReg(WE_sensorInterface_t* interface,

@@ -34,7 +34,7 @@
 /*         Includes         */
 
 #include <stdint.h>
-#include "../Inc/WeSensorsSDK.h"
+#include "WeSensorsSDK.h"
 
 /*         Register address definitions         */
 #define CRC8_INIT 0xFF

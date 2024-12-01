@@ -1,9 +1,6 @@
-#include "../Inc/tempHumiditySensor.h"
-#include "../third_party/WSEN_HIDS_2525020210002.h"
-#include <stdio.h>
-#include "i2c.h"
-#include "usart.h"
+#include "tempHumiditySensor.h"
 #include <cstring>
+
 /* Sensor interface configuration */
 WE_sensorInterface_t tempHumiditySensor::hids;
 
@@ -20,8 +17,8 @@ static void debugPrint(char _out[])
 static void debugPrintln(char _out[])
 {
 	HAL_UART_Transmit(&huart3, (uint8_t *)_out, strlen(_out), 10);
-	char newline[3] = "\r\n";
-	HAL_UART_Transmit(&huart3, (uint8_t *)newline, 2, 10);
+	char* newline = "\r\n";
+	HAL_UART_Transmit(&huart3, (uint8_t *)newline, strlen(newline), 10);
 }
 
 bool tempHumiditySensor::init()
@@ -43,24 +40,35 @@ bool tempHumiditySensor::init()
 	return true;
 }
 
-uint32_t tempHumiditySensor::getHumidity_Temp()
+int32_t tempHumiditySensor::getHumidity()
 {
-	int32_t temperatureRaw = 0;
 	int32_t humidityRaw = 0;
 	hids_measureCmd_t measureCmd = HIDS_MEASURE_HPM;
-	if (WE_SUCCESS == HIDS_Sensor_Measure_Raw(&hids, measureCmd, &temperatureRaw, &humidityRaw))
+
+	// Returns data in milli values (milli % relative humidity, milli deg C)
+	if (WE_SUCCESS == HIDS_Sensor_Measure_Raw(&hids, measureCmd, NULL, &humidityRaw))
 	{
-		char bufferHumidity[11];
-		sprintf(bufferHumidity, "%li", humidityRaw);
+		char bufferHumidity[20];
+		sprintf(bufferHumidity, "humidity: %li", humidityRaw);
 		debugPrint(bufferHumidity);
 		debugPrint(",");
-		char bufferTemperature[11];
-		sprintf(bufferTemperature, "%li", temperatureRaw);
+	}
+
+	return humidityRaw;
+}
+
+
+int32_t tempHumiditySensor::getTemp()
+{
+	int32_t temperatureRaw = 0;
+	hids_measureCmd_t measureCmd = HIDS_MEASURE_HPM;
+	if (WE_SUCCESS == HIDS_Sensor_Measure_Raw(&hids, measureCmd, &temperatureRaw, NULL))
+	{
+		char bufferTemperature[20];
+		sprintf(bufferTemperature, "temperature: %li", temperatureRaw);
 		debugPrint(bufferTemperature);
 		debugPrintln("");
 	}
-}
 
-uint32_t tempHumiditySensor::getTemp()
-{
+	return temperatureRaw;
 }
