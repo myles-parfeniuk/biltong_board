@@ -38,6 +38,10 @@
 #include "stm32g0xx_hal.h"
 #endif
 
+#ifdef STM32G070xx
+#include "stm32g0xx_hal.h"
+#endif
+
 #ifdef HAL_SPI_MODULE_ENABLED
 #include "spi.h"
 #endif /* HAL_SPI_MODULE_ENABLED */

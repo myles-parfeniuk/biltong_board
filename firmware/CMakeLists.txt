@@ -97,8 +97,7 @@ add_executable(${EXECUTABLE}
 target_compile_definitions(${EXECUTABLE} PRIVATE
     ${MCU_MODEL}
     # Add different defines, such as ARM_MATH_CM7 or __FPU_PRESENT = 1
-    USE_HAL_DRIVER
-    STM32G031xx)
+    USE_HAL_DRIVER)
 
 # Add header directories (AFTER add_executable !!)
 target_include_directories(${EXECUTABLE} PRIVATE
