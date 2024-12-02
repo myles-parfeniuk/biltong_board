@@ -25,6 +25,7 @@ void task_test(void *arg)
 
     while(1)
     {
+        HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_0);
         vTaskDelay(1000/portTICK_PERIOD_MS);
     }
 }
