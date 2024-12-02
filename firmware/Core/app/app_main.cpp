@@ -29,7 +29,7 @@ extern "C" int app_main()
     /*if(!th_sens_1.init())
         return 0;*/
 
-    xTaskCreate(task_test, "TaskTest", 128, NULL, 1, &task_test_hdl);
+    xTaskCreate(task_test, "TaskTest", 256, NULL, 1, &task_test_hdl);
 
     vTaskStartScheduler();
 
