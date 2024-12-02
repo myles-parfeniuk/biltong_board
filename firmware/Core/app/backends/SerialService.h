@@ -83,8 +83,8 @@ class SerialService
             }
             else
             {
-                str_to_send[TAG_NAME_LENGTH_TOT + chars_written + 1] = '\n';
-                str_to_send[TAG_NAME_LENGTH_TOT + chars_written + 2] = '\0';
+                str_to_send[TAG_NAME_LENGTH_TOT + chars_written] = '\n';
+                str_to_send[TAG_NAME_LENGTH_TOT + chars_written + 1] = '\0';
             }
 
             // send to queue and ensure it is not already full
