@@ -42,7 +42,7 @@ set(CUBEMX_INCLUDE_DIRECTORIES
 set(PROJECT_INCLUDE_DIRECTORIES
     # Can add other folders in the project here    
     ${PROJECT_DIR}
-    ${PROJECT_DIR}/temp_humidity_sensor)
+    ${PROJECT_DIR}/backends)
 set(THIRD_PARTY_INCLUDE_DIRECTORIES
     # Can add third party folders here
     ${VENDOR_DIR}
@@ -83,8 +83,8 @@ file(GLOB_RECURSE PROJECT_SOURCES FOLLOW_SYMLINKS
     #can add more files to project sources with FOLLOW_SYMLINKS option here
     ${PROJECT_DIR}/*.cpp
     ${PROJECT_DIR}/*.c
-    ${PROJECT_DIR}/temp_humidity_sensor/*.cpp
-    ${PROJECT_DIR}/temp_humidity_sensor/*.c)
+    ${PROJECT_DIR}/backends/*.cpp
+    ${PROJECT_DIR}/backends/*.c)
 
 # Executable files
 add_executable(${EXECUTABLE}
@@ -117,14 +117,14 @@ target_compile_options(${EXECUTABLE} PRIVATE
         -Wold-style-cast
         -Wuseless-cast
         -Wsuggest-override>
-    $<$<CONFIG:Debug>:-Og -g3 -ggdb>
-    $<$<CONFIG:Release>:-Og -g0>)
+    $<$<CONFIG:Debug>:-Og -g3 -ggdb -O0> #optimizations disabled, remove -O0 to enable
+    $<$<CONFIG:Release>:-Og -g0 -O0>)
 
 target_link_options(${EXECUTABLE} PRIVATE
     -T${MCU_LINKER_SCRIPT}
     ${CPU_PARAMETERS}
     -Wl,-Map=${CMAKE_PROJECT_NAME}.map
-    --specs=nosys.specs
+    #--specs=nosys.specs #this could potentially disable features of newlib we want
     -Wl,--start-group
     -lc
     -lm

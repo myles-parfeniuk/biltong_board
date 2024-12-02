@@ -1,3 +1,7 @@
 {
   "cortex-debug.armToolchainPath": "D:/compilers/gcc-arm-none-eabi-10.3-2021.10/bin",
+  "files.associations": {
+    "cstring": "cpp",
+    "cstdarg": "cpp"
+  },
 }
