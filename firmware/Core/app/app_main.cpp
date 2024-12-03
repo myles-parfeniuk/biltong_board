@@ -31,15 +31,19 @@ void task_idle(void* arg)
     // call constructors for modules
     /*
     static SH1122Oled oled(&hspi1);
-    static TempHumiditySensor th_sens_1(&hi2c1);
+    static TempHumiditySensor th_sens_A(&hi2c2);
+    static TempHumiditySensor th_sens_B(&hi2c1);
     */
 
     // initialize modules:
     if (!SerialService::init(&huart3))
         vTaskDelete(NULL); // self delete task and crash program on failure
 
-    /* 
-    if (!th_sens_1.init())
+    /*
+    if (!th_sens_A.init())
+        vTaskDelete(NULL);
+
+    if (!th_sens_B.init())
         vTaskDelete(NULL);
 
     if (!oled.init())

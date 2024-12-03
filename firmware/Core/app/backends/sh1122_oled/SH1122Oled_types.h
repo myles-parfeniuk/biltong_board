@@ -31,3 +31,10 @@ enum class SH1122FontDir
     right_to_left,
     bottom_to_top
 };
+
+/// @brief Represents point on OLED screen, used in drawing functions
+typedef struct sh1122_pixel_t
+{
+        int16_t x;
+        int16_t y;
+} sh1122_pixel_t;

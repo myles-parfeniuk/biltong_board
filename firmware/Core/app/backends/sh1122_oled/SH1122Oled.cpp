@@ -25,6 +25,8 @@ bool SH1122Oled::init()
     HAL_GPIO_WritePin(PIN_DISP_CS.port, PIN_DISP_CS.num, GPIO_PIN_SET);
     HAL_GPIO_WritePin(PIN_DISP_DC.port, PIN_DISP_DC.num, GPIO_PIN_SET);
 
+    font_info.font = nullptr;
+
     reset();
 
     // turn oled off for initialization routine
@@ -128,35 +130,34 @@ bool SH1122Oled::update_screen()
 /**
  * @brief Sets respective pixel to specified grayscale intensity.
  *
- * @param x Pixel x location.
- * @param y Pixel y location.
+ * @param pixel Pixel to be set
  * @param intensity Grayscale intensity of the drawn pixel.
  * @return True if valid pixel bounds.
  */
-bool SH1122Oled::set_pixel(uint16_t x, uint16_t y, SH1122PixIntens intensity)
+bool SH1122Oled::set_pixel(sh1122_pixel_t pixel, SH1122PixIntens intensity)
 {
     int16_t x_it = 0;
     int16_t y_it = 0;
     int16_t high_byte = 0;
-    if (SH1122_PIXEL_IN_BOUNDS(x, y))
+    if (SH1122_PIXEL_IN_BOUNDS(pixel.x, pixel.y))
     {
         if (intensity != SH1122PixIntens::level_transparent)
         {
-            if (x != 0)
+            if (pixel.x != 0)
             {
-                x_it = x / 2;
-                high_byte = x % 2;
+                x_it = pixel.x / 2;
+                high_byte = pixel.x % 2;
             }
 
-            if (y != 0)
-                y_it = (y * WIDTH) / 2;
+            if (pixel.y != 0)
+                y_it = (pixel.y * WIDTH) / 2;
 
-            uint8_t* pixel = (frame_buffer + x_it + y_it);
+            uint8_t* pixel_raw_ptr = (frame_buffer + x_it + y_it);
 
             if (high_byte == 1)
-                *pixel = ((uint8_t) intensity & 0x0F) | (*pixel & 0xF0);
+                *pixel_raw_ptr = ((uint8_t) intensity & 0x0F) | (*pixel_raw_ptr & 0xF0);
             else
-                *pixel = (((uint8_t) intensity << 4) & 0xF0) | (*pixel & 0x0F);
+                *pixel_raw_ptr = (((uint8_t) intensity << 4) & 0xF0) | (*pixel_raw_ptr & 0x0F);
         }
 
         return true;
@@ -168,38 +169,36 @@ bool SH1122Oled::set_pixel(uint16_t x, uint16_t y, SH1122PixIntens intensity)
 /**
  * @brief Draws a line between two points.
  *
- * @param x_1 Line starting x location.
- * @param y_1 Line starting y location.
- * @param x_2 Line ending x location.
- * @param y_2 Line ending y location.
+ * @param loc_start Line starting pixel.
+ * @param loc_end Line ending pixel.
  * @param intensity Grayscale intensity of the drawn line.
  * @return void, nothing to return (out of bounds pixels will be ignored)
  */
-bool SH1122Oled::draw_line(int16_t x_1, int16_t y_1, int16_t x_2, int16_t y_2, SH1122PixIntens intensity)
+bool SH1122Oled::draw_line(sh1122_pixel_t loc_start, sh1122_pixel_t loc_end, SH1122PixIntens intensity)
 {
-    const int16_t delta_x = abs(x_2 - x_1);
-    const int16_t delta_y = abs(y_2 - y_1);
-    const int16_t sign_x = x_1 < x_2 ? 1 : -1;
-    const int16_t sign_y = y_1 < y_2 ? 1 : -1;
+    const int16_t delta_x = abs(loc_end.x - loc_start.x);
+    const int16_t delta_y = abs(loc_end.y - loc_start.y);
+    const int16_t sign_x = loc_start.x < loc_end.x ? 1 : -1;
+    const int16_t sign_y = loc_start.y < loc_end.y ? 1 : -1;
     int16_t error = delta_x - delta_y;
 
-    set_pixel(x_2, y_2, intensity);
+    set_pixel(loc_end, intensity);
 
-    while (x_1 != x_2 || y_1 != y_2)
+    while (loc_start.x != loc_end.x || loc_start.y != loc_end.y)
     {
-        set_pixel(x_1, y_1, intensity);
+        set_pixel(loc_start, intensity);
 
         const int16_t error_2 = error * 2;
 
         if (error_2 > -delta_y)
         {
             error -= delta_y;
-            x_1 += sign_x;
+            loc_start.x += sign_x;
         }
         if (error_2 < delta_x)
         {
             error += delta_x;
-            y_1 += sign_y;
+            loc_start.y += sign_y;
         }
     }
 
@@ -209,46 +208,249 @@ bool SH1122Oled::draw_line(int16_t x_1, int16_t y_1, int16_t x_2, int16_t y_2, S
 /**
  * @brief Draws rectangular frame at the specified location.
  *
- * @param x Frame x location (upper left corner of frame)
- * @param y Frame y location (upper left corner of frame)
+ * @param loc_up_l_corner Frame start location/anchor (upper left corner of frame)
  * @param width Frame width.
  * @param height Frame height.
  * @param thickness Frame thickness (drawn towards center of rectangle)
  * @param intensity Grayscale intensity of the drawn frame.
  * @return void, nothing to return (out of bounds pixels will be ignored)
  */
-void SH1122Oled::draw_rectangle_frame(int16_t x_1, int16_t y_1, int16_t width, int16_t height, int16_t thickness, SH1122PixIntens intensity)
+void SH1122Oled::draw_rectangle_frame(sh1122_pixel_t loc_up_l_corner, int16_t width, int16_t height, int16_t thickness, SH1122PixIntens intensity)
 {
-    for (int i = 0; i < thickness; i++)
-        draw_line(x_1 + i, y_1 + thickness, x_1 + i, (y_1 + height - 1) - thickness, intensity);
+    sh1122_pixel_t line_start_loc;
+    sh1122_pixel_t line_end_loc;
 
     for (int i = 0; i < thickness; i++)
-        draw_line((x_1 + width - 1) - i, y_1 + thickness, (x_1 + width - 1) - i, (y_1 + height - 1) - thickness, intensity);
+    {
+        line_start_loc.x = loc_up_l_corner.x + i;
+        line_start_loc.y = loc_up_l_corner.y + thickness;
+        line_end_loc.x = loc_up_l_corner.x + i;
+        line_end_loc.y = (loc_up_l_corner.y + height - 1) - thickness;
+        draw_line(line_start_loc, line_end_loc, intensity);
+    }
 
     for (int i = 0; i < thickness; i++)
-        draw_line(x_1, y_1 + i, (x_1 + width - 1), y_1 + i, intensity);
+    {
+        line_start_loc.x = (loc_up_l_corner.x + width - 1) - i;
+        line_start_loc.y = loc_up_l_corner.y + thickness;
+        line_end_loc.x = (loc_up_l_corner.x + width - 1) - i;
+        line_end_loc.y = (loc_up_l_corner.y + height - 1) - thickness;
+        draw_line(line_start_loc, line_end_loc, intensity);
+    }
 
     for (int i = 0; i < thickness; i++)
-        draw_line(x_1, (y_1 + height - 1) - i, (x_1 + width - 1), (y_1 + height - 1) - i, intensity);
+    {
+        line_start_loc.x = loc_up_l_corner.x;
+        line_start_loc.y = loc_up_l_corner.y + i;
+        line_end_loc.x = (loc_up_l_corner.x + width - 1);
+        line_end_loc.y = loc_up_l_corner.y + i;
+        draw_line(line_start_loc, line_end_loc, intensity);
+    }
+
+    for (int i = 0; i < thickness; i++)
+    {
+        line_start_loc.x = loc_up_l_corner.x;
+        line_start_loc.y = (loc_up_l_corner.y + height - 1) - i;
+        line_end_loc.x = (loc_up_l_corner.x + width - 1);
+        line_end_loc.y = (loc_up_l_corner.y + height - 1) - i;
+        draw_line(line_start_loc, line_end_loc, intensity);
+    }
 }
 
 /**
  * @brief Draws a filled rectangle at the specified location.
  *
- * @param x Rectangle x location (upper left corner of rectangle)
- * @param y Rectangle y location (upper left corner of rectangle)
+ * @param loc_up_l_corner Rectangle start location/anchor (upper left corner of Rectangle)
  * @param width Rectangle width.
  * @param height Rectangle height.
  * @param intensity Grayscale intensity of the drawn rectangle.
  * @return void, nothing to return (out of bounds pixels will be ignored)
  */
-void SH1122Oled::draw_rectangle(int16_t x_1, int16_t y_1, int16_t width, int16_t height, SH1122PixIntens intensity)
+void SH1122Oled::draw_rectangle(sh1122_pixel_t loc_up_l_corner, int16_t width, int16_t height, SH1122PixIntens intensity)
 {
-    for (uint16_t j = 0; j < height; j++)
+    sh1122_pixel_t loc_local;
+
+    for (int16_t j = 0; j < height; j++)
     {
-        for (uint16_t i = 0; i < width; i++)
-            set_pixel((x_1 + i), (y_1 + j), intensity);
+        for (int16_t i = 0; i < width; i++)
+        {
+            loc_local.x = loc_up_l_corner.x + i;
+            loc_local.y = loc_up_l_corner.y + j;
+            set_pixel(loc_local, intensity);
+        }
     }
+}
+
+/**
+ * @brief Loads a font for drawing strings and glyphs.
+ *
+ * @param font A pointer to the first element of the respective font lookup table, font tables are located in fonts directory.
+ * @return void, nothing to return
+ */
+void SH1122Oled::load_font(const uint8_t* font)
+{
+    font_info.font = font;
+
+    font_info.glyph_cnt = font_lookup_table_read_char(font, 0);
+    font_info.bbx_mode = font_lookup_table_read_char(font, 1);
+    font_info.bits_per_0 = font_lookup_table_read_char(font, 2);
+    font_info.bits_per_1 = font_lookup_table_read_char(font, 3);
+
+    font_info.bits_per_char_width = font_lookup_table_read_char(font, 4);
+    font_info.bits_per_char_height = font_lookup_table_read_char(font, 5);
+    font_info.bits_per_char_x = font_lookup_table_read_char(font, 6);
+    font_info.bits_per_char_y = font_lookup_table_read_char(font, 7);
+    font_info.bits_per_delta_x = font_lookup_table_read_char(font, 8);
+
+    font_info.max_char_width = font_lookup_table_read_char(font, 9);
+    font_info.max_char_height = font_lookup_table_read_char(font, 10);
+    font_info.x_offset = font_lookup_table_read_char(font, 11);
+    font_info.y_offset = font_lookup_table_read_char(font, 12);
+
+    font_info.ascent_A = font_lookup_table_read_char(font, 13);  // capital a usually the highest pixels of any characters
+    font_info.descent_g = font_lookup_table_read_char(font, 14); // lower case usually has the lowest pixels of any characters
+    font_info.ascent_para = font_lookup_table_read_char(font, 15);
+    font_info.descent_para = font_lookup_table_read_char(font, 16);
+
+    font_info.start_pos_upper_A = font_lookup_table_read_word(font, 17);
+    font_info.start_pos_lower_a = font_lookup_table_read_word(font, 19);
+    font_info.start_pos_unicode = font_lookup_table_read_word(font, 21);
+}
+
+/**
+ * @brief Sets the draw direction for strings and glyphs, default is left to right.
+ *
+ * @param dir The direction strings and glyphs should be drawn in, see FontDirection definition.
+ * @return void, nothing to return
+ */
+void SH1122Oled::set_font_direction(SH1122FontDir dir)
+{
+    font_dir = dir;
+}
+
+/**
+ * @brief Draws the selected glyph/character using the currently loaded font.
+ *
+ * @param loc_up_l_corner Glyph start location/anchor (upper left corner of glyph)
+ * @param intensity Grayscale intensity of the drawn glyph
+ * @param encoding The encoding of the character to be drawn, supports UTF-8 and UTF-16.
+ * @return The change in x required to draw the next glyph in string without overlapping.
+ */
+uint16_t SH1122Oled::draw_glyph(sh1122_pixel_t loc_up_l_corner, SH1122PixIntens intensity, uint16_t encoding)
+{
+    const uint8_t* glyph_ptr = NULL;
+    sh1122_oled_font_decode_t decode;
+    uint16_t dx = 0;
+
+    // must load font before attempting to write glyphs
+    if (font_info.font == nullptr)
+    {
+        SerialService::print_log_ln(TAG, "No font loaded.");
+        return 0;
+    }
+
+    // set up the decode structure
+    decode.target_x = loc_up_l_corner.x;
+
+    switch (font_dir)
+    {
+        case SH1122FontDir::left_to_right:
+            loc_up_l_corner.y += font_info.ascent_A;
+            break;
+
+        case SH1122FontDir::top_to_bottom:
+            break;
+
+        case SH1122FontDir::right_to_left:
+            break;
+
+        case SH1122FontDir::bottom_to_top:
+            decode.target_x += font_info.ascent_A;
+            break;
+    }
+
+    decode.target_y = loc_up_l_corner.y;
+    decode.fg_intensity = (uint8_t) intensity;
+
+    glyph_ptr = NULL;
+
+    if (encoding != 0x0ffff)
+    {
+        glyph_ptr = font_get_glyph_data(encoding); // get glyph data from lookup table
+        if (glyph_ptr != NULL)
+        {
+            font_setup_glyph_decode(&decode, glyph_ptr);         // setup decode structure with important values from table
+            dx = font_decode_and_draw_glyph(&decode, glyph_ptr); // decode and draw the glyph
+        }
+    }
+
+    return dx;
+}
+
+/**
+ * @brief Draws a string at the specified location using the currently loaded font.
+ *
+ * @param loc_up_l_corner String start location/anchor (upper left corner of string)
+ * @param intensity Grayscale intensity of the drawn string
+ * @param format The string to be drawn, supports variable arguments (ie printf style formatting)
+ * @return The width of the drawn string.
+ */
+uint16_t SH1122Oled::draw_string(sh1122_pixel_t loc_up_l_corner, SH1122PixIntens intensity, const char* format, ...)
+{
+    uint16_t delta = 0;
+    uint16_t encoding = 0;
+    uint16_t sum = 0;
+    int16_t chars_written = 0U;
+    char str_to_send[MAX_STR_SZ] = {};
+    uint8_t* str = nullptr;
+    va_list args;
+
+    va_start(args, format);
+    chars_written = vsnprintf(str_to_send, MAX_STR_SZ, format, args);
+    va_end(args);
+
+    if (chars_written >= MAX_STR_SZ)
+        return 0;
+
+    str = reinterpret_cast<uint8_t*>(str_to_send);
+
+    while (1)
+    {
+        encoding = get_ascii_next(*str); // check to ensure character is not null or new line (end of string)
+
+        if (encoding == 0x0ffff)
+            break;
+
+        if (encoding != 0x0fffe)
+        {
+            delta = draw_glyph(loc_up_l_corner, intensity, encoding);
+
+            switch (font_dir)
+            {
+                case SH1122FontDir::left_to_right:
+                    loc_up_l_corner.x += delta;
+                    break;
+
+                case SH1122FontDir::top_to_bottom:
+                    loc_up_l_corner.y += delta;
+                    break;
+
+                case SH1122FontDir::right_to_left:
+                    loc_up_l_corner.x -= delta;
+                    break;
+
+                case SH1122FontDir::bottom_to_top:
+                    loc_up_l_corner.y -= delta;
+                    break;
+            }
+
+            sum += delta;
+        }
+
+        str++;
+    }
+
+    return sum;
 }
 
 /**
@@ -309,6 +511,415 @@ bool SH1122Oled::send_cmds(uint8_t* cmds, uint16_t length)
     HAL_GPIO_WritePin(PIN_DISP_CS.port, PIN_DISP_CS.num, GPIO_PIN_SET); // bring chip select high
 
     return (op_success == HAL_OK);
+}
+
+/**
+ * @brief Reads an 8 bit value from specified font lookup table.
+ *
+ * @param font Pointer to first element of font lookup table.
+ * @param offset Offset from initial address of lookup table to element desired to be read.
+ * @return Read 8-bit value read from lookup table.
+ */
+uint8_t SH1122Oled::font_lookup_table_read_char(const uint8_t* font, uint8_t offset)
+{
+    return *static_cast<const uint8_t*>(font + offset);
+}
+
+/**
+ * @brief Reads a 16 bit value from specified font lookup table.
+ *
+ * @param font Pointer to first element of font lookup table.
+ * @param offset Offset from initial address of lookup table to element desired to be read.
+ * @return Read 16-bit value read from lookup table.
+ */
+uint16_t SH1122Oled::font_lookup_table_read_word(const uint8_t* font, uint8_t offset)
+{
+    uint16_t word;
+
+    word = static_cast<uint16_t>(*static_cast<const uint8_t*>(font + offset));
+    word <<= 8;
+    word += static_cast<uint16_t>(*static_cast<const uint8_t*>(font + offset + 1));
+
+    return word;
+}
+
+/**
+ * @brief Returns pointer to glyph data from current font lookup table.
+ *
+ * @param encoding Encoding of the glyph data is desired for.
+ * @return a pointer to the first element of respective glyph data, NULL if not found.
+ */
+const uint8_t* SH1122Oled::font_get_glyph_data(uint16_t encoding)
+{
+    const uint8_t* glyph_ptr = font_info.font;
+    const uint8_t* unicode_lookup_table = font_info.font;
+    glyph_ptr += 23;
+    unicode_lookup_table += 23 + font_info.start_pos_unicode;
+    uint16_t unicode = 0;
+
+    if (encoding <= 255)
+    {
+        if (encoding >= 'a')
+            glyph_ptr += font_info.start_pos_lower_a;
+        else if (encoding >= 'A')
+            glyph_ptr += font_info.start_pos_upper_A;
+
+        while (1)
+        {
+            if (*(glyph_ptr + 1) == 0)
+            {
+                glyph_ptr = NULL;
+                break; // exit loop, reached end of font data and could not find glyph
+            }
+            else if (*glyph_ptr == encoding)
+            {
+                glyph_ptr += 2; // skip encoding and glyph size
+                break;
+            }
+
+            glyph_ptr += *(glyph_ptr + 1);
+        }
+    }
+    else
+    {
+        glyph_ptr += font_info.start_pos_unicode;
+
+        do
+        {
+            glyph_ptr += font_lookup_table_read_word(unicode_lookup_table, 0);
+            unicode = font_lookup_table_read_word(unicode_lookup_table, 2);
+            unicode_lookup_table += 4;
+        } while (unicode < encoding);
+
+        while (1)
+        {
+            unicode = font_lookup_table_read_char(glyph_ptr, 0);
+            unicode <<= 8;
+            unicode |= font_lookup_table_read_char(glyph_ptr, 1);
+
+            if (unicode == 0)
+            {
+                glyph_ptr = NULL;
+                break;
+            }
+
+            if (unicode == encoding)
+            {
+                glyph_ptr += 3;
+                break;
+            }
+
+            glyph_ptr += font_lookup_table_read_char(glyph_ptr, 2);
+        }
+    }
+
+    return glyph_ptr;
+}
+
+/**
+ * @brief Sets up glyph decoding structure with values from glyph data for decoding process.
+ *
+ * @param encoding Encoding of the glyph being decoded.
+ * @return void, nothing to return
+ */
+void SH1122Oled::font_setup_glyph_decode(sh1122_oled_font_decode_t* decode, const uint8_t* glyph_data)
+{
+    decode->decode_ptr = glyph_data;
+    decode->bit_pos = 0;
+
+    decode->glyph_width = font_decode_get_unsigned_bits(decode, font_info.bits_per_char_width);
+    decode->glyph_height = font_decode_get_unsigned_bits(decode, font_info.bits_per_char_height);
+}
+
+/**
+ * @brief Decodes and draws a single glyph/character.
+ *
+ * @param decode Pointer to decode structure containing information about the glyph to be drawn.
+ * @param glyph_data Pointer to the initial element of the data for the glyph to be drawn.
+ * @return Amount for which x should be incremented before drawing the next glyph.
+ */
+int8_t SH1122Oled::font_decode_and_draw_glyph(sh1122_oled_font_decode_t* decode, const uint8_t* glyph_data)
+{
+    uint8_t bg_line_length, fg_line_length;
+    int8_t x, y;
+    int8_t d;
+    int8_t h;
+
+    h = decode->glyph_height;
+
+    x = font_decode_get_signed_bits(decode, font_info.bits_per_char_x);
+    y = font_decode_get_signed_bits(decode, font_info.bits_per_char_y);
+    d = font_decode_get_signed_bits(decode, font_info.bits_per_delta_x);
+
+    if (decode->glyph_width > 0)
+    {
+        // decode->target_x += x;
+        // decode->target_y -= y + h;
+        decode->target_x = font_apply_direction_x(decode->target_x, x, -(h + y), font_dir);
+        decode->target_y = font_apply_direction_y(decode->target_y, x, -(h + y), font_dir);
+        decode->x = 0;
+        decode->y = 0;
+
+        while (1)
+        {
+            bg_line_length = font_decode_get_unsigned_bits(decode, font_info.bits_per_0); // bits per background line
+            fg_line_length = font_decode_get_unsigned_bits(decode, font_info.bits_per_1); // bits per foreground line
+
+            do
+            {
+                font_draw_lines(decode, bg_line_length, 0);
+                font_draw_lines(decode, fg_line_length, 1);
+            } while (font_decode_get_unsigned_bits(decode, 1) != 0);
+
+            if (decode->y >= h)
+                break;
+        }
+    }
+
+    return d;
+}
+
+/**
+ * @brief Decodes bit values from font lookup table and returns them as an unsigned integer.
+ *
+ * @param cnt Amount to increment current bit position by.
+ * @return Unsigned decoded values.
+ */
+uint8_t SH1122Oled::font_decode_get_unsigned_bits(sh1122_oled_font_decode_t* decode, uint8_t cnt)
+{
+    uint8_t val;
+    uint8_t bit_pos = decode->bit_pos;
+    uint8_t bit_pos_plus_cnt;
+    uint8_t s = 8;
+
+    val = *decode->decode_ptr; // value of element in font lookup table currently being decoded
+    val >>= bit_pos;           // shift by current bit position such that only bits with positions greater than the current position are decoded
+
+    // find next bit position
+    bit_pos_plus_cnt = bit_pos;
+    bit_pos_plus_cnt += cnt;
+
+    // if the next bit position falls within next font lookup table element
+    if (bit_pos_plus_cnt >= 8)
+    {
+        s -= bit_pos;         // subtract starting bit position from element width (8 bits) to determine how many bits lay within next element
+        decode->decode_ptr++; // increment to next element of lookup table
+        val |= *decode->decode_ptr << (s); // set the unoccupied bits of val to bits to be decoded in next element
+        bit_pos_plus_cnt -= 8;             // subtract the width of a lookup table element to account for moving to next element
+    }
+
+    val &= (1U << cnt) - 1; // clear bits of value that were not used, result is undecoded value
+
+    decode->bit_pos = bit_pos_plus_cnt; // save next bit position to decode structure
+
+    return val; // return the decoded value
+}
+
+/**
+ * @brief Decodes bit values from font lookup table and returns them as a signed integer.
+ *
+ * @param cnt Amount to increment current bit position by.
+ * @return Signed decoded values.
+ */
+int8_t SH1122Oled::font_decode_get_signed_bits(sh1122_oled_font_decode_t* decode, uint8_t cnt)
+{
+    int8_t val;
+    int8_t d;
+    val = static_cast<int8_t>(font_decode_get_unsigned_bits(decode, cnt));
+    d = 1;
+    cnt--;
+    d <<= cnt;
+    val -= d;
+
+    return val;
+}
+
+/**
+ * @brief Apply rotation to y coordinate of lines being drawn for current glyph such that they match passed direction.
+ *
+ * @param dy Target y position of the glyph being drawn.
+ * @param x Local x position of glyph being drawn.
+ * @param y Local y position of glyph being drawn.
+ * @param dir The desired drawing direction of the font, default is left to right.
+ * @return Rotated y value.
+ */
+uint16_t SH1122Oled::font_apply_direction_y(uint16_t dy, int8_t x, int8_t y, SH1122FontDir dir)
+{
+    switch (dir)
+    {
+        case SH1122FontDir::left_to_right:
+            dy += y;
+            break;
+
+        case SH1122FontDir::top_to_bottom:
+            dy += x;
+            break;
+
+        case SH1122FontDir::right_to_left:
+            dy -= y;
+            break;
+
+        case SH1122FontDir::bottom_to_top:
+            dy -= x;
+            break;
+    }
+
+    return dy;
+}
+
+/**
+ * @brief Apply rotation to x coordinate of lines being drawn for current glyph such that they match passed direction.
+ *
+ * @param dx Target x position of the glyph being drawn.
+ * @param x Local x position of glyph being drawn.
+ * @param y Local y position of glyph being drawn.
+ * @param dir The desired drawing direction of the font, default is left to right.
+ * @return Rotated x value.
+ */
+uint16_t SH1122Oled::font_apply_direction_x(uint16_t dx, int8_t x, int8_t y, SH1122FontDir dir)
+{
+    switch (dir)
+    {
+        case SH1122FontDir::left_to_right:
+            dx += x;
+            break;
+
+        case SH1122FontDir::top_to_bottom:
+            dx -= y;
+            break;
+
+        case SH1122FontDir::right_to_left:
+            dx -= x;
+            break;
+
+        case SH1122FontDir::bottom_to_top:
+            dx += y;
+            break;
+    }
+
+    return dx;
+}
+
+/**
+ * @brief Draws a single font line, called from font_draw_lines
+ *
+ * @param decode Pointer to decode structure containing information about the glyph currently being drawn.
+ * @param x Starting x position of line.
+ * @param y Starting y position of line.
+ * @param length Length of line in pixels.
+ * @param intensity Grayscale intensity of the line being drawn.
+ * @return void, nothing to return
+ */
+void SH1122Oled::font_draw_line(sh1122_oled_font_decode_t* decode, sh1122_pixel_t loc_start, uint16_t length, SH1122PixIntens intensity)
+{
+    sh1122_pixel_t loc_end;
+
+    if (length != 0)
+    {
+        if (!SH1122_PIXEL_IN_BOUNDS(loc_start.x, loc_start.y))
+            return;
+
+        switch (font_dir)
+        {
+            case SH1122FontDir::left_to_right:
+                loc_end.x = loc_start.x + (length - 1);
+                loc_end.y = loc_start.y;
+                draw_line(loc_start, loc_end, intensity);
+                break;
+
+            case SH1122FontDir::top_to_bottom:
+                loc_end.x = loc_start.x;
+                loc_end.y = loc_start.y + (length - 1);
+                draw_line(loc_start, loc_end, intensity);
+                break;
+
+            case SH1122FontDir::right_to_left:
+                loc_end.x = loc_start.x - (length - 1);
+                loc_end.y = loc_start.y;
+                draw_line(loc_end, loc_start, intensity);
+                break;
+
+            case SH1122FontDir::bottom_to_top:
+                loc_end.x = loc_start.x;
+                loc_end.y = loc_start.y - (length - 1);
+                draw_line(loc_start, loc_end, intensity);
+                break;
+        }
+    }
+}
+
+/**
+ * @brief Draws lines/pixels for glyph being drawn.
+ *
+ * @param decode Pointer to decode structure containing information about the glyph currently being drawn.
+ * @param len Total number of pixels which must be drawn for specified glyph.
+ * @param is_foreground 0 if pixels are background/whitespace around the glyph, 1 if the actual glyph content to be drawn.
+ * @return void, nothing to return
+ */
+void SH1122Oled::font_draw_lines(sh1122_oled_font_decode_t* decode, uint8_t len, uint8_t is_foreground)
+{
+    uint8_t cnt;     /* total number of remaining pixels, which have to be drawn */
+    uint8_t rem;     /* remaining pixel to the right edge of the glyph */
+    uint8_t current; /* number of pixels, which need to be drawn for the draw procedure */
+                     /* current is either equal to cnt or equal to rem */
+
+    /* local coordinates of the glyph */
+    sh1122_pixel_t loc_local;
+
+    /* target position on the screen */
+    sh1122_pixel_t loc_anchor;
+
+    cnt = len;
+
+    /*get the local position*/
+    loc_local.x = decode->x;
+    loc_local.y = decode->y;
+
+    while (1)
+    {
+        /*calculate the number of pixels to the right edge of the glyph*/
+        rem = decode->glyph_width;
+        rem -= loc_local.x;
+
+        /*calculate how many pixels to draw*/
+        current = rem;
+        if (cnt < rem)
+            current = cnt;
+
+        loc_anchor.x = decode->target_x;
+        loc_anchor.y = decode->target_y;
+
+        loc_anchor.x = font_apply_direction_x(loc_anchor.x, loc_local.x, loc_local.y, font_dir);
+        loc_anchor.y = font_apply_direction_y(loc_anchor.y, loc_local.x, loc_local.y, font_dir);
+
+        if (is_foreground)
+            font_draw_line(decode, loc_anchor, current, static_cast<SH1122PixIntens>(decode->fg_intensity));
+
+        if (cnt < rem)
+            break;
+
+        cnt -= rem;
+        loc_local.x = 0;
+        loc_local.y++;
+    }
+
+    loc_local.x += cnt;
+    decode->x = loc_local.x;
+    decode->y = loc_local.y;
+}
+
+/**
+ * @brief Checks a passed glyph for EOL conditions.
+ *
+ * @param b Encoding of the glyph being checked.
+ * @return ascii value/encoding of the glyph, 0x0ffff if EOL.
+ */
+uint16_t SH1122Oled::get_ascii_next(uint8_t b)
+{
+    if (b == 0 || b == '\n')
+        return 0x0ffff;
+    else
+        return b;
 }
 
 /**
