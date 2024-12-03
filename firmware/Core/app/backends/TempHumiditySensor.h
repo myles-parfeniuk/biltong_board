@@ -21,7 +21,7 @@ class TempHumiditySensor
         int32_t get_humidity();
 
     private:
-        I2C_HandleTypeDef* hdl_i2c;
+        I2C_HandleTypeDef* hdl_i2c = nullptr;
         WE_sensorInterface_t hids;
         static const constexpr char* TAG = "TempHumiditySensor";
 };

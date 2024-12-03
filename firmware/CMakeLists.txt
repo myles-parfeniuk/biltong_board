@@ -42,7 +42,8 @@ set(CUBEMX_INCLUDE_DIRECTORIES
 set(PROJECT_INCLUDE_DIRECTORIES
     # Can add other folders in the project here    
     ${PROJECT_DIR}
-    ${PROJECT_DIR}/backends)
+    ${PROJECT_DIR}/backends
+    ${PROJECT_DIR}/backends/sh1122_oled)
 set(THIRD_PARTY_INCLUDE_DIRECTORIES
     # Can add third party folders here
     ${VENDOR_DIR}
@@ -84,7 +85,10 @@ file(GLOB_RECURSE PROJECT_SOURCES FOLLOW_SYMLINKS
     ${PROJECT_DIR}/*.cpp
     ${PROJECT_DIR}/*.c
     ${PROJECT_DIR}/backends/*.cpp
-    ${PROJECT_DIR}/backends/*.c)
+    ${PROJECT_DIR}/backends/*.c
+    ${PROJECT_DIR}/backends/sh1122_oled/*.cpp
+    ${PROJECT_DIR}/backends/sh1122_oled/*.c)
+    
 
 # Executable files
 add_executable(${EXECUTABLE}

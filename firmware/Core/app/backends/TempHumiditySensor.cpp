@@ -15,7 +15,7 @@ bool TempHumiditySensor::init()
     hids.handle = hdl_i2c;
 
     /* Wait for boot */
-    HAL_Delay(50);
+    vTaskDelay(50UL / portTICK_PERIOD_MS);
     if (WE_SUCCESS != HIDS_Sensor_Init(&hids))
     {
         SerialService::print_log_ln(TAG, "**** HIDS_MULTIPLEXER_Init error. STOP ****");
