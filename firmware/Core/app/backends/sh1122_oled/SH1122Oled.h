@@ -29,11 +29,18 @@ class SH1122Oled
         bool draw_line(sh1122_pixel_t loc_start, sh1122_pixel_t loc_end, SH1122PixIntens intensity);
         void draw_rectangle_frame(sh1122_pixel_t loc_up_l_corner, int16_t width, int16_t height, int16_t thickness, SH1122PixIntens intensity);
         void draw_rectangle(sh1122_pixel_t loc_up_l_corner, int16_t width, int16_t height, SH1122PixIntens intensity);
+        void draw_bitmap(sh1122_pixel_t loc_up_l_corner, const uint8_t* bitmap, SH1122PixIntens bg_intensity = SH1122PixIntens::level_transparent);
+        uint16_t draw_glyph(sh1122_pixel_t loc_up_l_corner, SH1122PixIntens intensity, uint16_t encoding);
+        uint16_t draw_string(sh1122_pixel_t loc_up_l_corner, SH1122PixIntens intensity, const char* format, ...);
 
         static void load_font(const uint8_t* font);
         void set_font_direction(SH1122FontDir dir);
-        uint16_t draw_glyph(sh1122_pixel_t loc_up_l_corner, SH1122PixIntens intensity, uint16_t encoding);
-        uint16_t draw_string(sh1122_pixel_t loc_up_l_corner, SH1122PixIntens intensity, const char* format, ...);
+        uint16_t font_get_string_width(const char* format, ...);
+        uint16_t font_get_string_height(const char* format, ...);
+        uint16_t font_get_glyph_width(uint16_t encoding);
+        uint16_t font_get_glyph_height(uint16_t encoding);
+        uint16_t font_get_string_center_x(const char* str);
+        uint16_t font_get_string_center_y(const char* str);
 
         void reset();
         bool off();
@@ -55,9 +62,9 @@ class SH1122Oled
         bool set_vseg(uint8_t vseg_reg_val);
         bool set_inverted_intensity(bool inverted);
 
-        static const constexpr uint16_t WIDTH = 256U; ///<Display width
-        static const constexpr uint16_t HEIGHT = 64U; ///<Display height
-        static const constexpr uint16_t MAX_STR_SZ = 50U;
+        static const constexpr uint16_t WIDTH = 256U;     ///<Display width
+        static const constexpr uint16_t HEIGHT = 64U;     ///<Display height
+        static const constexpr uint16_t MAX_STR_SZ = 50U; ///<Max possible string size to be sent with draw_string()
 
     private:
         /// @brief Font information structure, used to contain information about the currently loaded font.
@@ -114,9 +121,14 @@ class SH1122Oled
 
         bool send_cmds(uint8_t* cmds, uint16_t length);
 
+        void bitmap_read_byte(const uint8_t** data_ptr, int16_t& r_val_lim, SH1122PixIntens& intensity);
+        void bitmap_read_word(const uint8_t** data_ptr, int16_t& r_val_lim, SH1122PixIntens& intensity);
+        void bitmap_decode_pixel_block(const uint8_t** data_ptr, int16_t& r_val_lim, SH1122PixIntens& intensity);
+
         static uint8_t font_lookup_table_read_char(const uint8_t* font, uint8_t offset);
         static uint16_t font_lookup_table_read_word(const uint8_t* font, uint8_t offset);
         const uint8_t* font_get_glyph_data(uint16_t encoding);
+        uint16_t font_get_glyph_width(sh1122_oled_font_decode_t* decode, uint16_t encoding);
         void font_setup_glyph_decode(sh1122_oled_font_decode_t* decode, const uint8_t* glyph_data);
         int8_t font_decode_and_draw_glyph(sh1122_oled_font_decode_t* decode, const uint8_t* glyph_data);
         uint8_t font_decode_get_unsigned_bits(sh1122_oled_font_decode_t* decode, uint8_t cnt);
@@ -136,6 +148,17 @@ class SH1122Oled
         uint8_t frame_buffer[FRAME_BUFFER_LENGTH];                                ///< Frame buffer to contain pixel data being sent over SPI.
 
         static const constexpr TickType_t RST_DELAY_MS = 100UL / portTICK_PERIOD_MS;
+
+        // bitmap decoding
+        static const constexpr uint8_t BITMAP_DECODE_WORD_FLG_BIT = BIT7;    ///< Indicates word length pixel block.
+        static const constexpr uint16_t BITMAP_DECODE_R_VAL_LOW_BIT_POS = 5; ///< Shift for lower repeated value bits.
+        static const constexpr uint16_t BITMAP_DECODE_R_VAL_LOW_MASK =
+                (BIT7 | BIT6 | BIT5); ///< Mask for isolating the 3 lsbs of repeated value count with word length pixel block.
+        static const constexpr uint16_t BITMAP_DECODE_R_VAL_B_MASK =
+                (BIT6 | BIT5); ///< Mask for isolating repeated value count with byte length pixel block.
+        static const constexpr uint8_t BITMAP_DECODE_PIXEL_INTENSITY_MASK =
+                (BIT4 | BIT3 | BIT2 | BIT1 | BIT0); ///< Mask for isolating grayscale intensity value.
+
         // commands
         static const constexpr uint8_t CMD_POWER_ON = 0xAF;              ///< Power on command.
         static const constexpr uint8_t CMD_POWER_OFF = 0xAE;             ///< Power off command.

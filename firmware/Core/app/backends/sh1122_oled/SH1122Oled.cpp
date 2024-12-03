@@ -282,6 +282,48 @@ void SH1122Oled::draw_rectangle(sh1122_pixel_t loc_up_l_corner, int16_t width, i
 }
 
 /**
+ * @brief Draws a sh1122 custom run-length-encoded bitmap created with sh1122_encode_bitmap.py.
+ *
+ * @param loc_up_l_corner Bitmap start location/anchor (upper left corner of bitmap)
+ * @param bitmap Pointer to first element of bitmap to draw.
+ * @param bg_intensity Background intensity (optional, default transparent), fills transparent pixels with bg_intensity if used
+ *
+ * @return void, nothing to return
+ */
+void SH1122Oled::draw_bitmap(sh1122_pixel_t loc_up_l_corner, const uint8_t* bitmap, SH1122PixIntens bg_intensity)
+{
+    const int16_t bitmap_col_sz = *(bitmap + 2);
+    const int16_t bitmap_row_sz = *(bitmap + 3);
+    const uint8_t* data_ptr = bitmap + 4;
+    int16_t repeated_value_lim = 0;
+    SH1122PixIntens intensity = SH1122PixIntens::level_transparent;
+    int16_t repeated_value_count = 0;
+    sh1122_pixel_t loc_local;
+
+    bitmap_decode_pixel_block(&data_ptr, repeated_value_lim, intensity);
+
+    for (int row = 0; row < bitmap_row_sz; row++)
+    {
+        for (int col = 0; col < bitmap_col_sz; col++)
+        {
+            if (intensity == SH1122PixIntens::level_transparent)
+                intensity = bg_intensity;
+
+            loc_local.x = loc_up_l_corner.x + col;
+            loc_local.y = loc_up_l_corner.y + row;
+            set_pixel(loc_local, intensity);
+            repeated_value_count++;
+
+            if (repeated_value_count >= repeated_value_lim)
+            {
+                bitmap_decode_pixel_block(&data_ptr, repeated_value_lim, intensity);
+                repeated_value_count = 0;
+            }
+        }
+    }
+}
+
+/**
  * @brief Loads a font for drawing strings and glyphs.
  *
  * @param font A pointer to the first element of the respective font lookup table, font tables are located in fonts directory.
@@ -326,6 +368,253 @@ void SH1122Oled::load_font(const uint8_t* font)
 void SH1122Oled::set_font_direction(SH1122FontDir dir)
 {
     font_dir = dir;
+}
+
+/**
+ * @brief Returns the width of specified string using the currently loaded font.
+ *
+ * @param format The string for which width is desired, supports variable arguments (ie printf style formatting)
+ * @return The width of the specified string.
+ */
+uint16_t SH1122Oled::font_get_string_width(const char* format, ...)
+{
+    uint16_t encoding;
+    uint16_t width;
+    uint16_t dx;
+    int8_t initial_x_offset = -64;
+    sh1122_oled_font_decode_t decode;
+    int16_t chars_written = 0U;
+    uint8_t* str = nullptr;
+    char str_to_send[MAX_STR_SZ] = {};
+    va_list args;
+
+    // cannot get string width without font info
+    if (font_info.font == nullptr)
+    {
+        SerialService::print_log_ln(TAG, "No font loaded.");
+        return 0;
+    }
+
+    va_start(args, format);
+    chars_written = vsnprintf(str_to_send, MAX_STR_SZ, format, args);
+    va_end(args);
+
+    if (chars_written >= MAX_STR_SZ)
+        return 0;
+
+    str = reinterpret_cast<uint8_t*>(str_to_send);
+    width = 0;
+    dx = 0;
+
+    while (1)
+    {
+        encoding = get_ascii_next(*str); // get next character
+
+        if (encoding == 0x0ffff)
+            break;
+        if (encoding != 0x0fffe)
+        {
+            dx = font_get_glyph_width(&decode, encoding); // get the glyph width
+            if (initial_x_offset == -64)
+                initial_x_offset = decode.glyph_x_offset;
+
+            width += dx; // increment width counter
+        }
+        str++; // increment string pointer to next glyph
+    }
+
+    // if glyph_width is greater than 0, apply the respective glyph x offset.
+    if (decode.glyph_width != 0)
+    {
+        width -= dx;
+        width += decode.glyph_width;
+        width += decode.glyph_x_offset;
+        if (initial_x_offset > 0)
+            width += initial_x_offset;
+    }
+
+    return width;
+}
+
+/**
+ * @brief Returns the height (tallest character height) of specified string using the currently loaded font.
+ *
+ * @param format The string for which height is desired, supports variable arguments (ie printf style formatting)
+ * @return The width of the specified string.
+ */
+uint16_t SH1122Oled::font_get_string_height(const char* format, ...)
+{
+    uint16_t current_height = 0U;
+    uint16_t max_height = 0U;
+    uint16_t encoding = 0U;
+    int16_t chars_written = 0U;
+    uint8_t* str = nullptr;
+    char str_to_send[MAX_STR_SZ] = {};
+    va_list args;
+
+    // cannot get string width without font info
+    if (font_info.font == nullptr)
+    {
+        SerialService::print_log_ln(TAG, "No font loaded.");
+        return 0;
+    }
+
+    va_start(args, format);
+    chars_written = vsnprintf(str_to_send, MAX_STR_SZ, format, args);
+    va_end(args);
+
+    if (chars_written >= MAX_STR_SZ)
+        return 0;
+
+    str = reinterpret_cast<uint8_t*>(str_to_send);
+
+    while (1)
+    {
+        encoding = get_ascii_next(*str); // get next character
+
+        if (encoding == 0x0ffff)
+            break;
+
+        if (encoding != 0x0fffe)
+        {
+            current_height = font_get_glyph_height(*str);
+            // if the current height is greater than the largest height detected
+            if (current_height > max_height)
+                max_height = current_height; // overwrite max_height with tallest character height detected
+        }
+
+        str++; // increment string pointer to next glyph
+    }
+
+    return max_height;
+}
+
+/**
+ * @brief Returns the width of specified glyph using the currently loaded font.
+ *
+ * @param encoding The encoding of the character for which width is desired, supports UTF-8 and UTF-16.
+ * @return The width of the specified glyph.
+ */
+uint16_t SH1122Oled::font_get_glyph_width(uint16_t encoding)
+{
+    const uint8_t* glyph_data;
+    sh1122_oled_font_decode_t decode;
+
+    if (font_info.font == nullptr)
+    {
+        SerialService::print_log_ln(TAG, "No font loaded.");
+        return 0;
+    }
+
+    glyph_data = font_get_glyph_data(encoding);
+
+    if (glyph_data == NULL)
+        return 0;
+
+    font_setup_glyph_decode(&decode, glyph_data);
+    font_decode_get_signed_bits(&decode, font_info.bits_per_char_x);
+    font_decode_get_signed_bits(&decode, font_info.bits_per_char_y);
+
+    return font_decode_get_signed_bits(&decode, font_info.bits_per_delta_x);
+}
+
+/**
+ * @brief Returns the width of specified glyph using the currently loaded font. Overloaded with decode structure for calls to font_get_string_width()
+ *
+ * @param decode The decode structure to save the glyph x offset in, for use within get_string_width()
+ * @param encoding The encoding of the character for which width is desired, supports UTF-8 and UTF-16.
+ * @return The width of the specified glyph.
+ */
+uint16_t SH1122Oled::font_get_glyph_width(sh1122_oled_font_decode_t* decode, uint16_t encoding)
+{
+    const uint8_t* glyph_data;
+
+    if (font_info.font == nullptr)
+    {
+        SerialService::print_log_ln(TAG, "No font loaded.");
+        return 0;
+    }
+
+    glyph_data = font_get_glyph_data(encoding);
+
+    if (glyph_data == NULL)
+        return 0;
+
+    font_setup_glyph_decode(decode, glyph_data);
+    decode->glyph_x_offset = font_decode_get_signed_bits(decode, font_info.bits_per_char_x);
+    font_decode_get_signed_bits(decode, font_info.bits_per_char_y);
+
+    return font_decode_get_signed_bits(decode, font_info.bits_per_delta_x);
+}
+
+/**
+ * @brief Returns the height of specified glyph using the currently loaded font.
+ *
+ * @param encoding The encoding of the character for which height is desired, supports UTF-8 and UTF-16.
+ * @return The height of the specified glyph.
+ */
+uint16_t SH1122Oled::font_get_glyph_height(uint16_t encoding)
+{
+    const uint8_t* glyph_data;
+    sh1122_oled_font_decode_t decode;
+
+    if (font_info.font == nullptr)
+    {
+        SerialService::print_log_ln(TAG, "No font loaded.");
+        return 0;
+    }
+
+    glyph_data = font_get_glyph_data(encoding);
+
+    if (glyph_data == NULL)
+        return 0;
+
+    font_setup_glyph_decode(&decode, glyph_data);
+
+    return decode.glyph_height;
+    return 0;
+}
+
+/**
+ * @brief Returns the x position required to horizontally center a given string.
+ *
+ * @param str The string for which a horizontal centering is desired.
+ * @return The x position the string should be drawn at to center it horizontally.
+ */
+uint16_t SH1122Oled::font_get_string_center_x(const char* str)
+{
+    uint16_t str_width;
+
+    if (font_info.font == nullptr)
+    {
+        SerialService::print_log_ln(TAG, "No font loaded.");
+        return 0;
+    }
+
+    str_width = font_get_string_width(str);
+
+    return (WIDTH - str_width) / 2;
+}
+
+/**
+ * @brief Returns the y position required to vertically center a given string.
+ *
+ * @param str The string for which a vertical centering is desired.
+ * @return The y position the string should be drawn at to center it vertically.
+ */
+uint16_t SH1122Oled::font_get_string_center_y(const char* str)
+{
+    uint16_t max_char_height;
+
+    if (font_info.font == nullptr)
+    {
+        SerialService::print_log_ln(TAG, "No font loaded.");
+        return 0;
+    }
+
+    max_char_height = font_get_string_height(str);
+
+    return (HEIGHT - max_char_height) / 2;
 }
 
 /**
@@ -511,6 +800,37 @@ bool SH1122Oled::send_cmds(uint8_t* cmds, uint16_t length)
     HAL_GPIO_WritePin(PIN_DISP_CS.port, PIN_DISP_CS.num, GPIO_PIN_SET); // bring chip select high
 
     return (op_success == HAL_OK);
+}
+
+void SH1122Oled::bitmap_read_byte(const uint8_t** data_ptr, int16_t& r_val_lim, SH1122PixIntens& intensity)
+{
+    intensity = static_cast<SH1122PixIntens>(**data_ptr & BITMAP_DECODE_PIXEL_INTENSITY_MASK);
+    r_val_lim = static_cast<int16_t>((**data_ptr & BITMAP_DECODE_R_VAL_B_MASK) >> 5);
+    *data_ptr += 1;
+}
+
+void SH1122Oled::bitmap_read_word(const uint8_t** data_ptr, int16_t& r_val_lim, SH1122PixIntens& intensity)
+{
+    intensity = static_cast<SH1122PixIntens>(*(*data_ptr + 1) & BITMAP_DECODE_PIXEL_INTENSITY_MASK);
+    r_val_lim = static_cast<int16_t>(
+            ((**data_ptr & ~BITMAP_DECODE_WORD_FLG_BIT) << 3) | (int16_t) (((*(*data_ptr + 1)) & BITMAP_DECODE_R_VAL_LOW_MASK) >> 5));
+    *data_ptr += 2;
+}
+
+/**
+ * @brief Decodes a single pixel block (an intensity and the amount of pixels it repeats) from sh1122 RLE bitmap data.
+ *
+ * @param data_ptr Pointer to current pixel block in bitmap data. Incremented after read is completed to next pixel block.
+ * @param r_val_lim Repeated value limit returned from data, total amount of pixels returned intensity repeats for.
+ * @param intensity Grayscale intensity value returned from data.
+ * @return void, nothing to return
+ */
+void SH1122Oled::bitmap_decode_pixel_block(const uint8_t** data_ptr, int16_t& r_val_lim, SH1122PixIntens& intensity)
+{
+    if (**data_ptr & BITMAP_DECODE_WORD_FLG_BIT)
+        bitmap_read_word(data_ptr, r_val_lim, intensity);
+    else
+        bitmap_read_byte(data_ptr, r_val_lim, intensity);
 }
 
 /**
