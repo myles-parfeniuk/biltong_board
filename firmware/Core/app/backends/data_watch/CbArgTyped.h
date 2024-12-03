@@ -1,6 +1,8 @@
 #pragma once
 
 #include "CbGeneric.h"
+#include "FreeRTOS.h"
+#include "semphr.h"
 
 /**
  * @class CbArgTyped
@@ -23,10 +25,12 @@ class CbArgTyped : public CbGeneric
          *
          * @return void, nothing to return
          */
-        CbArgTyped(std::function<void(TData)> cb, TData* arg2p, TData* data)
+        CbArgTyped(std::function<void(TData)> cb, TData* arg2p, TData* data, SemaphoreHandle_t* mutex_cb_execution)
             : cb(cb)
             , arg2p(arg2p)
+            , data(data)
             , last_in_chain(false)
+            , mutex_cb_execution(mutex_cb_execution)
         {
         }
 
@@ -42,9 +46,14 @@ class CbArgTyped : public CbGeneric
         {
             cb(*arg2p);
 
-            // overwrite current data with new data if this is the last callback to be executed
+            // this callback is the last in a salvo of callbacks to be executed, initiated by a DataWatch object
             if (last_in_chain)
+            {
+                // overwrite DataWatch data with new data (arg2p)
                 *data = *arg2p;
+                // release the cb execution mutex such that callbacks are free to execute for next call of DataWatch::set()
+                xSemaphoreGive(*mutex_cb_execution);
+            }
         }
 
         bool last_in_chain = false; ///< True if this callback is the last to be executed in a salvo initiated by a DataWatch object.
@@ -53,4 +62,6 @@ class CbArgTyped : public CbGeneric
         std::function<void(TData)> cb; ///< The wrapped callback function.
         TData* arg2p;                  ///< Pointer to argument to pass to wrapped callback, lives within a respective DataWatch object.
         TData* data; ///< Pointer to DataWatch data to overwrite with arg2p if this callback is the last in a salvo of callbacks initiated by said DataWatch object.
+        SemaphoreHandle_t* mutex_cb_execution =
+                nullptr; ///< Mutex to prevent callback execution from being requested before previous salvo of callback executions has completed.
 };

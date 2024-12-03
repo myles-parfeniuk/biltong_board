@@ -4,7 +4,6 @@
 #include <stdio.h>
 // third party includes
 #include <etl/vector.h>
-#include "FreeRTOS.h"
 // in house includes
 #include "CbHelper.h"
 
@@ -33,6 +32,7 @@ class DataWatch
         DataWatch(TData init_data)
             : data(init_data)
             , arg2p(init_data)
+            , mutex_cb_execution(xSemaphoreCreateMutex())
         {
         }
 
@@ -41,7 +41,7 @@ class DataWatch
          *
          * @param new_data The new data value to be set.
          *
-         * @return True if all callbacks were successfully queued. 
+         * @return True if all callbacks were successfully queued.
          */
         bool set(TData new_data)
         {
@@ -50,17 +50,26 @@ class DataWatch
             if (cb_list.size() > 0)
             {
                 // if cb helper isn't initialized, nothing will execute anyway
-                if (!CbHelper::initialized)
-                    return false;
-
-                CbHelper::queue_cbs<TData, MAX_SUBS>(cb_list); // queue the callbacks, they'll handle setting data = new_data themselves
+                if (CbHelper::initialized)
+                {
+                    // check if previous salvo of callbacks has completed executions
+                    if (xSemaphoreTake(mutex_cb_execution, 1UL / portTICK_PERIOD_MS) == pdTRUE)
+                    {
+                        // queue the callbacks, they'll handle setting data = new_data themselves
+                        if (CbHelper::queue_cbs<TData, MAX_SUBS>(cb_list))
+                            return true;
+                        else
+                            xSemaphoreGive(mutex_cb_execution); // last in chain never queued, mutex must be released to avoid deadlock
+                    }
+                }
             }
             else
             {
                 data = new_data; // no callbacks registered, we have to do this ourselves
+                return true;
             }
 
-            return true; 
+            return false;
         }
 
         /**
@@ -93,8 +102,8 @@ class DataWatch
                 if (cb_list.size() > 0)
                     cb_list.back().last_in_chain = false;
 
-                cb_list.push_back(CbArgTyped<TData>(cb, &arg2p, &data)); // Create a cb wrapper and push it into the vector
-                cb_list.back().last_in_chain = true;                     // set new final element in vector
+                cb_list.push_back(CbArgTyped<TData>(cb, &arg2p, &data, &mutex_cb_execution)); // Create a cb wrapper and push it into the vector
+                cb_list.back().last_in_chain = true;                                          // set new final element in vector
 
                 return true;
             }
@@ -106,6 +115,8 @@ class DataWatch
         TData data;                                       ///< Current data value.
         TData arg2p;                                      ///< Value to be passed to callbacks when they are invoked (newest data).
         etl::vector<CbArgTyped<TData>, MAX_SUBS> cb_list; ///< List of subscribed callbacks.
+        SemaphoreHandle_t mutex_cb_execution =
+                NULL; ///< Mutex to prevent callback execution from being requested before previous salvo of callback executions has completed.
 
         static const constexpr char* TAG = "DataWatch"; ///< Class tag, used in debug logs.
 };
