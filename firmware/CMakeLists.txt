@@ -43,7 +43,8 @@ set(PROJECT_INCLUDE_DIRECTORIES
     # Can add other folders in the project here    
     ${PROJECT_DIR}
     ${PROJECT_DIR}/backends
-    ${PROJECT_DIR}/backends/sh1122_oled)
+    ${PROJECT_DIR}/backends/sh1122_oled
+    ${PROJECT_DIR}/backends/data_watch)
 set(THIRD_PARTY_INCLUDE_DIRECTORIES
     # Can add third party folders here
     ${VENDOR_DIR}
@@ -51,8 +52,8 @@ set(THIRD_PARTY_INCLUDE_DIRECTORIES
 
 # Sources
 file(GLOB_RECURSE STM32CUBEMX_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/*.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/*.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/Source/*.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM0/*.c
@@ -87,7 +88,9 @@ file(GLOB_RECURSE PROJECT_SOURCES FOLLOW_SYMLINKS
     ${PROJECT_DIR}/backends/*.cpp
     ${PROJECT_DIR}/backends/*.c
     ${PROJECT_DIR}/backends/sh1122_oled/*.cpp
-    ${PROJECT_DIR}/backends/sh1122_oled/*.c)
+    ${PROJECT_DIR}/backends/sh1122_oled/*.c
+    ${PROJECT_DIR}/backends/data_watch/*.cpp
+    ${PROJECT_DIR}/backends/data_watch/*.c)
     
 
 # Executable files
@@ -124,6 +127,8 @@ target_compile_options(${EXECUTABLE} PRIVATE
     $<$<CONFIG:Debug>:-Og -g3 -ggdb -O0> #optimizations disabled, remove -O0 to enable
     $<$<CONFIG:Release>:-Og -g0 -O0>)
 
+
+
 target_link_options(${EXECUTABLE} PRIVATE
     -T${MCU_LINKER_SCRIPT}
     ${CPU_PARAMETERS}
@@ -135,6 +140,13 @@ target_link_options(${EXECUTABLE} PRIVATE
     -lstdc++
     -Wl,--end-group
     -Wl,--print-memory-usage)
+
+
+# Apply compile options to STM32CubeMX sources
+set_source_files_properties(${STM32CUBEMX_SOURCES} PROPERTIES COMPILE_FLAGS "-w")
+
+# Apply compile options to third-party sources (e.g., FreeRTOS)
+set_source_files_properties(${THIRD_PARTY_SOURCES} PROPERTIES COMPILE_FLAGS "-w")
 
 add_custom_command(TARGET ${EXECUTABLE} POST_BUILD
     COMMAND ${CMAKE_SIZE} $<TARGET_FILE:${EXECUTABLE}>)

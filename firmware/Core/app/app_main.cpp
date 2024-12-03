@@ -11,6 +11,7 @@
 #include "SerialService.h"
 #include "TempHumiditySensor.h"
 #include "SH1122Oled.h"
+#include "DataWatch.h"
 
 const constexpr char* TAG = "Main";
 
@@ -28,6 +29,8 @@ extern "C" int app_main()
 
 void task_idle(void* arg)
 {
+    DataWatch<uint16_t, 4> thingy(0);
+
     // call constructors for modules
     /*
     static SH1122Oled oled(&hspi1);
@@ -38,8 +41,10 @@ void task_idle(void* arg)
     // initialize modules:
     if (!SerialService::init(&huart3))
         vTaskDelete(NULL); // self delete task and crash program on failure
-
     /*
+    if (!CbHelper::init())
+        vTaskDelete(NULL);
+
     if (!th_sens_A.init())
         vTaskDelete(NULL);
 

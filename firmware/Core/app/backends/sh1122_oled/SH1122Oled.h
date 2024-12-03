@@ -17,6 +17,11 @@
 
 #define SH1122_PIXEL_IN_BOUNDS(x, y) (((x >= 0) && (x < SH1122Oled::WIDTH)) && ((y >= 0) && (y < SH1122Oled::HEIGHT)))
 
+/**
+ * @class SH1122Oled
+ *
+ * @brief SH1122 SPI based oled driver. Has APIs to interact with OLED in various ways, ie drawing and sending commands.
+ * */
 class SH1122Oled
 {
     public:
