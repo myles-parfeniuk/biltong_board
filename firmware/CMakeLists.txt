@@ -44,7 +44,8 @@ set(PROJECT_INCLUDE_DIRECTORIES
     ${PROJECT_DIR}
     ${PROJECT_DIR}/backends
     ${PROJECT_DIR}/backends/sh1122_oled
-    ${PROJECT_DIR}/backends/data_watch)
+    ${PROJECT_DIR}/backends/data_watch
+    ${PROJECT_DIR}/backends/button_driver)
 set(THIRD_PARTY_INCLUDE_DIRECTORIES
     # Can add third party folders here
     ${VENDOR_DIR}
@@ -90,7 +91,9 @@ file(GLOB_RECURSE PROJECT_SOURCES FOLLOW_SYMLINKS
     ${PROJECT_DIR}/backends/sh1122_oled/*.cpp
     ${PROJECT_DIR}/backends/sh1122_oled/*.c
     ${PROJECT_DIR}/backends/data_watch/*.cpp
-    ${PROJECT_DIR}/backends/data_watch/*.c)
+    ${PROJECT_DIR}/backends/data_watch/*.c
+    ${PROJECT_DIR}/backends/button_driver/*.cpp
+    ${PROJECT_DIR}/backends/button_driver/*.c)
     
 
 # Executable files

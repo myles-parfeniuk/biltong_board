@@ -48,9 +48,9 @@ class CbHelper
         template <typename TData, size_t MAX_SUBS>
         static bool queue_cbs(etl::vector<CbArgTyped<TData>, MAX_SUBS>& cb_list)
         {
-            for (const auto& cb : cb_list)
+            for (int i = 0; i < cb_list.size(); i++)
             {
-                CbGeneric* cb2invoke = &cb;
+                CbGeneric* cb2invoke = &cb_list[i];
 
                 if (xQueueSend(hdl_queue_cb, &cb2invoke, 0UL) != pdTRUE)
                     return false;

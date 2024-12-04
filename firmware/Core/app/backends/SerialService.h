@@ -80,11 +80,12 @@ class SerialService
 
             va_end(args);
 
-            if (chars_written >= (MAX_STR_SZ - TAG_NAME_LENGTH_TOT - 2)) // -2 for "\n\0"
+            if (chars_written >= (MAX_STR_SZ - TAG_NAME_LENGTH_TOT - 3)) // -3 for "\n\r\0"
                 return false;
 
             str_to_send[TAG_NAME_LENGTH_TOT + chars_written] = '\n';
-            str_to_send[TAG_NAME_LENGTH_TOT + chars_written + 1] = '\0';
+            str_to_send[TAG_NAME_LENGTH_TOT + chars_written + 1] = '\r';
+            str_to_send[TAG_NAME_LENGTH_TOT + chars_written + 2] = '\0';
 
             // send to queue and ensure it is not already full
             if (xQueueSend(serial_queue, str_to_send, 0UL) != pdTRUE)
