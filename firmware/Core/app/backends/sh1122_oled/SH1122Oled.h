@@ -38,6 +38,8 @@ class SH1122Oled
         uint16_t draw_glyph(sh1122_pixel_t loc_up_l_corner, SH1122PixIntens intensity, uint16_t encoding);
         uint16_t draw_string(sh1122_pixel_t loc_up_l_corner, SH1122PixIntens intensity, const char* format, ...);
 
+        uint16_t bitmap_get_width(const uint8_t* bitmap);
+
         static void load_font(const uint8_t* font);
         void set_font_direction(SH1122FontDir dir);
         uint16_t font_get_string_width(const char* format, ...);

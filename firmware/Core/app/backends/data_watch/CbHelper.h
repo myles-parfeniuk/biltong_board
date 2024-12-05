@@ -26,7 +26,7 @@ class CbHelper
          */
         static bool init()
         {
-            hdl_queue_cb = xQueueCreate(CB_QUEUE_SZ, sizeof(CbGeneric*));
+            hdl_queue_cb = xQueueCreate(CB_QUEUE_SZ, sizeof(CbGeneric *));
             // create cb task
             if (xTaskCreate(task_cb, "cb", 256, NULL, 1, &hdl_task_cb) != pdTRUE)
                 return false;
@@ -50,7 +50,7 @@ class CbHelper
         {
             for (int i = 0; i < cb_list.size(); i++)
             {
-                CbGeneric* cb2invoke = &cb_list[i];
+                CbGeneric *cb2invoke = &cb_list[i];
 
                 if (xQueueSend(hdl_queue_cb, &cb2invoke, 0UL) != pdTRUE)
                     return false;
@@ -72,7 +72,7 @@ class CbHelper
          */
         static void task_cb(void* arg)
         {
-            CbGeneric* cb2invoke;
+            CbGeneric *cb2invoke;
 
             while (1)
             {

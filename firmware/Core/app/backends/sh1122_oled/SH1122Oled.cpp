@@ -117,11 +117,11 @@ bool SH1122Oled::update_screen()
     HAL_GPIO_WritePin(PIN_DISP_DC.port, PIN_DISP_DC.num, GPIO_PIN_SET); // bring oled into data mode
 
     HAL_GPIO_WritePin(PIN_DISP_CS.port, PIN_DISP_CS.num, GPIO_PIN_RESET); // bring chip select low
-    vTaskDelay(1UL / portTICK_PERIOD_MS);
 
-    op_success = HAL_SPI_Transmit_DMA(hdl_spi, frame_buffer, FRAME_BUFFER_LENGTH);
 
-    vTaskDelay(1UL / portTICK_PERIOD_MS);
+    op_success = HAL_SPI_Transmit(hdl_spi, frame_buffer, FRAME_BUFFER_LENGTH, 100UL);
+
+
     HAL_GPIO_WritePin(PIN_DISP_CS.port, PIN_DISP_CS.num, GPIO_PIN_SET); // bring chip select high
 
     return (op_success == HAL_OK);
@@ -743,6 +743,16 @@ uint16_t SH1122Oled::draw_string(sh1122_pixel_t loc_up_l_corner, SH1122PixIntens
 }
 
 /**
+ * @brief Gives the width of the bitmap, for spacing purposes.
+ *
+ * @return Returns a uint16_t for the width
+ */
+uint16_t SH1122Oled::bitmap_get_width(const uint8_t* bitmap)
+{
+    return static_cast<uint16_t>(*(bitmap + 3));
+}
+
+/**
  * @brief Hard resets the SH1122 using the RST pin.
  *
  * @return void, nothing to return
@@ -794,7 +804,7 @@ bool SH1122Oled::send_cmds(uint8_t* cmds, uint16_t length)
     HAL_GPIO_WritePin(PIN_DISP_CS.port, PIN_DISP_CS.num, GPIO_PIN_RESET); // bring chip select low
     vTaskDelay(1UL / portTICK_PERIOD_MS);
 
-    op_success = HAL_SPI_Transmit_DMA(hdl_spi, cmds, length);
+    op_success = HAL_SPI_Transmit(hdl_spi, cmds, length, 100UL);
 
     vTaskDelay(1UL / portTICK_PERIOD_MS);
     HAL_GPIO_WritePin(PIN_DISP_CS.port, PIN_DISP_CS.num, GPIO_PIN_SET); // bring chip select high

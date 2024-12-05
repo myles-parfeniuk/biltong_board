@@ -113,7 +113,7 @@ class SerialService
                 // wait for a string to be received over the queue, max possible timeout
                 if (xQueueReceive(serial_queue, str_to_send, portMAX_DELAY) != pdFALSE)
                 {
-                    HAL_UART_Transmit(hdl_uart, reinterpret_cast<uint8_t*>(str_to_send), strlen(str_to_send), TX_TIMEOUT_MS);
+                    HAL_UART_Transmit_IT(hdl_uart, reinterpret_cast<uint8_t*>(str_to_send), strlen(str_to_send));
                 }
             }
         }
