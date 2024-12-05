@@ -9,6 +9,7 @@ Intended to be used with drying enclosures like biltong-boxes to produce sun-dri
 # Table of Contents
 
 - [About](#about)
+- [PCBWay Sponsorship](#pcbway-sponsorship)
 - [Hardware](#hardware)
   - [System Block Diagram](#system-block-diagram)
   - [PCB Renders](#pcb-renders)
@@ -17,6 +18,36 @@ Intended to be used with drying enclosures like biltong-boxes to produce sun-dri
 - [Firmware](#firmware)
 - [License](#license)
 - [Contact](#contact)
+
+
+# PCBWay Sponsorship
+Thank you to PCBWay for reaching out to sponsor this project and provide access to their excellent service.  
+PCBWay supports the DIY and open source community as well as students with sponsorships and contests frequently.   
+Show them some love and consider having your next project fabricated by them: 
+
+
+![image](documentation/README_IMAGES/PCB_way_logo.png) 
+
+Order [here](https://www.pcbway.com/) today.
+
+This was my second time using PCBWay's service, and just like last time the boards came out perfect with no defects.
+While assembling the boards at home with a friend, I even had him comment the silk screen and cosmetic qualities of the board were
+superior to that of domestic fabrication houses he has seen used throughout his professional career.   
+To be clear, we are talking about a 0.8mm character height, with no smudging or defected labels on any part of the board, amazing!
+
+The manufacturing and shipping time was just as fast as last time, under 2 weeks from gerber files to packages on my doorstep. 
+Their customer service was also top notch. The packages were initially thought to be lost by the postage service, they offered to replace them at no cost; but, thankfully they were found the next day.  
+
+Working with PCBWay both on this project and my previous project [here](https://github.com/myles-parfeniuk/wsen_hids_breakout) has made them my goto fabrication house. The cost to quality ratio ratio provided by their service is by far the best I have encountered. It would take a serious competitor to make me think otherwise. 
+
+Below are some photos of the assembled main boards, along with a 3D printed case to protect the HV parts of the board, designed by [hwBirdy007](https://github.com/hwBirdy007). The quality I'm speaking of is evident when viewing, next time I want to try a different color solder mask, as PCBWay provides a wide variety of choices at no extra cost (green ,red, yellow, blue, white , and black).  
+Note that the bodge wires on Y2 (low speed oscillator for RTC) are not the fault of PCBWay, I used an incorrect schematic symbol leading to an erroneous design, oops. Looks like I'll be using PCBWay again soon. 
+
+![image](documentation/README_IMAGES/board_real_front.jpg) 
+![image](documentation/README_IMAGES/board_real_back.jpg) 
+![image](documentation/README_IMAGES/board_real_case_front.jpg) 
+![image](documentation/README_IMAGES/board_real_case_back.jpg) 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Hardware
 
