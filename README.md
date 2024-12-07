@@ -41,7 +41,7 @@ Their customer service was also top notch. The packages were initially thought t
 Working with PCBWay both on this project and my previous project [here](https://github.com/myles-parfeniuk/wsen_hids_breakout) has made them my goto fabrication house. The cost to quality ratio ratio provided by their service is by far the best I have encountered. It would take a serious competitor to make me think otherwise. 
 
 Below are some photos of the assembled main boards, along with a 3D printed case to protect the HV parts of the board, designed by [hwBirdy007](https://github.com/hwBirdy007). The quality I'm speaking of is evident when viewing, next time I want to try a different color solder mask, as PCBWay provides a wide variety of choices at no extra cost (green ,red, yellow, blue, white , and black).  
-Note that the bodge wires on Y2 (low speed oscillator for RTC) are not the fault of PCBWay, I used an incorrect schematic symbol leading to an erroneous design, oops. Looks like I'll be using PCBWay again soon. 
+Note that the bodge wires on Y2 (low speed oscillator for RTC) are not the fault of PCBWay, I used an incorrect schematic symbol leading to an erroneous design, oops. Looks like I'll be using PCBWay again soon. This error has already been corrected in the provided KiCad files and generated gerbers.
 
 ![image](documentation/README_IMAGES/board_real_front.jpg) 
 ![image](documentation/README_IMAGES/board_real_back.jpg) 
