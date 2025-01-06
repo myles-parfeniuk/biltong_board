@@ -8,8 +8,8 @@
             "executable": "${workspaceRoot}/build/biltong_board_fw.elf",
             "request": "launch",
             "type": "cortex-debug",
-            "stm32cubeprogrammer": "D:/STM32CubeProgrammer/bin", //EDDIE DON'T COMMENT THIS, OTHERS MAYBE NEED TO COMMENT
-            "stlinkPath": "D:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_2.1.300.202403291623/tools/bin/ST-LINK_gdbserver.exe", //EDDIE DON'T COMMENT THIS, OTHERS MAYBE NEED TO COMMENT
+            //"stm32cubeprogrammer": "D:/STM32CubeProgrammer/bin", //EDDIE DON'T COMMENT THIS, OTHERS MAYBE NEED TO COMMENT
+            //"stlinkPath": "D:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_2.1.300.202403291623/tools/bin/ST-LINK_gdbserver.exe", //EDDIE DON'T COMMENT THIS, OTHERS MAYBE NEED TO COMMENT
             "servertype": "stlink",
             "device": "STM32G070CB",
             "interface": "swd",
@@ -25,8 +25,8 @@
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/build/biltong_board_fw.elf",
             "request": "attach",
-            "stm32cubeprogrammer": "D:/STM32CubeProgrammer/bin", //EDDIE DON'T COMMENT THIS, OTHERS MAYBE NEED TO COMMENT
-            "stlinkPath": "D:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_2.1.300.202403291623/tools/bin/ST-LINK_gdbserver.exe", //EDDIE DON'T COMMENT THIS, OTHERS MAYBE NEED TO COMMENT
+            //"stm32cubeprogrammer": "D:/STM32CubeProgrammer/bin", //EDDIE DON'T COMMENT THIS, OTHERS MAYBE NEED TO COMMENT
+            //"stlinkPath": "D:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_2.1.300.202403291623/tools/bin/ST-LINK_gdbserver.exe", //EDDIE DON'T COMMENT THIS, OTHERS MAYBE NEED TO COMMENT
             "type": "cortex-debug",
             "servertype": "stlink",
             "device": "STM32G070CB",

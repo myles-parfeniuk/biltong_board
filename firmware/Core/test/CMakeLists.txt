@@ -1,0 +1,13 @@
+set(TEST_INCLUDE_DIRECTORIES
+    ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/Unity/src
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+file(GLOB_RECURSE TEST_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/Unity/src/*.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+)
+
+target_sources(${EXECUTABLE} PRIVATE ${TEST_SOURCES})
+
+target_include_directories(${EXECUTABLE} PRIVATE ${TEST_INCLUDE_DIRECTORIES})

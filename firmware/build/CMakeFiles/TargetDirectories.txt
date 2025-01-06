@@ -1,3 +1,0 @@
-D:/projects/biltong_board_main/biltong_board/firmware/build/CMakeFiles/biltong_board_fw.dir
-D:/projects/biltong_board_main/biltong_board/firmware/build/CMakeFiles/edit_cache.dir
-D:/projects/biltong_board_main/biltong_board/firmware/build/CMakeFiles/rebuild_cache.dir

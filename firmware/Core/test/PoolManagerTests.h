@@ -1,0 +1,21 @@
+#pragma once
+
+// Prototypes for the PoolManagerTests functions
+
+void PoolManagerTests_pool_manager_init_val_test();
+void PoolManagerTests_dw_stk_ctrl_blks_init_val_test();
+void PoolManagerTests_allocate_single_dw_stk_test();
+void PoolManagerTests_pool_manager_vals_after_reset_test();
+void PoolManagerTests_dw_stk_ctrl_blks_vals_after_reset_test();
+void PoolManagerTests_allocate_multi_dw_stk_test();
+void PoolManagerTests_pool_manager_vals_after_dw_stk_allocation_reset_test();
+void PoolManagerTests_dw_stk_ctrl_blks_vals_after_dw_stk_allocation_after_reset_test();
+void PoolManagerTests_attempt_cb_pool_overflow_test();
+void PoolManagerTests_allocate_cb_test();
+void PoolManagerTests_pool_manager_vals_after_cb_allocation_reset_test();
+void PoolManagerTests_dw_stk_ctrl_blks_vals_after_cb_allocation_after_reset_test();
+void PoolManagerTests_allocate_multi_cb_test();
+void PoolManagerTests_pool_manager_vals_after_multi_cb_allocation_reset_test();
+void PoolManagerTests_dw_stk_ctrl_blks_vals_after_multi_cb_allocation_after_reset_test();
+void PoolManagerTests_attempt_dw_stk_overflow_test();
+void PoolManagerTests_run_all();  // Prototype for the function that runs all tests
