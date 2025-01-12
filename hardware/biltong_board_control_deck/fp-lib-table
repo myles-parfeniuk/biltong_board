@@ -1,4 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "BiltongBoardControlDeck")(type "KiCad")(uri "${KIPRJMOD}/biltong_board_control_deck.pretty")(options "")(descr ""))
-)

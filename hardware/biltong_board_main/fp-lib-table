@@ -1,4 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "BiltongBoardLib")(type "KiCad")(uri "${KIPRJMOD}/BiltongBoardLib.pretty")(options "")(descr ""))
-)

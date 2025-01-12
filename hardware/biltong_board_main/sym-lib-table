@@ -1,4 +1,0 @@
-(sym_lib_table
-  (version 7)
-  (lib (name "BiltongBoard")(type "KiCad")(uri "${KIPRJMOD}/BiltongBoard.kicad_sym")(options "")(descr ""))
-)
