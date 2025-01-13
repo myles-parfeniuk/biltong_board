@@ -1,62 +1,33 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file    stm32g0xx_it.c
-  * @brief   Interrupt Service Routines.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
-
-/* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stm32g0xx_it.h"
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-/* USER CODE END Includes */
+//in-house includes
+#include "biltong_it.h"
 
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN TD */
+/**
+ ******************************************************************************
+ * @file    biltong_it.c
+ * @brief   Interrupt Service Routines
+ ******************************************************************************
+ * @attention
+ *
+ * Author: Eddie Sherban
+ *
+ * This file is where all the biltong-related interrupts will be defined.
+ * Cube's generated files will initialize all necessary interrupts, and this
+ * file will hard define all the IRQHandlers, since they are currently weak-defined
+ * by the startup assembly code.
+ *
+ *     List of EXTI lines used:
+ *         GPIO_EXTI2: PD2 -> ZERO CROSS
+ *         GPIO_EXTI3: PA3 -> SW_UP
+ *         GPIO_EXTI4: PA4 -> SW_ENTER
+ *         GPIO_EXTI5: PA5 -> SW_DOWN
+ *
+ ******************************************************************************
+ */
 
-/* USER CODE END TD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
-
-/* External variables --------------------------------------------------------*/
 extern I2C_HandleTypeDef hi2c1;
 extern I2C_HandleTypeDef hi2c2;
+extern DMA_HandleTypeDef hdma_spi1_tx;
 extern SPI_HandleTypeDef hspi1;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim6;
@@ -65,10 +36,6 @@ extern TIM_HandleTypeDef htim16;
 extern TIM_HandleTypeDef htim17;
 extern UART_HandleTypeDef huart3;
 extern TIM_HandleTypeDef htim7;
-
-/* USER CODE BEGIN EV */
-
-/* USER CODE END EV */
 
 /******************************************************************************/
 /*           Cortex-M0+ Processor Interruption and Exception Handlers          */
@@ -113,6 +80,7 @@ void HardFault_Handler(void)
 /**
   * @brief This function handles EXTI line 2 and line 3 interrupts.
   */
+ ///////////////////////////////////////////////////////////////////////////////////////////////////
 void EXTI2_3_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI2_3_IRQn 0 */
@@ -133,13 +101,14 @@ void EXTI4_15_IRQHandler(void)
   /* USER CODE BEGIN EXTI4_15_IRQn 0 */
 
   /* USER CODE END EXTI4_15_IRQn 0 */
+  ButtonDriver::up_button_ISR();
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
   /* USER CODE BEGIN EXTI4_15_IRQn 1 */
 
   /* USER CODE END EXTI4_15_IRQn 1 */
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 /**
   * @brief This function handles TIM3 global interrupt.
   */
