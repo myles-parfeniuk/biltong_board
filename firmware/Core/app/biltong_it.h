@@ -18,8 +18,10 @@
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32G0xx_IT_H
-#define __STM32G0xx_IT_H
+#ifndef _BILTONG_IT_H
+#define _BILTONG_IT_H
+
+#include "ButtonDriver.h"
 
 #ifdef __cplusplus
  extern "C" {
@@ -68,4 +70,4 @@ void USART3_4_IRQHandler(void);
 }
 #endif
 
-#endif /* __STM32G0xx_IT_H */
+#endif /* _BILTONG_IT_H */
