@@ -1,3 +1,28 @@
 {
   "cortex-debug.armToolchainPath": "C:/gcc-arm-none-eabi-10.3-2021.10/bin",
+  "files.associations": {
+    "algorithm": "cpp",
+    "*.tcc": "cpp",
+    "chrono": "cpp",
+    "deque": "cpp",
+    "unordered_map": "cpp",
+    "vector": "cpp",
+    "array": "cpp",
+    "functional": "cpp",
+    "iterator": "cpp",
+    "memory_resource": "cpp",
+    "optional": "cpp",
+    "tuple": "cpp",
+    "iosfwd": "cpp",
+    "memory": "cpp",
+    "mutex": "cpp",
+    "numeric": "cpp",
+    "ranges": "cpp",
+    "stop_token": "cpp",
+    "streambuf": "cpp",
+    "thread": "cpp",
+    "cmath": "cpp",
+    "utility": "cpp",
+    "ratio": "cpp"
+  },
 }

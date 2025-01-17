@@ -97,8 +97,8 @@ namespace opee
 
             inline static CbPoolManager<DWMaxCnt> manager;
             inline static TaskHandle_t task_cb_hdl = NULL;
-            inline static opee_uint8_t queue_cb_buff[OPEEconfigCB_QUEUE_SZ * sizeof(cb_queue_item_t)];
-            inline static StaticQueue_t queue_cb;
+            inline static opee_uint8_t queue_cb_buff[OPEEconfigCB_QUEUE_SZ * sizeof(cb_queue_item_t)]; ///< Buffer to hold serial queue
+            inline static StaticQueue_t queue_cb;                                                      ///< Static queue for containing queue_cb_hdl ctx
             inline static QueueHandle_t queue_cb_hdl = xQueueCreateStatic(OPEEconfigCB_QUEUE_SZ, sizeof(cb_queue_item_t), queue_cb_buff, &queue_cb);
 
             // prevent creation and copies of this class, it's just a container for methods

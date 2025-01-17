@@ -5,7 +5,7 @@
 #include <cstring>
 #include <cstdarg>
 #include <math.h>
-// cube mx inclues
+// cube mx includes
 #include "spi.h"
 // third party includes
 #include "FreeRTOS.h"
@@ -152,7 +152,7 @@ class SH1122Oled
         inline static SH1122FontDir font_dir = SH1122FontDir::left_to_right;
 
         static const constexpr uint16_t FRAME_BUFFER_LENGTH = WIDTH * HEIGHT / 2; ///< Length of frame buffer being sent over SPI.
-        uint8_t frame_buffer[FRAME_BUFFER_LENGTH];                                ///< Frame buffer to contain pixel data being sent over SPI.
+        inline static uint8_t frame_buffer[FRAME_BUFFER_LENGTH] = {0U};           ///< Frame buffer to contain pixel data being sent over SPI.
 
         static const constexpr TickType_t RST_DELAY_MS = 100UL / portTICK_PERIOD_MS;
 
