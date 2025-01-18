@@ -23,7 +23,7 @@ void task_idle(void* arg);
 
 extern "C" int app_main()
 {
-    xTaskCreate(task_idle, "IdleTask", 256 * 5, NULL, 1, &task_idle_hdl);
+    xTaskCreate(task_idle, "IdleTask", 128 * 3, NULL, 1, &task_idle_hdl);
     vTaskStartScheduler();
 
     return 0;

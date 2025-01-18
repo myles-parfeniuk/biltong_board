@@ -42,7 +42,7 @@ class SerialService
                 return false;
 
             // launch serial service task
-            task_created = xTaskCreate(serial_task, "SerialTask", 256 * 2, NULL, 5, NULL);
+            task_created = xTaskCreate(serial_task, "SerialTask", 128, NULL, 5, NULL);
             if (task_created != pdTRUE)
                 return false;
 
@@ -117,8 +117,8 @@ class SerialService
             }
         }
 
-        static const constexpr uint16_t MAX_STR_SZ = 150U;     ///< max string size in bytes that can be sent over queue
-        static const constexpr uint16_t MAX_PENDING_MSGS = 5U; ///< max strings that can be in queue_serial at any given time
+        static const constexpr uint16_t MAX_STR_SZ = 100U;     ///< max string size in bytes that can be sent over queue
+        static const constexpr uint16_t MAX_PENDING_MSGS = 3U; ///< max strings that can be in queue_serial at any given time
 
     private:
         inline static TaskHandle_t hdl_task_serial_service = NULL; ///< Serial service task handle.

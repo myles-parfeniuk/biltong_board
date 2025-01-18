@@ -65,7 +65,7 @@ void ButtonDriver::task_button_scan()
         do
         {
             if (scan_button(scan_ctx_button_up, button_bits))
-                xEventGroupClearBits(evt_grp_btn, EVT_GRP_BTN_ENTER_BIT);
+                xEventGroupClearBits(evt_grp_btn, EVT_GRP_BTN_UP_BIT);
 
             if (scan_button(scan_ctx_button_enter, button_bits))
                 xEventGroupClearBits(evt_grp_btn, EVT_GRP_BTN_ENTER_BIT);

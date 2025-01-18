@@ -65,6 +65,7 @@ extern "C"
             }
 
         private:
+            inline static biltong_isr_t dummy = nullptr;
             inline static biltong_isr_t up_button_ISR = nullptr;
             inline static biltong_isr_t enter_button_ISR = nullptr;
             inline static biltong_isr_t down_button_ISR = nullptr;
