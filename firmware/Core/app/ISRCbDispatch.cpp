@@ -1,11 +1,11 @@
 // cube-mx includes
 #include "main.h"
 // in-house includes
-#include "ISRDispatch.h"
+#include "ISRCbDispatch.h"
 
 /**
  ******************************************************************************
- * @file    ISRDispatch.c
+ * @file    ISRCbDispatch.c
  * @brief   Dispatches specific ISR callbacks from shared ISRs.
  ******************************************************************************
  * @attention
@@ -84,7 +84,7 @@ void HardFault_Handler(void)
 void EXTI2_3_IRQHandler(void)
 {
     if (__HAL_GPIO_EXTI_GET_IT(PIN_SW_UP.num) == SET)
-        ISRDispatch::execute_up_switch_ISR();
+        ISRCbDispatch::execute_up_switch_ISR_cb();
 
     HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
     HAL_GPIO_EXTI_IRQHandler(PIN_SW_UP.num);
@@ -96,10 +96,10 @@ void EXTI2_3_IRQHandler(void)
 void EXTI4_15_IRQHandler(void)
 {
     if (__HAL_GPIO_EXTI_GET_IT(PIN_SW_ENTER.num) == SET)
-        ISRDispatch::execute_enter_switch_ISR();
+        ISRCbDispatch::execute_enter_switch_ISR_cb();
 
     if (__HAL_GPIO_EXTI_GET_IT(PIN_SW_DOWN.num) == SET)
-        ISRDispatch::execute_down_switch_ISR();
+        ISRCbDispatch::execute_down_switch_ISR_cb();
 
     HAL_GPIO_EXTI_IRQHandler(PIN_SW_ENTER.num);
     HAL_GPIO_EXTI_IRQHandler(PIN_SW_DOWN.num);

@@ -6,7 +6,7 @@
 #include "Device_types.h"
 #include "Device.h"
 #include "pins.h"
-#include "ISRDispatch.h"
+#include "ISRCbDispatch.h"
 #define ENTER_ACTIVE HAL_GPIO_ReadPin(PIN_SW_ENTER.port, PIN_SW_ENTER.num) == GPIO_PIN_RESET
 class SwitchDriver
 {
@@ -43,9 +43,9 @@ class SwitchDriver
                 }
         } scan_state_ctx_t;
 
-        static void up_switch_ISR();
-        static void enter_switch_ISR();
-        static void down_switch_ISR();
+        static void up_switch_ISR_cb();
+        static void enter_switch_ISR_cb();
+        static void down_switch_ISR_cb();
 
         bool scan_switch(scan_state_ctx_t& state_ctx, const EventBits_t current_switch_bits);
 

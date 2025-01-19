@@ -17,30 +17,30 @@ bool SwitchDriver::init()
     BaseType_t task_created = pdFALSE;
 
     evt_grp_btn_hdl = xEventGroupCreateStatic(&evt_grp_btn_buff);
-    ISRDispatch::register_up_switch_ISR(up_switch_ISR);
-    ISRDispatch::register_enter_switch_ISR(enter_switch_ISR);
-    ISRDispatch::register_down_switch_ISR(down_switch_ISR);
+    ISRCbDispatch::register_up_switch_ISR_cb(up_switch_ISR_cb);
+    ISRCbDispatch::register_enter_switch_ISR_cb(enter_switch_ISR_cb);
+    ISRCbDispatch::register_down_switch_ISR_cb(down_switch_ISR_cb);
 
     task_created = xTaskCreate(task_switch_scan_trampoline, "switch_scan", 256, this, 1, &task_switch_scan_hdl);
 
     return (task_created == pdTRUE);
 }
 
-void SwitchDriver::up_switch_ISR()
+void SwitchDriver::up_switch_ISR_cb()
 {
     BaseType_t higher_priority_task_awoken = pdFALSE;
     xEventGroupSetBitsFromISR(evt_grp_btn_hdl, EVT_GRP_BTN_UP_BIT, &higher_priority_task_awoken);
     portYIELD_FROM_ISR(higher_priority_task_awoken);
 }
 
-void SwitchDriver::enter_switch_ISR()
+void SwitchDriver::enter_switch_ISR_cb()
 {
     BaseType_t higher_priority_task_awoken = pdFALSE;
     xEventGroupSetBitsFromISR(evt_grp_btn_hdl, EVT_GRP_BTN_ENTER_BIT, &higher_priority_task_awoken);
     portYIELD_FROM_ISR(higher_priority_task_awoken);
 }
 
-void SwitchDriver::down_switch_ISR()
+void SwitchDriver::down_switch_ISR_cb()
 {
     BaseType_t higher_priority_task_awoken = pdFALSE;
     xEventGroupSetBitsFromISR(evt_grp_btn_hdl, EVT_GRP_BTN_DOWN_BIT, &higher_priority_task_awoken);

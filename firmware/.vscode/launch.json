@@ -8,13 +8,61 @@
             "executable": "${workspaceRoot}/build/biltong_board_fw.elf",
             "request": "launch",
             "type": "cortex-debug",
-            "servertype": "stlink",
+            
+            /* 
+                ######## linux setup #########  
+
+                This assumes you've already installed the "cortex-debug" extension
+                on VScode.
+
+                1)
+                Ensure you have installed the stutil toolchain.
+                stutil is an open source version if stm's stlink GDB
+                server:
+                https://github.com/stlink-org/stlink/releases
+
+
+                2)
+                cortex-debug will automatically detect the path stutil server path, 
+                just set the servertype to "stutil"
+                
+                3)
+                Ensure you have also installed the ARM embedded toolchain
+                and modified ./vscode/settings.json to include its path.
+                (see settings.json for further instruction)
+            */
+
+            //"servertype": "stutil",
+
+            /* 
+                ######## windows setup #########  
+
+                This assumes you've already installed the "cortex-debug" extension
+                on VScode.
+
+                1)
+                Ensure you have stm32cube IDE installed:
+                https://www.st.com/en/development-tools/stm32cubeide.html
+                This is required for the stlink GDB server.
+
+                2)
+                cortex-debug will automatically detect the path GDB server path, 
+                just set the servertype to "stlink"
+                
+                3)
+                Ensure you have also installed the ARM embedded toolchain
+                and modified ./vscode/settings.json to include its path.
+                (see settings.json for further instruction)
+            */
+
+            //"servertype": "stlink"
+
             "device": "STM32G070CB",
             "interface": "swd",
             "runToEntryPoint": "app_main", 
             //"preLaunchTask":,
             // "preLaunchCommands":, 
-            "svdFile": "C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.1.300.202404050853/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32G070.svd", 
+            "svdFile": "/home/myles/stm32/st-svd/STM32G070.svd", 
             "swoConfig": {} 
 
         },
@@ -24,12 +72,22 @@
             "executable": "${workspaceRoot}/build/biltong_board_fw.elf",
             "request": "attach",
             "type": "cortex-debug",
-            "servertype": "stlink",
+
+            /* 
+                ######## linux setup #########  
+            */
+            //"servertype": "stutil",
+
+            /* 
+                ######## windows setup #########  
+            */
+            //"servertype": "stlink",
+
             "device": "STM32G070CB",
             "interface": "swd",
             //"preLaunchTask": ,
             // "preLaunchCommands": ,
-            "svdFile": "C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.1.300.202404050853/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32G070.svd",
+            "svdFile": "/home/myles/stm32/st-svd/STM32G070.svd",
             "swoConfig": {} 
         },
     ]

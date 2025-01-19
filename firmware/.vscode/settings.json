@@ -1,5 +1,39 @@
 {
-  "cortex-debug.armToolchainPath": "C:/gcc-arm-none-eabi-10.3-2021.10/bin",
+  /* 
+    ######## linux setup #########  
+
+    This assumes you've already installed the "cortex-debug" extension
+    on VScode.
+    
+    1)
+    Ensure you have installed the ARM embedded toolchain:
+
+    run:    `sudo apt install gdb-multiarch`
+            `sudo apt update && sudo apt upgrade`
+            `ln -s /usr/bin/gdb-multiarch /usr/bin/arm-none-eabi-gdb` //add a system link to ref gdb-multiarch as arm-none-eabi-gdb
+    
+    2) 
+    Modify the below gdbPath to your respective install directory (if you followed the above commands, it should be identical)
+  */
+
+  //"cortex-debug.gdbPath": "/usr/bin/arm-none-eabi-gdb",
+
+  /*
+    ######## windows setup ########
+
+    This assumes you've already installed the "cortex-debug" extension
+    on VScode.
+
+    1)
+    Ensure you have installed the ARM embedded toolchain:
+    https://developer.arm.com/downloads/-/gnu-rm
+
+    2) 
+    Modify the below armToolChainPath to your respective install directory.
+  */
+
+  //"cortex-debug.armToolchainPath": "C:/gcc-arm-none-eabi-10.3-2021.10/bin",
+
   "files.associations": {
     "cmsis_os.h": "c",
     "*.tcc": "cpp",
