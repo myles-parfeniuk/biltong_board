@@ -16,7 +16,7 @@
     Modify the below gdbPath to your respective install directory (if you followed the above commands, it should be identical)
   */
 
-  //"cortex-debug.gdbPath": "/usr/bin/arm-none-eabi-gdb",
+  "cortex-debug.gdbPath": "/usr/bin/arm-none-eabi-gdb",
 
   /*
     ######## windows setup ########

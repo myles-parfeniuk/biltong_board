@@ -32,7 +32,7 @@
                 (see settings.json for further instruction)
             */
 
-            //"servertype": "stutil",
+            "servertype": "stutil",
 
             /* 
                 ######## windows setup #########  
