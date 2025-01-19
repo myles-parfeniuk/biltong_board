@@ -39,7 +39,7 @@ bool TempRHDriver::init()
     if (op_success != pdTRUE)
         return false;
 
-    op_success = xTaskCreate(task_temp_rh_trampoline, "TaskTempRH", 128, static_cast<void*>(this), 4, &task_temp_rh_hdl);
+    op_success = xTaskCreate(task_temp_rh_trampoline, "bbTempRHSmplTsk", 128, static_cast<void*>(this), 4, &task_temp_rh_hdl);
 
     if (op_success != pdTRUE)
         return false;

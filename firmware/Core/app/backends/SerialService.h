@@ -42,7 +42,7 @@ class SerialService
                 return false;
 
             // launch serial service task
-            task_created = xTaskCreate(serial_task, "SerialTask", 128, NULL, 5, NULL);
+            task_created = xTaskCreate(serial_task, "bbSerialSvcTsk", 128, NULL, 5, NULL);
             if (task_created != pdTRUE)
                 return false;
 

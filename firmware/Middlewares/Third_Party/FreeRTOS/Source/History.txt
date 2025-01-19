@@ -635,7 +635,7 @@ Changes between V8.1.2 and V8.2.0 released 16th January 2015
 	+ Updated Atmel SAM4E and SAM4S demos to include a lot of additional test
 	  and demo tasks.
 	+ Fixed a corner case issue in Atmel SAM4L low power tickless
-	  implementation, and added switch interrupt handling.
+	  implementation, and added button interrupt handling.
 	+ Make the interrupt queue tests more tolerant to heave CPU loads.
 	+ Updated MSVC FreeRTOS simulator demo to include the latest standard test
 	  and demo tasks.

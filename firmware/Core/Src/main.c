@@ -109,8 +109,6 @@ int main(void)
   app_main(); //launch main program
   /* USER CODE END 2 */
 
-
-
   /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */

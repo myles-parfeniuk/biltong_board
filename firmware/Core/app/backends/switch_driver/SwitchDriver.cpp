@@ -21,7 +21,7 @@ bool SwitchDriver::init()
     ISRCbDispatch::register_enter_switch_ISR_cb(enter_switch_ISR_cb);
     ISRCbDispatch::register_down_switch_ISR_cb(down_switch_ISR_cb);
 
-    task_created = xTaskCreate(task_switch_scan_trampoline, "switch_scan", 256, this, 1, &task_switch_scan_hdl);
+    task_created = xTaskCreate(task_switch_scan_trampoline, "bbSwitchScanTsk", 256, this, 1, &task_switch_scan_hdl);
 
     return (task_created == pdTRUE);
 }

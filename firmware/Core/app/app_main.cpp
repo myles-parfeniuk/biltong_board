@@ -9,11 +9,14 @@
 #include "task.h"
 // in house includes
 #include "SerialService.h"
-#include "TempRHDriver.h"
 #include "SH1122Oled.h"
+#include "sh1122_fonts/sh1122_font_10x20_me.h"
 #include "Device.h"
 #include "SwitchDriver.h"
-#include "sh1122_fonts/sh1122_font_10x20_me.h"
+#include "TempRHDriver.h"
+#include "HeatLampDriver.h"
+
+
 
 const constexpr char* TAG = "Main";
 
@@ -23,7 +26,7 @@ void task_idle(void* arg);
 
 extern "C" int app_main()
 {
-    xTaskCreate(task_idle, "IdleTask", 128 * 4, NULL, 1, &task_idle_hdl);
+    xTaskCreate(task_idle, "bbIdleTsk", 128 * 4, NULL, 1, &task_idle_hdl);
     vTaskStartScheduler();
 
     return 0;
@@ -44,6 +47,7 @@ void task_idle(void* arg)
     // create backends and populate with device model
     SwitchDriver switch_driver(d);
     TempRHDriver temp_rh_driver(d, &hi2c2, &hi2c1);
+    HeatLampDriver heat_lamp_driver(d);
     // initialize backends
     switch_driver.init();
     temp_rh_driver.init();

@@ -19,7 +19,7 @@ namespace opee
 
                 if (!init)
                 {
-                    BaseType_t task_init = xTaskCreate(cb_task, "cb_tsk", OPEEconfigCB_TASK_STK_SZ, NULL, OPEEconfigCB_TASK_PRIO, &task_cb_hdl);
+                    BaseType_t task_init = xTaskCreate(cb_task, "opeeCbTsk", OPEEconfigCB_TASK_STK_SZ, NULL, OPEEconfigCB_TASK_PRIO, &task_cb_hdl);
                     init = (task_init == pdTRUE);
                 }
             }
