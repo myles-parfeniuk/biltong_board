@@ -8,7 +8,7 @@ to add them manually.
 
 To add a console parser to Eclipse, go to Window --> Preferences
 --> C/C++ --> Build --> Settings. Click on the 'Error Parsers'
-tab and then click the 'Add...' button. See the table below for
+tab and then click the 'Add...' switch. See the table below for
 the parser fields to add.
 
 Eclipse will only parse the console output during a build, so

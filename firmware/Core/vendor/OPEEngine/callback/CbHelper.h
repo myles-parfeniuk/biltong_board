@@ -5,12 +5,7 @@
 #include "OPEEngine_types.h"
 #include "SubCtrlBlk.h"
 #include "CbPoolManager.h"
-
-// overloaded new operator for placement new (construction of objects directly in cb_pool)
-inline void* operator new(opee_size_t size, opee_uint8_t* ptr)
-{
-    return static_cast<void*>(ptr);
-}
+#include "PlacementUtil.h"
 
 namespace opee
 {

@@ -1,6 +1,7 @@
 #pragma once
 // OPEEngine
 #include "CbWrprGeneric.h"
+#include "PlacementUtil.h"
 
 namespace opee
 {
@@ -23,15 +24,18 @@ namespace opee
             {
                 volatile TArg* _arg2p = reinterpret_cast<volatile TArg*>(arg2p_addr);
                 volatile TArg* _data;
+                TArg temp_arg2p;
+                opee::_memcpy(const_cast<TArg*>(&temp_arg2p), const_cast<TArg*>(_arg2p), sizeof(TArg));
 
-                cb(*_arg2p);
+                cb(temp_arg2p);
 
                 // last callback in salvo callbacks requested by data watch object if data_addr != 0
                 if (data_addr != 0)
                 {
                     // overwrite the data with the new data after all callbacks are finished executing
                     _data = reinterpret_cast<volatile TArg*>(data_addr);
-                    *_data = *_arg2p;
+                    opee::_memcpy(const_cast<TArg*>(_data), const_cast<TArg*>(_arg2p), sizeof(TArg));
+
                     return true;
                 }
 

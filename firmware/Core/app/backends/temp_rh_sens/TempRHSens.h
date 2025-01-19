@@ -2,7 +2,6 @@
 
 // std library includes
 #include <stdint.h>
-#include <stdio.h>
 // cube mx includes
 #include "i2c.h"
 // third-party includes
@@ -11,17 +10,18 @@
 // in-house includes
 #include "SerialService.h"
 
-class TempHumiditySensor
+class TempRHSens
 {
     public:
-        TempHumiditySensor(I2C_HandleTypeDef* hi2c);
+        TempRHSens(I2C_HandleTypeDef* hi2c);
 
         bool init();
-        int32_t get_temp();
-        int32_t get_humidity();
+        bool get_temp(int32_t& temperature_raw);
+        bool get_humidity(int32_t& humidity_raw);
 
     private:
+        static const constexpr TickType_t BOOT_DELAY_MS = 50UL / portTICK_PERIOD_MS;
         I2C_HandleTypeDef* hdl_i2c = nullptr;
         WE_sensorInterface_t hids;
-        static const constexpr char* TAG = "TempHumiditySensor";
+        static const constexpr char* TAG = "TempRHSens";
 };

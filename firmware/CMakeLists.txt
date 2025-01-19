@@ -44,9 +44,11 @@ set(FREERTOS_INCLUDE_DIRECTORIES
 set(PROJECT_INCLUDE_DIRECTORIES
     # Can add other folders in the project here    
     ${PROJECT_DIR}
+    ${PROJECT_DIR}/device
     ${PROJECT_DIR}/backends
     ${PROJECT_DIR}/backends/sh1122_oled
-    ${PROJECT_DIR}/backends/button_driver)
+    ${PROJECT_DIR}/backends/switch_driver
+    ${PROJECT_DIR}/backends/temp_rh_sens)
 
 #third party includes
 set(WSEN_HIDS_INCLUDE_DIRECTORIES
@@ -81,12 +83,16 @@ file(GLOB_RECURSE PROJECT_SOURCES FOLLOW_SYMLINKS
     #can add more files to project sources with FOLLOW_SYMLINKS option here
     ${PROJECT_DIR}/*.cpp
     ${PROJECT_DIR}/*.c
+    ${PROJECT_DIR}/device/*.cpp
+    ${PROJECT_DIR}/device/*.c
     ${PROJECT_DIR}/backends/*.cpp
     ${PROJECT_DIR}/backends/*.c
     ${PROJECT_DIR}/backends/sh1122_oled/*.cpp
     ${PROJECT_DIR}/backends/sh1122_oled/*.c
-    ${PROJECT_DIR}/backends/button_driver/*.cpp
-    ${PROJECT_DIR}/backends/button_driver/*.c)
+    ${PROJECT_DIR}/backends/switch_driver/*.cpp
+    ${PROJECT_DIR}/backends/switch_driver/*.c
+    ${PROJECT_DIR}/backends/temp_rh_sens/*.cpp
+    ${PROJECT_DIR}/backends/temp_rh_sens/*.c)
 #### SOURCES END ####
 
 #### SOURCE EXCLUSIONS ####

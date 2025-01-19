@@ -9,10 +9,10 @@
 #include "task.h"
 // in house includes
 #include "SerialService.h"
-#include "TempHumiditySensor.h"
+#include "TempRHDriver.h"
 #include "SH1122Oled.h"
 #include "Device.h"
-#include "ButtonDriver.h"
+#include "SwitchDriver.h"
 #include "sh1122_fonts/sh1122_font_10x20_me.h"
 
 const constexpr char* TAG = "Main";
@@ -23,7 +23,7 @@ void task_idle(void* arg);
 
 extern "C" int app_main()
 {
-    xTaskCreate(task_idle, "IdleTask", 128 * 3, NULL, 1, &task_idle_hdl);
+    xTaskCreate(task_idle, "IdleTask", 128 * 4, NULL, 1, &task_idle_hdl);
     vTaskStartScheduler();
 
     return 0;
@@ -31,26 +31,40 @@ extern "C" int app_main()
 
 void task_idle(void* arg)
 {
-    opee::OPEEngine_init();
-
-    Device d;
-    SH1122Oled oled(&hspi1);
-
+    // initialize serial backend for debug
     SerialService::init(&huart3);
+    // todo: move to backends/gui
+    SH1122Oled oled(&hspi1);
     oled.init();
 
-    ButtonDriver button_driver(d);
-    button_driver.init();
+    // launch OPEEngine
+    opee::OPEEngine_init();
+    // create device model
+    static Device d;
+    // create backends and populate with device model
+    SwitchDriver switch_driver(d);
+    TempRHDriver temp_rh_driver(d, &hi2c2, &hi2c1);
+    // initialize backends
+    switch_driver.init();
+    temp_rh_driver.init();
 
-    d.buttons.enter.subscribe<32>(
-            [&oled](ButtonEvent new_event)
+    d.sensors.temperature.celsius.subscribe<16>(
+            [](temp_data_t new_temp)
             {
-                static constexpr const char* CB_TAG = "EnterButton";
+                static constexpr const char* CB_TAG = "Temp";
+
+                SerialService::print_log_ln(CB_TAG, "Temp A: %li TempB: %li", new_temp.A, new_temp.B);
+            });
+
+    d.switches.enter.subscribe<32>(
+            [&oled](SwitchEvent new_event)
+            {
+                static constexpr const char* CB_TAG = "EnterSwitch";
                 static uint16_t qp_cnt = 0UL;
 
                 switch (new_event)
                 {
-                    case ButtonEvent::quick_press:
+                    case SwitchEvent::quick_press:
                         SerialService::print_log_ln(CB_TAG, "quick_press");
                         oled.load_font(sh1122_font_10x20_me);
                         oled.clear_buffer();
@@ -59,15 +73,15 @@ void task_idle(void* arg)
                         qp_cnt++;
                         break;
 
-                    case ButtonEvent::long_press:
+                    case SwitchEvent::long_press:
                         SerialService::print_log_ln(CB_TAG, "long_press");
                         break;
 
-                    case ButtonEvent::held:
+                    case SwitchEvent::held:
                         SerialService::print_log_ln(CB_TAG, "held");
                         break;
 
-                    case ButtonEvent::release:
+                    case SwitchEvent::release:
                         SerialService::print_log_ln(CB_TAG, "release");
                         break;
 
@@ -77,26 +91,26 @@ void task_idle(void* arg)
                 }
             });
 
-    d.buttons.down.subscribe<32>(
-            [](ButtonEvent new_event)
+    d.switches.down.subscribe<32>(
+            [](SwitchEvent new_event)
             {
-                static constexpr const char* CB_TAG = "DownButton";
+                static constexpr const char* CB_TAG = "DownSwitch";
 
                 switch (new_event)
                 {
-                    case ButtonEvent::quick_press:
+                    case SwitchEvent::quick_press:
                         SerialService::print_log_ln(CB_TAG, "quick_press");
                         break;
 
-                    case ButtonEvent::long_press:
+                    case SwitchEvent::long_press:
                         SerialService::print_log_ln(CB_TAG, "long_press");
                         break;
 
-                    case ButtonEvent::held:
+                    case SwitchEvent::held:
                         SerialService::print_log_ln(CB_TAG, "held");
                         break;
 
-                    case ButtonEvent::release:
+                    case SwitchEvent::release:
                         SerialService::print_log_ln(CB_TAG, "release");
                         break;
 
@@ -106,26 +120,26 @@ void task_idle(void* arg)
                 }
             });
 
-    d.buttons.up.subscribe<32>(
-            [](ButtonEvent new_event)
+    d.switches.up.subscribe<32>(
+            [](SwitchEvent new_event)
             {
-                static constexpr const char* CB_TAG = "UpButton";
+                static constexpr const char* CB_TAG = "UpSwitch";
 
                 switch (new_event)
                 {
-                    case ButtonEvent::quick_press:
+                    case SwitchEvent::quick_press:
                         SerialService::print_log_ln(CB_TAG, "quick_press");
                         break;
 
-                    case ButtonEvent::long_press:
+                    case SwitchEvent::long_press:
                         SerialService::print_log_ln(CB_TAG, "long_press");
                         break;
 
-                    case ButtonEvent::held:
+                    case SwitchEvent::held:
                         SerialService::print_log_ln(CB_TAG, "held");
                         break;
 
-                    case ButtonEvent::release:
+                    case SwitchEvent::release:
                         SerialService::print_log_ln(CB_TAG, "release");
                         break;
 
