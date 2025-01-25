@@ -33,6 +33,7 @@ extern SPI_HandleTypeDef hspi1;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim6;
 extern TIM_HandleTypeDef htim14;
+extern TIM_HandleTypeDef htim15;
 extern TIM_HandleTypeDef htim16;
 extern TIM_HandleTypeDef htim17;
 extern UART_HandleTypeDef huart3;
@@ -86,7 +87,10 @@ void EXTI2_3_IRQHandler(void)
     if (__HAL_GPIO_EXTI_GET_IT(PIN_SW_UP.num) == SET)
         ISRCbDispatch::execute_up_switch_ISR_cb();
 
-    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
+    if (__HAL_GPIO_EXTI_GET_IT(PIN_ZERO_CROSS.num) == SET)
+        ISRCbDispatch::execute_zero_cross_ISR_cb();
+
+    HAL_GPIO_EXTI_IRQHandler(PIN_ZERO_CROSS.num);
     HAL_GPIO_EXTI_IRQHandler(PIN_SW_UP.num);
 }
 
@@ -135,6 +139,20 @@ void TIM7_IRQHandler(void)
 void TIM14_IRQHandler(void)
 {
     HAL_TIM_IRQHandler(&htim14);
+}
+
+/**
+ * @brief This function handles TIM15 global interrupt.
+ */
+void TIM15_IRQHandler(void)
+{
+    /* USER CODE BEGIN TIM15_IRQn 0 */
+
+    /* USER CODE END TIM15_IRQn 0 */
+    HAL_TIM_IRQHandler(&htim15);
+    /* USER CODE BEGIN TIM15_IRQn 1 */
+
+    /* USER CODE END TIM15_IRQn 1 */
 }
 
 /**

@@ -5,6 +5,8 @@
 // cube mx includes
 #include "i2c.h"
 // in-house includes
+#include "bb_pin_defs.h"
+#include "bb_task_defs.h"
 #include "Device.h"
 #include "TempRHSens.h"
 #include "SerialService.h"
@@ -26,13 +28,15 @@ class TempRHDriver
         I2C_HandleTypeDef* hdl_i2c_th_B;
         TempRHSens th_A;
         TempRHSens th_B;
-        TickType_t temp_sample_rate_ms;
-        TickType_t humidity_sample_rate_ms;
-        TaskHandle_t task_temp_rh_hdl = NULL;
-        StaticTimer_t timer_temp_buff;
-        StaticTimer_t timer_rh_buff; 
-        TimerHandle_t timer_temp_hdl = NULL;
-        TimerHandle_t timer_rh_hdl = NULL;
+
+        inline static TaskHandle_t task_temp_rh_hdl = NULL;
+        inline static StaticTask_t task_temp_rh_tcb;
+        inline static StackType_t task_temp_rh_stk[BB_TEMP_RH_TSK_SZ] = {0UL};
+        
+        inline static StaticTimer_t timer_temp_buff;
+        inline static StaticTimer_t timer_rh_buff; 
+        inline static TimerHandle_t timer_temp_hdl = NULL;
+        inline static TimerHandle_t timer_rh_hdl = NULL;
 
         inline static EventGroupHandle_t evt_grp_temp_rh_hdl = NULL;
         inline static StaticEventGroup_t evt_grp_temp_rh_buff;

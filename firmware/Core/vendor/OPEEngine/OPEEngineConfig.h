@@ -3,9 +3,12 @@
 // OPEEngine
 #include "OPEEngine_types.h"
 
-const constexpr opee_size_t OPEEconfigCB_POOL_SZ = 512UL; ///< Size of combined callback storage pool in bytes.
+const constexpr opee_size_t OPEEconfig_1KB = 128UL;
 
-const constexpr opee_size_t OPEEconfigCB_TASK_STK_SZ = 256UL; ///< Stack size for callback execution task in words (according to freeRTOS port, on a 32-bit system (256words)(4bytes) == 1kB)
+const constexpr opee_size_t OPEEconfigCB_POOL_SZ = 1024UL; ///< Size of combined callback storage pool in bytes.
+
+const constexpr opee_size_t OPEEconfigCB_TASK_STK_SZ =
+        3 * OPEEconfig_1KB; ///< Stack size for callback execution task in words (according to freeRTOS port, on a 32-bit system (256words)(4bytes) == 1kB)
 
 const constexpr UBaseType_t OPEEconfigCB_TASK_PRIO = 7UL; ///< Priority of callback task, modify as needed, preferably kept as high priority as possible.
 

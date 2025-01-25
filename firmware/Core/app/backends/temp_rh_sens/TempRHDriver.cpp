@@ -6,8 +6,6 @@ TempRHDriver::TempRHDriver(Device& d, I2C_HandleTypeDef* hdl_i2c_th_A, I2C_Handl
     , hdl_i2c_th_B(hdl_i2c_th_B)
     , th_A(hdl_i2c_th_A)
     , th_B(hdl_i2c_th_B)
-    , temp_sample_rate_ms(0UL)
-    , humidity_sample_rate_ms(0UL)
 {
 }
 
@@ -27,7 +25,7 @@ bool TempRHDriver::init()
             "Temptimer", d.sensors.temperature.sample_rate.get() / portTICK_PERIOD_MS, pdTRUE, this, timer_temp_cb, &timer_temp_buff);
 
     timer_rh_hdl = xTimerCreateStatic(
-            "RHTimer", d.sensors.humidity.sample_rate.get() / portTICK_PERIOD_MS, pdTRUE, static_cast<void*>(this), timer_temp_cb, &timer_rh_buff);
+            "RHTimer", d.sensors.humidity.sample_rate.get() / portTICK_PERIOD_MS, pdTRUE, static_cast<void*>(this), timer_rh_cb, &timer_rh_buff);
 
     op_success = xTimerStart(timer_temp_hdl, 0UL);
 
@@ -39,10 +37,7 @@ bool TempRHDriver::init()
     if (op_success != pdTRUE)
         return false;
 
-    op_success = xTaskCreate(task_temp_rh_trampoline, "bbTempRHSmplTsk", 128, static_cast<void*>(this), 4, &task_temp_rh_hdl);
-
-    if (op_success != pdTRUE)
-        return false;
+    task_temp_rh_hdl = xTaskCreateStatic(task_temp_rh_trampoline, "bbTempRHSmplTsk",  BB_TEMP_RH_TSK_SZ, static_cast<void*>(this), 4, task_temp_rh_stk, &task_temp_rh_tcb);
 
     return true;
 }

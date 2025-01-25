@@ -10,7 +10,8 @@
                 "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32G0xx/Include",
                 "${workspaceFolder}/Drivers/STM32G0xx_HAL_Driver/Inc",
                 "${workspaceFolder}/Middlewares/Third_Party/FreeRTOS/Source/include",
-                "${workspaceFolder}/Core/app/backends/switch_driver"
+                "${workspaceFolder}/Core/app/backends/switch_driver",
+                "/usr/include/newlib"
             ],
             "defines": [],
             "compilerPath": "C:/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc",

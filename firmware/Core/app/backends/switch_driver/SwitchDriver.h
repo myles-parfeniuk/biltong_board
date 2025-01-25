@@ -3,11 +3,12 @@
 // cube mx
 #include "gpio.h"
 // in-house includes
+#include "bb_pin_defs.h"
+#include "bb_task_defs.h"
 #include "Device_types.h"
 #include "Device.h"
-#include "pins.h"
 #include "ISRCbDispatch.h"
-#define ENTER_ACTIVE HAL_GPIO_ReadPin(PIN_SW_ENTER.port, PIN_SW_ENTER.num) == GPIO_PIN_RESET
+
 class SwitchDriver
 {
     public:
@@ -43,9 +44,9 @@ class SwitchDriver
                 }
         } scan_state_ctx_t;
 
-        static void up_switch_ISR_cb();
-        static void enter_switch_ISR_cb();
-        static void down_switch_ISR_cb();
+        static void down_switch_ISR_cb(void* arg);
+        static void enter_switch_ISR_cb(void* arg);
+        static void up_switch_ISR_cb(void* arg);
 
         bool scan_switch(scan_state_ctx_t& state_ctx, const EventBits_t current_switch_bits);
 
@@ -61,10 +62,10 @@ class SwitchDriver
         void generate_held_event(EventBits_t sw_bit);
         void generate_release_event(EventBits_t sw_bit);
 
-        static const constexpr EventBits_t EVT_GRP_BTN_UP_BIT = (1UL << 0UL);
-        static const constexpr EventBits_t EVT_GRP_BTN_ENTER_BIT = (1UL << 1UL);
-        static const constexpr EventBits_t EVT_GRP_BTN_DOWN_BIT = (1UL << 2UL);
-        static const constexpr EventBits_t EVT_GRP_BTN_ALL = EVT_GRP_BTN_UP_BIT | EVT_GRP_BTN_ENTER_BIT | EVT_GRP_BTN_DOWN_BIT;
+        static const constexpr EventBits_t EVT_GRP_SW_UP_BIT = (1UL << 0UL);
+        static const constexpr EventBits_t EVT_GRP_SW_ENTER_BIT = (1UL << 1UL);
+        static const constexpr EventBits_t EVT_GRP_SW_DOWN_BIT = (1UL << 2UL);
+        static const constexpr EventBits_t EVT_GRP_SW_ALL = EVT_GRP_SW_UP_BIT | EVT_GRP_SW_ENTER_BIT | EVT_GRP_SW_DOWN_BIT;
         static const constexpr TickType_t SWITCH_POLL_DELAY_MS = 25UL / portTICK_PERIOD_MS;
         static const constexpr TickType_t SWITCH_DEBOUNCE_DELAY_MS = 25UL / portTICK_PERIOD_MS;
         static const constexpr TickType_t SWITCH_QUICK_PRESS_EVENT_TIME = 100UL / portTICK_PERIOD_MS;
@@ -73,6 +74,10 @@ class SwitchDriver
 
         Device& d;
         TaskHandle_t task_switch_scan_hdl = NULL;
-        inline static EventGroupHandle_t evt_grp_btn_hdl = NULL;
-        inline static StaticEventGroup_t evt_grp_btn_buff;
+        StaticTask_t task_switch_scan_tcb;
+        StackType_t task_switch_scan_stk[BB_SW_SCAN_TSK_SZ] = {0UL};
+        EventGroupHandle_t evt_grp_sw_hdl = NULL;
+        StaticEventGroup_t evt_grp_sw_buff;
+
+        static const constexpr char* TAG = "SwitchDriver";
 };

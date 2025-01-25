@@ -1,6 +1,7 @@
 #pragma once
 // cube-mx includes
 #include "gpio.h"
+#include "stm32g0xx_hal.h"
 
 typedef struct biltong_gpio_t
 {

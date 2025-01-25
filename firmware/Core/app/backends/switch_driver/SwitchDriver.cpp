@@ -1,5 +1,7 @@
 #include "SwitchDriver.h"
 
+#define ENTER_ACTIVE HAL_GPIO_ReadPin(PIN_SW_ENTER.port, PIN_SW_ENTER.num) == GPIO_PIN_RESET
+
 /**
  * @brief Checks if the switch on the specified GPIO pin is pressed (active-low).
  * @param pin The biltong_gpio_t struct containing the GPIO port and pin.
@@ -14,72 +16,76 @@ SwitchDriver::SwitchDriver(Device& d)
 
 bool SwitchDriver::init()
 {
-    BaseType_t task_created = pdFALSE;
+    evt_grp_sw_hdl = xEventGroupCreateStatic(&evt_grp_sw_buff);
+    ISRCbDispatch::register_up_switch_ISR_cb(up_switch_ISR_cb, this);
+    ISRCbDispatch::register_enter_switch_ISR_cb(enter_switch_ISR_cb, this);
+    ISRCbDispatch::register_down_switch_ISR_cb(down_switch_ISR_cb, this);
 
-    evt_grp_btn_hdl = xEventGroupCreateStatic(&evt_grp_btn_buff);
-    ISRCbDispatch::register_up_switch_ISR_cb(up_switch_ISR_cb);
-    ISRCbDispatch::register_enter_switch_ISR_cb(enter_switch_ISR_cb);
-    ISRCbDispatch::register_down_switch_ISR_cb(down_switch_ISR_cb);
+    task_switch_scan_hdl = xTaskCreateStatic(task_switch_scan_trampoline, "bbSwitchScanTsk",  BB_SW_SCAN_TSK_SZ, static_cast<void*>(this), 4, task_switch_scan_stk, &task_switch_scan_tcb);
 
-    task_created = xTaskCreate(task_switch_scan_trampoline, "bbSwitchScanTsk", 256, this, 1, &task_switch_scan_hdl);
-
-    return (task_created == pdTRUE);
+    return true; 
 }
 
-void SwitchDriver::up_switch_ISR_cb()
+void SwitchDriver::down_switch_ISR_cb(void* arg)
 {
+    SwitchDriver* _sw = static_cast<SwitchDriver*>(arg);
+
     BaseType_t higher_priority_task_awoken = pdFALSE;
-    xEventGroupSetBitsFromISR(evt_grp_btn_hdl, EVT_GRP_BTN_UP_BIT, &higher_priority_task_awoken);
+    xEventGroupSetBitsFromISR(_sw->evt_grp_sw_hdl, EVT_GRP_SW_DOWN_BIT, &higher_priority_task_awoken);
     portYIELD_FROM_ISR(higher_priority_task_awoken);
 }
 
-void SwitchDriver::enter_switch_ISR_cb()
+void SwitchDriver::enter_switch_ISR_cb(void* arg)
 {
+    SwitchDriver* sw = static_cast<SwitchDriver*>(arg);
+
     BaseType_t higher_priority_task_awoken = pdFALSE;
-    xEventGroupSetBitsFromISR(evt_grp_btn_hdl, EVT_GRP_BTN_ENTER_BIT, &higher_priority_task_awoken);
+    xEventGroupSetBitsFromISR(sw->evt_grp_sw_hdl, EVT_GRP_SW_ENTER_BIT, &higher_priority_task_awoken);
     portYIELD_FROM_ISR(higher_priority_task_awoken);
 }
 
-void SwitchDriver::down_switch_ISR_cb()
+void SwitchDriver::up_switch_ISR_cb(void* arg)
 {
+    SwitchDriver* sw = static_cast<SwitchDriver*>(arg);
+
     BaseType_t higher_priority_task_awoken = pdFALSE;
-    xEventGroupSetBitsFromISR(evt_grp_btn_hdl, EVT_GRP_BTN_DOWN_BIT, &higher_priority_task_awoken);
+    xEventGroupSetBitsFromISR(sw->evt_grp_sw_hdl, EVT_GRP_SW_UP_BIT, &higher_priority_task_awoken);
     portYIELD_FROM_ISR(higher_priority_task_awoken);
 }
 
 void SwitchDriver::task_switch_scan_trampoline(void* arg)
 {
-    SwitchDriver* switch_driver_ptr = static_cast<SwitchDriver*>(arg);
-    switch_driver_ptr->task_switch_scan();
+    SwitchDriver* _switch_driver = static_cast<SwitchDriver*>(arg);
+    _switch_driver->task_switch_scan();
 }
 
 void SwitchDriver::task_switch_scan()
 {
     uint32_t enter_switch_active_ms = 0UL;
     EventBits_t switch_bits;
-    scan_state_ctx_t scan_ctx_switch_up(PIN_SW_UP, EVT_GRP_BTN_UP_BIT);
-    scan_state_ctx_t scan_ctx_switch_enter(PIN_SW_ENTER, EVT_GRP_BTN_ENTER_BIT);
-    scan_state_ctx_t scan_ctx_switch_down(PIN_SW_DOWN, EVT_GRP_BTN_DOWN_BIT);
+    scan_state_ctx_t scan_ctx_switch_up(PIN_SW_UP, EVT_GRP_SW_UP_BIT);
+    scan_state_ctx_t scan_ctx_switch_enter(PIN_SW_ENTER, EVT_GRP_SW_ENTER_BIT);
+    scan_state_ctx_t scan_ctx_switch_down(PIN_SW_DOWN, EVT_GRP_SW_DOWN_BIT);
 
     while (1)
     {
-        switch_bits = xEventGroupWaitBits(evt_grp_btn_hdl, EVT_GRP_BTN_ALL, pdFALSE, pdFALSE, portMAX_DELAY);
+        switch_bits = xEventGroupWaitBits(evt_grp_sw_hdl, EVT_GRP_SW_ALL, pdFALSE, pdFALSE, portMAX_DELAY);
 
         do
         {
             if (scan_switch(scan_ctx_switch_up, switch_bits))
-                xEventGroupClearBits(evt_grp_btn_hdl, EVT_GRP_BTN_UP_BIT);
+                xEventGroupClearBits(evt_grp_sw_hdl, EVT_GRP_SW_UP_BIT);
 
             if (scan_switch(scan_ctx_switch_enter, switch_bits))
-                xEventGroupClearBits(evt_grp_btn_hdl, EVT_GRP_BTN_ENTER_BIT);
+                xEventGroupClearBits(evt_grp_sw_hdl, EVT_GRP_SW_ENTER_BIT);
 
             if (scan_switch(scan_ctx_switch_down, switch_bits))
-                xEventGroupClearBits(evt_grp_btn_hdl, EVT_GRP_BTN_DOWN_BIT);
+                xEventGroupClearBits(evt_grp_sw_hdl, EVT_GRP_SW_DOWN_BIT);
 
             vTaskDelay(SWITCH_POLL_DELAY_MS);
-            switch_bits = xEventGroupGetBits(evt_grp_btn_hdl);
+            switch_bits = xEventGroupGetBits(evt_grp_sw_hdl);
 
-        } while (switch_bits & EVT_GRP_BTN_ALL);
+        } while (switch_bits & EVT_GRP_SW_ALL);
     }
 }
 
@@ -222,15 +228,15 @@ void SwitchDriver::generate_quick_press_event(EventBits_t sw_bit)
 {
     switch (sw_bit)
     {
-        case EVT_GRP_BTN_UP_BIT:
+        case EVT_GRP_SW_UP_BIT:
             d.switches.up.set(SwitchEvent::quick_press);
             break;
 
-        case EVT_GRP_BTN_ENTER_BIT:
+        case EVT_GRP_SW_ENTER_BIT:
             d.switches.enter.set(SwitchEvent::quick_press);
             break;
 
-        case EVT_GRP_BTN_DOWN_BIT:
+        case EVT_GRP_SW_DOWN_BIT:
             d.switches.down.set(SwitchEvent::quick_press);
 
             break;
@@ -246,15 +252,15 @@ void SwitchDriver::generate_long_press_event(EventBits_t sw_bit)
 
     switch (sw_bit)
     {
-        case EVT_GRP_BTN_UP_BIT:
+        case EVT_GRP_SW_UP_BIT:
             d.switches.up.set(SwitchEvent::long_press);
             break;
 
-        case EVT_GRP_BTN_ENTER_BIT:
+        case EVT_GRP_SW_ENTER_BIT:
             d.switches.enter.set(SwitchEvent::long_press);
             break;
 
-        case EVT_GRP_BTN_DOWN_BIT:
+        case EVT_GRP_SW_DOWN_BIT:
             d.switches.down.set(SwitchEvent::long_press);
 
             break;
@@ -269,15 +275,15 @@ void SwitchDriver::generate_held_event(EventBits_t sw_bit)
 {
     switch (sw_bit)
     {
-        case EVT_GRP_BTN_UP_BIT:
+        case EVT_GRP_SW_UP_BIT:
             d.switches.up.set(SwitchEvent::held);
             break;
 
-        case EVT_GRP_BTN_ENTER_BIT:
+        case EVT_GRP_SW_ENTER_BIT:
             d.switches.enter.set(SwitchEvent::held);
             break;
 
-        case EVT_GRP_BTN_DOWN_BIT:
+        case EVT_GRP_SW_DOWN_BIT:
             d.switches.down.set(SwitchEvent::held);
 
             break;
@@ -293,15 +299,15 @@ void SwitchDriver::generate_release_event(EventBits_t sw_bit)
 
     switch (sw_bit)
     {
-        case EVT_GRP_BTN_UP_BIT:
+        case EVT_GRP_SW_UP_BIT:
             d.switches.up.set(SwitchEvent::release);
             break;
 
-        case EVT_GRP_BTN_ENTER_BIT:
+        case EVT_GRP_SW_ENTER_BIT:
             d.switches.enter.set(SwitchEvent::release);
             break;
 
-        case EVT_GRP_BTN_DOWN_BIT:
+        case EVT_GRP_SW_DOWN_BIT:
             d.switches.down.set(SwitchEvent::release);
 
             break;

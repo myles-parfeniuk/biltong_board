@@ -1,16 +1,18 @@
 #pragma once
 
-// std library includes
+// std library
 #include <stdio.h>
 #include <stdint.h>
 #include <cstring>
 #include <cstdarg>
-// cube mx inclues
+// cube mx
 #include "usart.h"
-// third party includes
+// third party
 #include "FreeRTOS.h"
 #include "task.h"
 #include "semphr.h"
+// in-house
+#include "bb_task_defs.h"
 
 /**
  * @class SerialService
@@ -31,8 +33,6 @@ class SerialService
          */
         static bool init(UART_HandleTypeDef* huart)
         {
-            BaseType_t task_created = pdFALSE;
-
             // assign uart handle
             hdl_uart = huart;
 
@@ -42,9 +42,8 @@ class SerialService
                 return false;
 
             // launch serial service task
-            task_created = xTaskCreate(serial_task, "bbSerialSvcTsk", 128, NULL, 5, NULL);
-            if (task_created != pdTRUE)
-                return false;
+            task_serial_svc_hdl =
+                    xTaskCreateStatic(serial_task, "bbSerialSvcTsk", BB_SERIAL_SVC_TSK_SZ, NULL, 5, task_serial_svc_stk, &task_serial_svc_tcb);
 
             return true;
         }
@@ -121,7 +120,9 @@ class SerialService
         static const constexpr uint16_t MAX_PENDING_MSGS = 3U; ///< max strings that can be in queue_serial at any given time
 
     private:
-        inline static TaskHandle_t hdl_task_serial_service = NULL; ///< Serial service task handle.
+        inline static TaskHandle_t task_serial_svc_hdl = NULL; ///< Serial service task handle.
+        inline static StaticTask_t task_serial_svc_tcb;
+        inline static StackType_t task_serial_svc_stk[BB_SERIAL_SVC_TSK_SZ] = {0UL};
         inline static uint8_t queue_serial_buff[MAX_PENDING_MSGS * (MAX_STR_SZ * sizeof(uint8_t))];
         inline static StaticQueue_t queue_serial;
         inline static QueueHandle_t queue_serial_hdl = NULL;      ///< Queue for sending data to serial_task()

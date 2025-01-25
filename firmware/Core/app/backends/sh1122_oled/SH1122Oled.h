@@ -11,7 +11,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 // in-house includes
-#include "pins.h"
+#include "bb_pin_defs.h"
 #include "SH1122Oled_types.h"
 #include "SerialService.h"
 
