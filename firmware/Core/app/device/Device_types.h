@@ -62,5 +62,5 @@ typedef struct heat_lamps_t
 {
         opee::DataWatch<bool, 32, 2> relay_closed;
         opee::DataWatch<uint8_t, 32, 2> intensity;
-        opee::DataWatch<uint16_t, 32, 2> mains_hz;
+        opee::DataWatch<float, 32, 2> mains_hz;
 } heat_lamps_t;

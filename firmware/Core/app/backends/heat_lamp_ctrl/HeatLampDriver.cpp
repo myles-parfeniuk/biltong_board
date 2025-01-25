@@ -39,6 +39,7 @@ void HeatLampDriver::task_lamp_ctrl_trampoline(void* arg)
 void HeatLampDriver::task_lamp_ctrl()
 {
     EventBits_t ctrl_bits = 0UL;
+    float mains_hz = 0.0f; 
 
     while (1)
     {
@@ -46,7 +47,7 @@ void HeatLampDriver::task_lamp_ctrl()
 
         if (ctrl_bits & EVT_GRP_LAMP_CTRL_HZ_CALC)
         {
-            uint16_t mains_hz = zero_cross.hz_calc(); 
+            mains_hz = zero_cross.hz_calc(); 
             d.heat_lamps.mains_hz.set(mains_hz);
             xEventGroupClearBits(evt_grp_lamp_ctrl_hdl, EVT_GRP_LAMP_CTRL_HZ_CALC);
         }

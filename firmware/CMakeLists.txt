@@ -179,6 +179,7 @@ target_link_options(${EXECUTABLE} PRIVATE
     ${CPU_PARAMETERS}
     -Wl,-Map=${CMAKE_PROJECT_NAME}.map
     #--specs=nosys.specs #this could potentially disable features of newlib we want
+    -u _printf_float
     -Wl,--start-group
     -lc
     -lm

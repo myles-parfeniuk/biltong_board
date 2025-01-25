@@ -391,7 +391,7 @@ uint16_t SH1122Oled::font_get_string_width(const char* format, ...)
     // cannot get string width without font info
     if (font_info.font == nullptr)
     {
-        SerialService::print_log_ln(TAG, "No font loaded.");
+        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "No font loaded.");
         return 0;
     }
 
@@ -455,7 +455,7 @@ uint16_t SH1122Oled::font_get_string_height(const char* format, ...)
     // cannot get string width without font info
     if (font_info.font == nullptr)
     {
-        SerialService::print_log_ln(TAG, "No font loaded.");
+        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "No font loaded.");
         return 0;
     }
 
@@ -502,7 +502,7 @@ uint16_t SH1122Oled::font_get_glyph_width(uint16_t encoding)
 
     if (font_info.font == nullptr)
     {
-        SerialService::print_log_ln(TAG, "No font loaded.");
+        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "No font loaded.");
         return 0;
     }
 
@@ -531,7 +531,7 @@ uint16_t SH1122Oled::font_get_glyph_width(sh1122_oled_font_decode_t* decode, uin
 
     if (font_info.font == nullptr)
     {
-        SerialService::print_log_ln(TAG, "No font loaded.");
+        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "No font loaded.");
         return 0;
     }
 
@@ -560,7 +560,7 @@ uint16_t SH1122Oled::font_get_glyph_height(uint16_t encoding)
 
     if (font_info.font == nullptr)
     {
-        SerialService::print_log_ln(TAG, "No font loaded.");
+        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "No font loaded.");
         return 0;
     }
 
@@ -587,7 +587,7 @@ uint16_t SH1122Oled::font_get_string_center_x(const char* str)
 
     if (font_info.font == nullptr)
     {
-        SerialService::print_log_ln(TAG, "No font loaded.");
+        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "No font loaded.");
         return 0;
     }
 
@@ -608,7 +608,7 @@ uint16_t SH1122Oled::font_get_string_center_y(const char* str)
 
     if (font_info.font == nullptr)
     {
-        SerialService::print_log_ln(TAG, "No font loaded.");
+        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "No font loaded.");
         return 0;
     }
 
@@ -634,7 +634,7 @@ uint16_t SH1122Oled::draw_glyph(sh1122_pixel_t loc_up_l_corner, SH1122PixIntens 
     // must load font before attempting to write glyphs
     if (font_info.font == nullptr)
     {
-        SerialService::print_log_ln(TAG, "No font loaded.");
+        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "No font loaded.");
         return 0;
     }
 

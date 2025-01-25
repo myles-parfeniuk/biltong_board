@@ -12,7 +12,7 @@ class ZeroCross
     public:
         ZeroCross(Device& d, TIM_HandleTypeDef* hdl_zx_timer, EventGroupHandle_t& evt_grp_lamp_ctrl_hdl);
         bool init();
-        uint16_t hz_calc();
+        float hz_calc();
 
     private:
         enum class ZxSampleState

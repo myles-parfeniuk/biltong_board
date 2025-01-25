@@ -17,22 +17,22 @@ bool ZeroCross::init()
     return true;
 }
 
-uint16_t ZeroCross::hz_calc()
+float ZeroCross::hz_calc()
 {
-    uint32_t result = 0UL;
+    float result = 0.0f;
 
     // sum the window
     for (size_t i = 0UL; i < MAINS_HZ_WINDOW_SZ; i++)
-        result += proc_window[i];
+        result += static_cast<float>(proc_window[i]);
 
     // take the average
-    result /= MAINS_HZ_WINDOW_SZ;
+    result /= static_cast<float>(MAINS_HZ_WINDOW_SZ);
     // account for 2 ISR calls == 1 sin wave
-    result /= 2UL;
+    result /= 2.0f;
     // convert to freq (Ttimer/Tavg_sin_wave)
-    result = ZX_TIMER_TICK_FREQ_HZ / result;
+    result = static_cast<float>(ZX_TIMER_TICK_FREQ_HZ) / result;
 
-    return static_cast<uint16_t>(result);
+    return result; 
 }
 
 void ZeroCross::window_swp()

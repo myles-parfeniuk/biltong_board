@@ -17,13 +17,9 @@ bool TempRHSens::init()
     vTaskDelay(BOOT_DELAY_MS);
 
     if (WE_SUCCESS != HIDS_Sensor_Init(&hids))
-    {
-        SerialService::print_log_ln(TAG, "**** HIDS_MULTIPLEXER_Init error. STOP ****");
         return false;
-    }
-
-    SerialService::print_log_ln(TAG, "**** WE_isSensorInterfaceReady(): OK ****");
-    return true;
+    else
+        return true;
 }
 
 bool TempRHSens::get_humidity(int32_t& humidity_raw)
