@@ -67,8 +67,8 @@
 #define configCPU_CLOCK_HZ                       ( SystemCoreClock )
 #define configTICK_RATE_HZ                       ((TickType_t)1000)
 #define configMAX_PRIORITIES                     ( 7 )
-#define configMINIMAL_STACK_SIZE                 ((uint16_t)128)
-#define configTOTAL_HEAP_SIZE                    ((size_t)6144)
+#define configMINIMAL_STACK_SIZE                 ((uint16_t)64)
+#define configTOTAL_HEAP_SIZE                    ((size_t)5120)
 #define configMAX_TASK_NAME_LEN                  ( 16 )
 #define configGENERATE_RUN_TIME_STATS            1
 #define configUSE_16_BIT_TICKS                   0
@@ -92,7 +92,7 @@
 #define configUSE_TIMERS                         1
 #define configTIMER_TASK_PRIORITY                ( 2 )
 #define configTIMER_QUEUE_LENGTH                 10
-#define configTIMER_TASK_STACK_DEPTH             256
+#define configTIMER_TASK_STACK_DEPTH             128
 
 /* The following flag must be enabled only when using newlib */
 #define configUSE_NEWLIB_REENTRANT          1
@@ -109,6 +109,7 @@ to exclude the API function. */
 #define INCLUDE_xTaskGetSchedulerState       1
 #define INCLUDE_xEventGroupSetBitFromISR     1
 #define INCLUDE_xTimerPendFunctionCall       1
+#define INCLUDE_uxTaskGetStackHighWaterMark  1
 
 /* Normal assert() semantics without relying on the provision of an assert.h
 header file. */

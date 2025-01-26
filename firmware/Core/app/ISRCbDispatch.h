@@ -50,57 +50,57 @@ extern "C"
                     bb_isr_cb_ctx enter_switch;
                     bb_isr_cb_ctx down_switch;
                     bb_isr_cb_ctx zero_cross;
-            };
+            } bb_isr_cb_registry_t;
 
-            inline static bb_isr_cb_registry_t ISR_ctx; 
+            inline static bb_isr_cb_registry_t ISR_ctx;
 
         public:
             inline static void register_up_switch_ISR_cb(bb_isr_cb_t isr, void* cb_param)
             {
                 ISR_ctx.up_switch.cb = isr;
-                 ISR_ctx.up_switch.param = cb_param;
+                ISR_ctx.up_switch.param = cb_param;
             }
 
             inline static void register_enter_switch_ISR_cb(bb_isr_cb_t isr, void* cb_param)
             {
-                 ISR_ctx.enter_switch.cb = isr;
-                 ISR_ctx.enter_switch.param = cb_param;
+                ISR_ctx.enter_switch.cb = isr;
+                ISR_ctx.enter_switch.param = cb_param;
             }
 
             inline static void register_down_switch_ISR_cb(bb_isr_cb_t isr, void* cb_param)
             {
-                 ISR_ctx.down_switch.cb = isr;
-                 ISR_ctx.down_switch.param = cb_param;
+                ISR_ctx.down_switch.cb = isr;
+                ISR_ctx.down_switch.param = cb_param;
             }
 
             inline static void register_zero_cross_ISR_cb(bb_isr_cb_t isr, void* cb_param)
             {
-                 ISR_ctx.zero_cross.cb = isr;
-                 ISR_ctx.zero_cross.param = cb_param;
+                ISR_ctx.zero_cross.cb = isr;
+                ISR_ctx.zero_cross.param = cb_param;
             }
 
             inline static void execute_up_switch_ISR_cb()
             {
-                if ( ISR_ctx.up_switch.cb != nullptr)
-                     ISR_ctx.up_switch.cb( ISR_ctx.up_switch.param);
+                if (ISR_ctx.up_switch.cb != nullptr)
+                    ISR_ctx.up_switch.cb(ISR_ctx.up_switch.param);
             }
 
             inline static void execute_enter_switch_ISR_cb()
             {
-                if ( ISR_ctx.enter_switch.cb != nullptr)
-                     ISR_ctx.enter_switch.cb( ISR_ctx.enter_switch.param);
+                if (ISR_ctx.enter_switch.cb != nullptr)
+                    ISR_ctx.enter_switch.cb(ISR_ctx.enter_switch.param);
             }
 
             inline static void execute_down_switch_ISR_cb()
             {
-                if ( ISR_ctx.down_switch.cb != nullptr)
-                     ISR_ctx.down_switch.cb( ISR_ctx.down_switch.param);
+                if (ISR_ctx.down_switch.cb != nullptr)
+                    ISR_ctx.down_switch.cb(ISR_ctx.down_switch.param);
             }
 
             inline static void execute_zero_cross_ISR_cb()
             {
-                if ( ISR_ctx.zero_cross.cb != nullptr)
-                     ISR_ctx.zero_cross.cb( ISR_ctx.zero_cross.param);
+                if (ISR_ctx.zero_cross.cb != nullptr)
+                    ISR_ctx.zero_cross.cb(ISR_ctx.zero_cross.param);
             }
     }; // namespace ISRCbDispatch
 

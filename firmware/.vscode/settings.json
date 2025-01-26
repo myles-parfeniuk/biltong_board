@@ -90,7 +90,8 @@
     "streambuf": "cpp",
     "thread": "cpp",
     "cinttypes": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "app_main.h": "c"
   },
   "cortex-debug.variableUseNaturalFormat": true,
 }

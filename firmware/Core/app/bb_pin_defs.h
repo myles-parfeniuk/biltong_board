@@ -12,7 +12,7 @@ typedef struct biltong_gpio_t
         {
             return (this->port == other.port) && (this->num == other.num);
         }
-};
+} biltong_gpio_t;
 
 // switch pins
 static const constexpr biltong_gpio_t PIN_SW_UP = {GPIOA, GPIO_PIN_3};

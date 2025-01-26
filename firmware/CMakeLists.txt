@@ -137,7 +137,7 @@ target_compile_definitions(${EXECUTABLE} PRIVATE
 ### COMPILE DEFINITIONS END ####
 
 ### ADD INCLUDES TO EXECUTABLE ###
-target_include_directories(${EXECUTABLE} PRIVATE
+target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${CUBEMX_INCLUDE_DIRECTORIES}
     ${FREERTOS_INCLUDE_DIRECTORIES}
     ${PROJECT_INCLUDE_DIRECTORIES}
@@ -162,15 +162,19 @@ target_compile_options(${EXECUTABLE} PRIVATE
     ${CPU_PARAMETERS}
     -Wall
     -Wextra
-    -Wpedantic
     -Wno-unused-parameter
     $<$<COMPILE_LANGUAGE:CXX>:
-        -Wno-volatile
-        -Wold-style-cast
+        -Wpedantic
         -Wuseless-cast
-        -Wsuggest-override>
-    $<$<CONFIG:Debug>:-Og -g3 -ggdb -O0> #optimizations disabled, remove -O0 to enable
-    $<$<CONFIG:Release>:-Og -g0 -O0>)
+        -Wsuggest-override
+        -Wno-volatile
+        -Wno-old-style-cast>
+    $<$<COMPILE_LANGUAGE:C>:
+        -Wno-pedantic>
+    $<$<CONFIG:Debug>:-Og -g3 -ggdb>
+    $<$<CONFIG:Release>:-Os -g0>)
+
+ 
 
 
 
@@ -187,12 +191,7 @@ target_link_options(${EXECUTABLE} PRIVATE
     -Wl,--end-group
     -Wl,--print-memory-usage)
 ### COMPILER AND LINKER SETTINGS END ####
-
 ### CUSTOM COMPILATION SETTINGS AND COMMANDS ####
-
-set_source_files_properties(${STM32CUBEMX_SOURCES} PROPERTIES COMPILE_FLAGS "-w")
-set_source_files_properties(${FREERTOS_SOURCES} PROPERTIES COMPILE_FLAGS "-w")
-set_source_files_properties(${WSEN_HIDS_SOURCES} PROPERTIES COMPILE_FLAGS "-w")
 
 add_custom_command(TARGET ${EXECUTABLE} POST_BUILD
     COMMAND ${CMAKE_SIZE} $<TARGET_FILE:${EXECUTABLE}>)

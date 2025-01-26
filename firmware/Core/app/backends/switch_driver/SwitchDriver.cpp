@@ -61,7 +61,6 @@ void SwitchDriver::task_switch_scan_trampoline(void* arg)
 
 void SwitchDriver::task_switch_scan()
 {
-    uint32_t enter_switch_active_ms = 0UL;
     EventBits_t switch_bits;
     scan_state_ctx_t scan_ctx_switch_up(PIN_SW_UP, EVT_GRP_SW_UP_BIT);
     scan_state_ctx_t scan_ctx_switch_enter(PIN_SW_ENTER, EVT_GRP_SW_ENTER_BIT);

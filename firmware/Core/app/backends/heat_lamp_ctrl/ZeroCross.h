@@ -12,7 +12,8 @@ class ZeroCross
     public:
         ZeroCross(Device& d, TIM_HandleTypeDef* hdl_zx_timer, EventGroupHandle_t& evt_grp_lamp_ctrl_hdl);
         bool init();
-        float hz_calc();
+        int32_t avg_window(); 
+        float hz_calc(int32_t window_avg);
 
     private:
         enum class ZxSampleState
@@ -20,17 +21,19 @@ class ZeroCross
             INACTIVE,
             START,
             DEBOUNCE,
-            SAMPLING
+            DONE_SAMPLE
         };
 
         static const constexpr size_t MAINS_HZ_WINDOW_SZ = 8UL;
         static const constexpr size_t ZX_TIMER_TICK_FREQ_HZ = 1000000UL;
         static const constexpr size_t EXPECTED_MAINS_FREQ_HZ = 120UL;
         static const constexpr size_t EXPECTED_ZX_PERIOD = ZX_TIMER_TICK_FREQ_HZ / EXPECTED_MAINS_FREQ_HZ;
+        static const constexpr size_t DEBOUNCE_THRESHOLD = EXPECTED_ZX_PERIOD / 10UL;
 
-        void window_swp();
-        void mv_hz_smpl_to_window();
-        void hz_calc_evt();
+        static uint32_t grab_sample_and_reset_zx_timer(ZeroCross* _zx);
+        static void mv_hz_smpl_to_window(ZeroCross* _zx, const uint32_t sample);
+        static void window_swp(ZeroCross* _zx);
+        static void hz_calc_evt(ZeroCross* _zx);
         static void zero_cross_ISR_cb(void* arg);
 
         Device& d;

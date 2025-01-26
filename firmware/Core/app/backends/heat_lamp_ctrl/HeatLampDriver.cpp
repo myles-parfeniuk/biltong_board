@@ -6,8 +6,14 @@ HeatLampDriver::HeatLampDriver(Device& d, TIM_HandleTypeDef* hdl_zx_timer)
 {
     // ensure relay is initially closed
     HAL_GPIO_WritePin(PIN_HEAT_LAMP_EN.port, PIN_HEAT_LAMP_EN.num, GPIO_PIN_RESET);
+}
 
-    d.heat_lamps.relay_closed.subscribe<8UL>(
+bool HeatLampDriver::init()
+{
+
+    OPEEngineRes_t op_success = OPEE_OK;
+
+    op_success = d.heat_lamps.relay_closed.subscribe<8UL>(
             [](bool relay_closed)
             {
                 if (relay_closed)
@@ -15,10 +21,10 @@ HeatLampDriver::HeatLampDriver(Device& d, TIM_HandleTypeDef* hdl_zx_timer)
                 else
                     HAL_GPIO_WritePin(PIN_HEAT_LAMP_EN.port, PIN_HEAT_LAMP_EN.num, GPIO_PIN_RESET);
             });
-}
 
-bool HeatLampDriver::init()
-{
+    if (op_success != OPEE_OK)
+        return false;
+
     if (!zero_cross.init())
         return false;
 
@@ -39,7 +45,8 @@ void HeatLampDriver::task_lamp_ctrl_trampoline(void* arg)
 void HeatLampDriver::task_lamp_ctrl()
 {
     EventBits_t ctrl_bits = 0UL;
-    float mains_hz = 0.0f; 
+    int32_t mains_period_us = 0L;
+    float mains_hz = 0.0f;
 
     while (1)
     {
@@ -47,7 +54,9 @@ void HeatLampDriver::task_lamp_ctrl()
 
         if (ctrl_bits & EVT_GRP_LAMP_CTRL_HZ_CALC)
         {
-            mains_hz = zero_cross.hz_calc(); 
+            mains_period_us = zero_cross.avg_window();
+            mains_hz = zero_cross.hz_calc(mains_period_us);
+            d.heat_lamps.mains_period_us.set(mains_period_us);
             d.heat_lamps.mains_hz.set(mains_hz);
             xEventGroupClearBits(evt_grp_lamp_ctrl_hdl, EVT_GRP_LAMP_CTRL_HZ_CALC);
         }

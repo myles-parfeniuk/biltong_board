@@ -118,9 +118,7 @@ bool SH1122Oled::update_screen()
 
     HAL_GPIO_WritePin(PIN_DISP_CS.port, PIN_DISP_CS.num, GPIO_PIN_RESET); // bring chip select low
 
-
     op_success = HAL_SPI_Transmit(hdl_spi, frame_buffer, FRAME_BUFFER_LENGTH, 100UL);
-
 
     HAL_GPIO_WritePin(PIN_DISP_CS.port, PIN_DISP_CS.num, GPIO_PIN_SET); // bring chip select high
 
@@ -155,9 +153,9 @@ bool SH1122Oled::set_pixel(sh1122_pixel_t pixel, SH1122PixIntens intensity)
             uint8_t* pixel_raw_ptr = (frame_buffer + x_it + y_it);
 
             if (high_byte == 1)
-                *pixel_raw_ptr = ((uint8_t) intensity & 0x0F) | (*pixel_raw_ptr & 0xF0);
+                *pixel_raw_ptr = (static_cast<uint8_t>(intensity) & 0x0FU) | (*pixel_raw_ptr & 0xF0U);
             else
-                *pixel_raw_ptr = (((uint8_t) intensity << 4) & 0xF0) | (*pixel_raw_ptr & 0x0F);
+                *pixel_raw_ptr = ((static_cast<uint8_t>(intensity) << 4U) & 0xF0U) | (*pixel_raw_ptr & 0x0FU);
         }
 
         return true;
@@ -659,7 +657,7 @@ uint16_t SH1122Oled::draw_glyph(sh1122_pixel_t loc_up_l_corner, SH1122PixIntens 
     }
 
     decode.target_y = loc_up_l_corner.y;
-    decode.fg_intensity = (uint8_t) intensity;
+    decode.fg_intensity = static_cast<uint8_t>(intensity);
 
     glyph_ptr = NULL;
 
@@ -823,7 +821,7 @@ void SH1122Oled::bitmap_read_word(const uint8_t** data_ptr, int16_t& r_val_lim, 
 {
     intensity = static_cast<SH1122PixIntens>(*(*data_ptr + 1) & BITMAP_DECODE_PIXEL_INTENSITY_MASK);
     r_val_lim = static_cast<int16_t>(
-            ((**data_ptr & ~BITMAP_DECODE_WORD_FLG_BIT) << 3) | (int16_t) (((*(*data_ptr + 1)) & BITMAP_DECODE_R_VAL_LOW_MASK) >> 5));
+            ((**data_ptr & ~BITMAP_DECODE_WORD_FLG_BIT) << 3) | static_cast<int16_t>(((*(*data_ptr + 1)) & BITMAP_DECODE_R_VAL_LOW_MASK) >> 5));
     *data_ptr += 2;
 }
 
@@ -852,7 +850,7 @@ void SH1122Oled::bitmap_decode_pixel_block(const uint8_t** data_ptr, int16_t& r_
  */
 uint8_t SH1122Oled::font_lookup_table_read_char(const uint8_t* font, uint8_t offset)
 {
-    return *static_cast<const uint8_t*>(font + offset);
+    return *(font + offset);
 }
 
 /**
@@ -866,9 +864,9 @@ uint16_t SH1122Oled::font_lookup_table_read_word(const uint8_t* font, uint8_t of
 {
     uint16_t word;
 
-    word = static_cast<uint16_t>(*static_cast<const uint8_t*>(font + offset));
+    word = static_cast<uint16_t>(*(font + offset));
     word <<= 8;
-    word += static_cast<uint16_t>(*static_cast<const uint8_t*>(font + offset + 1));
+    word += static_cast<uint16_t>(*(font + offset + 1));
 
     return word;
 }

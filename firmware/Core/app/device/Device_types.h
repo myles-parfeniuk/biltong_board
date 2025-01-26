@@ -34,33 +34,31 @@ enum class SwitchEvent
 // device model
 typedef struct switch_t
 {
-        opee::DataWatch<SwitchEvent, 80, 5> up;
-        opee::DataWatch<SwitchEvent, 80, 5> down;
-        opee::DataWatch<SwitchEvent, 80, 5> enter;
+        opee::DataWatch<SwitchEvent, 64, 8> up;
+        opee::DataWatch<SwitchEvent, 64, 8> down;
+        opee::DataWatch<SwitchEvent, 64, 8> enter;
 } switch_t;
 
-typedef struct temp_sens_t
+typedef struct
 {
-        opee::DataWatch<uint32_t, 32, 2> sample_rate;
-        opee::DataWatch<temp_data_t, 64, 4> celsius;
-} temp_sens_t;
+        struct
+        {
+                opee::DataWatch<uint32_t, 32, 4> sample_rate;
+                opee::DataWatch<temp_data_t, 32, 4> celsius;
+        } temperature;
 
-typedef struct rh_sens_t
-{
-        opee::DataWatch<uint32_t, 32, 2> sample_rate;
-        opee::DataWatch<rh_data_t, 64, 4> relative;
+        struct
+        {
+                opee::DataWatch<uint32_t, 32, 4> sample_rate;
+                opee::DataWatch<rh_data_t, 32, 4> relative;
+        } humidity;
 
-} rh_sens_t;
-
-typedef struct sens_t
-{
-        temp_sens_t temperature;
-        rh_sens_t humidity;
 } sens_t;
 
 typedef struct heat_lamps_t
 {
-        opee::DataWatch<bool, 32, 2> relay_closed;
-        opee::DataWatch<uint8_t, 32, 2> intensity;
-        opee::DataWatch<float, 32, 2> mains_hz;
+        opee::DataWatch<bool, 32, 4> relay_closed;
+        opee::DataWatch<uint8_t, 32, 4> intensity;
+        opee::DataWatch<float, 32, 4> mains_hz;
+        opee::DataWatch<int32_t, 16, 2> mains_period_us;
 } heat_lamps_t;

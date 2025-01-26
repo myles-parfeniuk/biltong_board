@@ -10,7 +10,7 @@
 #include "bb_task_defs.h"
 #include "SerialService.h"
 #include "SH1122Oled.h"
-#include "sh1122_fonts/sh1122_font_8x13B_tf.h"
+#include "sh1122_fonts/sh1122_font_5x8_tf.h"
 #include "Device.h"
 #include "SwitchDriver.h"
 #include "TempRHDriver.h"
@@ -34,6 +34,8 @@ extern "C" int app_main()
 
 void task_idle(void* arg)
 {
+    uint16_t qp_cnt = (uint16_t)0U;
+
     // initialize serial backend for debug
     SerialService::init(&huart3);
     SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****init()**** serial_svc success");
@@ -74,16 +76,14 @@ void task_idle(void* arg)
     else
         SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****init()**** heat_lamp_driver success...");
 
-    OPEEngineRes_t res;
-
-    res = d.heat_lamps.mains_hz.subscribe<8>(
+    d.heat_lamps.mains_hz.subscribe<8>(
             [](float mains_hz)
             {
                 static constexpr const char* CB_TAG = "MainsFreq";
-                SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "%.2f(Hz)", mains_hz);
+                SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "%.4f(Hz)", mains_hz);
             });
 
-    res = d.sensors.temperature.celsius.subscribe<16>(
+    d.sensors.temperature.celsius.subscribe<16>(
             [](temp_data_t new_temp)
             {
                 static constexpr const char* CB_TAG = "Temp";
@@ -91,7 +91,7 @@ void task_idle(void* arg)
                 SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "A: %li B: %li", new_temp.A, new_temp.B);
             });
 
-    res = d.sensors.humidity.relative.subscribe<16>(
+    d.sensors.humidity.relative.subscribe<16>(
             [](rh_data_t new_rh)
             {
                 static constexpr const char* CB_TAG = "RH";
@@ -99,19 +99,18 @@ void task_idle(void* arg)
                 SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "A: %li B: %li", new_rh.A, new_rh.B);
             });
 
-    d.switches.enter.subscribe<32>(
-            [&oled](SwitchEvent new_event)
+    d.switches.enter.subscribe<16>(
+            [&oled, &qp_cnt](SwitchEvent new_event)
             {
                 static constexpr const char* CB_TAG = "EnterSwitch";
-                static uint16_t qp_cnt = 0UL;
 
                 switch (new_event)
                 {
                     case SwitchEvent::quick_press:
                         SerialService::LOG_ln<BB_LL_SUCCESS>(CB_TAG, "oled_count_up");
-                        oled.load_font(sh1122_font_8x13B_tf);
+                        oled.load_font(sh1122_font_5x8_tf);
                         oled.clear_buffer();
-                        oled.draw_string({0, 0}, SH1122PixIntens::level_7, "count: %d oled state: %s", qp_cnt,
+                        oled.draw_string({0, 0}, SH1122PixIntens::level_7, "press cnt: %d | relay state: %s", qp_cnt,
                                 d.heat_lamps.relay_closed.get() ? "closed" : "open");
                         oled.update_screen();
                         qp_cnt++;
@@ -139,15 +138,22 @@ void task_idle(void* arg)
             [](SwitchEvent new_event)
             {
                 static constexpr const char* CB_TAG = "DownSwitch";
+                static uint8_t pct_intensity = 0U;
 
                 switch (new_event)
                 {
                     case SwitchEvent::quick_press:
                         SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "quick_press");
+                        d.heat_lamps.intensity.set(pct_intensity);
+                        pct_intensity += 5U;
+                        if (pct_intensity > 100U)
+                            pct_intensity = 0U;
                         break;
 
                     case SwitchEvent::long_press:
                         SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "long_press");
+                        pct_intensity = 0U;
+                        d.heat_lamps.intensity.set(pct_intensity);
                         break;
 
                     case SwitchEvent::held:
@@ -165,9 +171,12 @@ void task_idle(void* arg)
             });
 
     d.switches.up.subscribe<32>(
-            [](SwitchEvent new_event)
+            [&oled, &qp_cnt](SwitchEvent new_event)
             {
                 static constexpr const char* CB_TAG = "UpSwitch";
+
+                oled.load_font(sh1122_font_5x8_tf);
+                oled.clear_buffer();
 
                 switch (new_event)
                 {
@@ -175,14 +184,18 @@ void task_idle(void* arg)
 
                         if (d.heat_lamps.relay_closed.get())
                         {
-                            SerialService::LOG_ln<BB_LL_WARNING>(CB_TAG, "relay_enable");
+                            SerialService::LOG_ln<BB_LL_WARNING>(CB_TAG, "relay_disable");
                             d.heat_lamps.relay_closed.set(false);
+                            oled.draw_string({0, 0}, SH1122PixIntens::level_7, "press cnt: %d | relay state: %s", qp_cnt, "open");
                         }
                         else
                         {
-                            SerialService::LOG_ln<BB_LL_WARNING>(CB_TAG, "relay_disable");
+                            SerialService::LOG_ln<BB_LL_WARNING>(CB_TAG, "relay_enable");
                             d.heat_lamps.relay_closed.set(true);
+                            oled.draw_string({0, 0}, SH1122PixIntens::level_7, "press cnt: %d | relay state: %s", qp_cnt, "closed");
                         }
+
+                        oled.update_screen();
 
                         break;
 
