@@ -91,7 +91,8 @@
     "thread": "cpp",
     "cinttypes": "cpp",
     "typeinfo": "cpp",
-    "app_main.h": "c"
+    "app_main.h": "c",
+    "main.h": "c"
   },
   "cortex-debug.variableUseNaturalFormat": true,
 }
