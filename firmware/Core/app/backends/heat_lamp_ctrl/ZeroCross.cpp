@@ -1,6 +1,8 @@
 #include "ZeroCross.h"
 #include <stm32g070xx.h>
 
+#define SET_TRIAC_TRIGGER_INACTIVE() HAL_GPIO_WritePin(PIN_TRIAC_TRIG.port, PIN_TRIAC_TRIG.num, GPIO_PIN_SET)
+
 ZeroCross::ZeroCross(Device& d, TIM_HandleTypeDef* hdl_zx_timer, EventGroupHandle_t& evt_grp_lamp_ctrl_hdl)
     : d(d)
     , hdl_zx_timer(hdl_zx_timer)
@@ -13,30 +15,68 @@ bool ZeroCross::init()
 {
     OPEEngineRes_t op_success = OPEE_OK;
 
+    set_zx_timer_triac_trig_ch(MAX_ZX_TIMER_TICKS); // should never execute ccr1 isr until set by user
+    SET_TRIAC_TRIGGER_INACTIVE();
     ISRCbDispatch::register_zero_cross_ISR_cb(zero_cross_ISR_cb, this);
+    ISRCbDispatch::register_triac_trig_ISR_cb(triac_trig_ISR_cb, this);
     sample_window = mains_hz_window_a;
     proc_window = mains_hz_window_b;
 
     op_success = d.heat_lamps.intensity.subscribe<16>(
             [this](uint8_t new_intensity)
             {
-                float scale_factor = static_cast<float>(new_intensity) / 100.0f;
-                int32_t mains_period_us = d.heat_lamps.mains_period_us.get();
-                uint32_t oc_val = 0UL;
-
-                if (mains_period_us > 0L)
-                {
-                    oc_val = static_cast<uint32_t>(static_cast<float>(mains_period_us) * scale_factor);
-
-                    SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****triac trig time set**** %ld/%ldus success", oc_val, mains_period_us);
-                }
-                else
-                {
-                    SerialService::LOG_ln<BB_LL_ERROR>(TAG, "****triac trig time set**** mains avg period uninit fail");
-                }
+                uint32_t new_trig_ticks = intensity2ticks(new_intensity);
+                set_triac_trig_ticks(new_trig_ticks);
             });
 
     return (op_success == OPEE_OK);
+}
+
+uint32_t ZeroCross::intensity2ticks(uint8_t new_intensity)
+{
+    float scale_factor = static_cast<float>(new_intensity) / 100.0f;
+    int32_t zx_period_us = d.heat_lamps.zx_period_us.get();
+    int32_t new_trig_ticks = 0UL;
+
+    if (zx_period_us > 0L)
+    {
+        new_trig_ticks = zx_period_us - static_cast<int32_t>(static_cast<float>(zx_period_us) * scale_factor);
+        return static_cast<uint32_t>(new_trig_ticks);
+    }
+    else
+    {
+        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "****intensity2ticks**** mains avg period uninit fail");
+    }
+
+    return MAX_ZX_TIMER_TICKS;
+}
+
+bool ZeroCross::set_triac_trig_ticks(uint32_t new_trig_ticks)
+{
+    int32_t zx_period_us = d.heat_lamps.zx_period_us.get();
+
+    if (new_trig_ticks <= (zx_period_us - (2*TRIAC_TRIGGING_TIME_US)))
+    {
+        set_zx_timer_triac_trig_ch(new_trig_ticks);
+        SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****set_triac_trig_ticks**** new triag trig time: %ld/%d", new_trig_ticks, zx_period_us);
+
+        return true;
+    }
+    else
+    {
+        set_zx_timer_triac_trig_ch(MAX_ZX_TIMER_TICKS);
+        SerialService::LOG_ln<BB_LL_WARNING>(TAG, "****set_triac_trig_ticks**** tric dimmer disabled");
+        return false;
+    }
+}
+
+void ZeroCross::set_zx_timer_triac_trig_ch(uint32_t oc_ticks)
+{
+    HAL_TIM_OC_Stop(hdl_zx_timer, TIM_CHANNEL_1);
+    triac_triggering = false; 
+    SET_TRIAC_TRIGGER_INACTIVE();
+    TIM15->CCR1 = oc_ticks;
+    state = ZxSampleState::START;
 }
 
 int32_t ZeroCross::avg_window()
@@ -56,9 +96,8 @@ int32_t ZeroCross::avg_window()
 float ZeroCross::hz_calc(int32_t window_avg)
 {
     float result = static_cast<float>(window_avg);
-
     // account for 2 ISR calls == 1 sin wave
-    result /= 2.0f;
+    result *= 2.0f;
     // convert to freq (Ttimer/Tavg_sin_wave)
     result = static_cast<float>(ZX_TIMER_TICK_FREQ_HZ) / result;
 
@@ -67,8 +106,11 @@ float ZeroCross::hz_calc(int32_t window_avg)
 
 uint32_t ZeroCross::grab_sample_and_reset_zx_timer(ZeroCross* _zx)
 {
+    HAL_TIM_OC_Stop_IT(_zx->hdl_zx_timer, TIM_CHANNEL_1);
     uint32_t sample = TIM15->CNT;
     TIM15->CNT &= 0UL;
+    HAL_TIM_OC_Start_IT(_zx->hdl_zx_timer, TIM_CHANNEL_1);
+
     return sample;
 }
 
@@ -102,13 +144,27 @@ void ZeroCross::hz_calc_evt(ZeroCross* _zx)
     portYIELD_FROM_ISR(higher_priority_task_awoken);
 }
 
+void ZeroCross::triac_trig_ISR_cb(void* arg)
+{
+    ZeroCross* _zx = static_cast<ZeroCross*>(arg);
+
+    HAL_GPIO_TogglePin(PIN_TRIAC_TRIG.port, PIN_TRIAC_TRIG.num);
+
+    if (!_zx->triac_triggering)
+        TIM15->CCR1 += TRIAC_TRIGGING_TIME_US;
+    else
+        TIM15->CCR1 -= TRIAC_TRIGGING_TIME_US;
+
+    _zx->triac_triggering = !_zx->triac_triggering;
+}
+
 void ZeroCross::zero_cross_ISR_cb(void* arg)
 {
     ZeroCross* _zx = static_cast<ZeroCross*>(arg);
     const ZxSampleState state = _zx->state;
     static uint32_t mains_hz_sample = 0UL;
 
-    if (state == ZxSampleState::DONE_SAMPLE)
+    if (state == ZxSampleState::SAMPLING)
         mains_hz_sample = grab_sample_and_reset_zx_timer(_zx);
 
     switch (state)
@@ -118,16 +174,12 @@ void ZeroCross::zero_cross_ISR_cb(void* arg)
             break;
 
         case ZxSampleState::START:
-            HAL_TIM_Base_Start_IT(_zx->hdl_zx_timer);
-            _zx->state = ZxSampleState::DEBOUNCE;
+            TIM15->CNT &= 0UL;
+            HAL_TIM_OC_Start_IT(_zx->hdl_zx_timer, TIM_CHANNEL_1);
+            _zx->state = ZxSampleState::SAMPLING;
             break;
 
-        case ZxSampleState::DEBOUNCE:
-            if (TIM15->CNT > DEBOUNCE_THRESHOLD)
-                _zx->state = ZxSampleState::DONE_SAMPLE;
-            break;
-
-        case ZxSampleState::DONE_SAMPLE:
+        case ZxSampleState::SAMPLING:
 
             if (_zx->window_pos > MAINS_HZ_WINDOW_SZ)
             {
@@ -139,7 +191,6 @@ void ZeroCross::zero_cross_ISR_cb(void* arg)
             {
                 mv_hz_smpl_to_window(_zx, mains_hz_sample);
             }
-            _zx->state = ZxSampleState::DEBOUNCE;
 
         default:
             break;

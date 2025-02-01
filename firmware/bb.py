@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import argparse
 from bb_py.bb_setup import BBBuildSetup
 from bb_py.bb_build_manager import BBBuildMgr

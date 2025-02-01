@@ -28,6 +28,7 @@ class HeatLampDriver
         StaticEventGroup_t evt_grp_lamp_ctrl_buff;
 
         static const constexpr EventBits_t EVT_GRP_LAMP_CTRL_HZ_CALC = (1UL << 0UL);
-        static const constexpr EventBits_t EVT_GRP_LAMP_CTRL_ALL = EVT_GRP_LAMP_CTRL_HZ_CALC;
+        static const constexpr EventBits_t EVT_GRP_LAMP_CTRL_TRIAC_TRIG = (1UL << 1UL);
+        static const constexpr EventBits_t EVT_GRP_LAMP_CTRL_ALL = EVT_GRP_LAMP_CTRL_HZ_CALC | EVT_GRP_LAMP_CTRL_TRIAC_TRIG;
         static const constexpr char* TAG = "HeatLampDriver";
 };

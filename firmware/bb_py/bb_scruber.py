@@ -33,13 +33,13 @@ class BBScrubber:
         for file_path in files_to_delete:
             try:
                 os.remove(file_path)
-                print(f"Successfully deleted: {file_path}")
+                BBUtLog.log(f"Successfully deleted: {file_path}")
             except FileNotFoundError:
-                print(f"File not found: {file_path}")
+                BBUtLog.log(f"File not found: {file_path}")
             except PermissionError:
                 print(f"Permission denied: {file_path}")
             except Exception as e:
-                print(f"Error deleting {file_path}: {str(e)}")[2]
+                BBUtLog.log(f"Error deleting {file_path}: {str(e)}")[2]
 
 
     def cleanup_cmsis_wrapper(self):

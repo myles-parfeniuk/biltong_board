@@ -50,6 +50,7 @@ extern "C"
                     bb_isr_cb_ctx enter_switch;
                     bb_isr_cb_ctx down_switch;
                     bb_isr_cb_ctx zero_cross;
+                    bb_isr_cb_ctx triac_trig;
             } bb_isr_cb_registry_t;
 
             inline static bb_isr_cb_registry_t ISR_ctx;
@@ -79,6 +80,12 @@ extern "C"
                 ISR_ctx.zero_cross.param = cb_param;
             }
 
+            inline static void register_triac_trig_ISR_cb(bb_isr_cb_t isr, void* cb_param)
+            {
+                ISR_ctx.triac_trig.cb = isr;
+                ISR_ctx.triac_trig.param = cb_param;
+            }
+
             inline static void execute_up_switch_ISR_cb()
             {
                 if (ISR_ctx.up_switch.cb != nullptr)
@@ -102,6 +109,13 @@ extern "C"
                 if (ISR_ctx.zero_cross.cb != nullptr)
                     ISR_ctx.zero_cross.cb(ISR_ctx.zero_cross.param);
             }
+
+            inline static void execute_triac_trig_ISR_cb()
+            {
+                if (ISR_ctx.triac_trig.cb != nullptr)
+                    ISR_ctx.triac_trig.cb(ISR_ctx.triac_trig.param);
+            }
+
     }; // namespace ISRCbDispatch
 
 #ifdef __cplusplus

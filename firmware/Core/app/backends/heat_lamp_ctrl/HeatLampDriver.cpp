@@ -45,7 +45,7 @@ void HeatLampDriver::task_lamp_ctrl_trampoline(void* arg)
 void HeatLampDriver::task_lamp_ctrl()
 {
     EventBits_t ctrl_bits = 0UL;
-    int32_t mains_period_us = 0L;
+    int32_t zx_period_us = 0L;
     float mains_hz = 0.0f;
 
     while (1)
@@ -53,10 +53,10 @@ void HeatLampDriver::task_lamp_ctrl()
         ctrl_bits = xEventGroupWaitBits(evt_grp_lamp_ctrl_hdl, EVT_GRP_LAMP_CTRL_ALL, pdFALSE, pdFALSE, portMAX_DELAY);
 
         if (ctrl_bits & EVT_GRP_LAMP_CTRL_HZ_CALC)
-        {
-            mains_period_us = zero_cross.avg_window();
-            mains_hz = zero_cross.hz_calc(mains_period_us);
-            d.heat_lamps.mains_period_us.set(mains_period_us);
+        {   
+            zx_period_us = zero_cross.avg_window();
+            mains_hz = zero_cross.hz_calc(zx_period_us);
+            d.heat_lamps.zx_period_us.set(zx_period_us);
             d.heat_lamps.mains_hz.set(mains_hz);
             xEventGroupClearBits(evt_grp_lamp_ctrl_hdl, EVT_GRP_LAMP_CTRL_HZ_CALC);
         }

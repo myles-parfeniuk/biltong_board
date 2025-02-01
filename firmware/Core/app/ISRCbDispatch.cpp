@@ -84,11 +84,11 @@ void HardFault_Handler(void)
  */
 void EXTI2_3_IRQHandler(void)
 {
-    if (__HAL_GPIO_EXTI_GET_IT(PIN_SW_UP.num) == SET)
-        ISRCbDispatch::execute_up_switch_ISR_cb();
-
     if (__HAL_GPIO_EXTI_GET_IT(PIN_ZERO_CROSS.num) == SET)
         ISRCbDispatch::execute_zero_cross_ISR_cb();
+
+    if (__HAL_GPIO_EXTI_GET_IT(PIN_SW_UP.num) == SET)
+        ISRCbDispatch::execute_up_switch_ISR_cb();
 
     HAL_GPIO_EXTI_IRQHandler(PIN_ZERO_CROSS.num);
     HAL_GPIO_EXTI_IRQHandler(PIN_SW_UP.num);
@@ -149,6 +149,11 @@ void TIM15_IRQHandler(void)
     /* USER CODE BEGIN TIM15_IRQn 0 */
 
     /* USER CODE END TIM15_IRQn 0 */
+    if (__HAL_TIM_GET_FLAG(&htim15, TIM_FLAG_CC1))
+    {
+        ISRCbDispatch::execute_triac_trig_ISR_cb();
+    }
+
     HAL_TIM_IRQHandler(&htim15);
     /* USER CODE BEGIN TIM15_IRQn 1 */
 
