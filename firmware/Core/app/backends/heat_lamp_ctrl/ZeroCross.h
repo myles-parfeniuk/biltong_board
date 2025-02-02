@@ -2,6 +2,9 @@
 
 // cube-mx
 #include "tim.h"
+// third-party
+#include "FreeRTOS.h"
+#include "task.h"
 // in-house
 #include "Device.h"
 #include "ISRCbDispatch.h"
@@ -23,12 +26,6 @@ class ZeroCross
             SAMPLING
         };
 
-        static const constexpr size_t MAINS_HZ_WINDOW_SZ = 8UL;
-        static const constexpr size_t ZX_TIMER_TICK_FREQ_HZ = 1000000UL;
-        static const constexpr size_t EXPECTED_MAINS_FREQ_HZ = 60UL;
-        static const constexpr size_t EXPECTED_ZX_PERIOD = ZX_TIMER_TICK_FREQ_HZ / (2UL * EXPECTED_MAINS_FREQ_HZ); 
-        static const constexpr size_t DEBOUNCE_THRESHOLD = EXPECTED_ZX_PERIOD / 10UL;
-
         uint32_t intensity2ticks(uint8_t intensity);
         bool set_triac_trig_ticks(uint32_t new_trig_ticks);
         void set_zx_timer_triac_trig_ch(uint32_t oc_ticks);
@@ -39,6 +36,16 @@ class ZeroCross
         static void triac_trig_ISR_cb(void* arg);
         static void zero_cross_ISR_cb(void* arg);
 
+        // constants
+        inline static const constexpr size_t MAINS_HZ_WINDOW_SZ = 16UL;
+        inline static const constexpr size_t ZX_TIMER_TICK_FREQ_HZ = 1000000UL;
+        inline static const constexpr size_t EXPECTED_MAINS_FREQ_HZ = 60UL;
+        inline static const constexpr size_t EXPECTED_ZX_PERIOD = ZX_TIMER_TICK_FREQ_HZ / (2UL * EXPECTED_MAINS_FREQ_HZ);
+        inline static const constexpr uint32_t MAX_ZX_TIMER_TICKS = 65535UL;
+        inline static const constexpr uint32_t TRIAC_TRIGGING_TIME_US = 25UL;
+        inline static const constexpr EventBits_t EVT_GRP_LAMP_CTRL_HZ_CALC = (1UL << 0UL);
+        inline static const constexpr EventBits_t EVT_GRP_LAMP_CTRL_ALL = EVT_GRP_LAMP_CTRL_HZ_CALC;
+
         Device& d;
         TIM_HandleTypeDef* hdl_zx_timer = nullptr;
         EventGroupHandle_t& evt_grp_lamp_ctrl_hdl;
@@ -48,12 +55,7 @@ class ZeroCross
         uint32_t mains_hz_window_b[MAINS_HZ_WINDOW_SZ] = {0UL};
         volatile uint32_t* sample_window = nullptr;
         volatile uint32_t* proc_window = nullptr;
-        volatile bool triac_triggering = false; 
-
-        inline static const constexpr uint32_t MAX_ZX_TIMER_TICKS = 65535UL;
-        inline static const constexpr uint32_t TRIAC_TRIGGING_TIME_US = 800UL; 
-        inline static const constexpr EventBits_t EVT_GRP_LAMP_CTRL_HZ_CALC = (1UL << 0UL);
-        inline static const constexpr EventBits_t EVT_GRP_LAMP_CTRL_ALL = EVT_GRP_LAMP_CTRL_HZ_CALC;
+        volatile bool triac_triggering = false;
 
         inline static const constexpr char* TAG = "ZeroCross";
 };

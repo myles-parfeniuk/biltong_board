@@ -69,9 +69,9 @@ class SH1122Oled
         bool set_vseg(uint8_t vseg_reg_val);
         bool set_inverted_intensity(bool inverted);
 
-        static const constexpr uint16_t WIDTH = 256U;     ///<Display width
-        static const constexpr uint16_t HEIGHT = 64U;     ///<Display height
-        static const constexpr uint16_t MAX_STR_SZ = 50U; ///<Max possible string size to be sent with draw_string()
+        inline static const constexpr uint16_t WIDTH = 256U;     ///<Display width
+        inline static const constexpr uint16_t HEIGHT = 64U;     ///<Display height
+        inline static const constexpr uint16_t MAX_STR_SZ = 50U; ///<Max possible string size to be sent with draw_string()
 
     private:
         /// @brief Font information structure, used to contain information about the currently loaded font.
@@ -154,40 +154,41 @@ class SH1122Oled
         static const constexpr uint16_t FRAME_BUFFER_LENGTH = WIDTH * HEIGHT / 2; ///< Length of frame buffer being sent over SPI.
         inline static uint8_t frame_buffer[FRAME_BUFFER_LENGTH] = {0U};           ///< Frame buffer to contain pixel data being sent over SPI.
 
-        static const constexpr TickType_t RST_DELAY_MS = 100UL / portTICK_PERIOD_MS;
+        inline static const constexpr TickType_t RST_DELAY_MS = 100UL / portTICK_PERIOD_MS;
 
         // bitmap decoding
-        static const constexpr uint8_t BITMAP_DECODE_WORD_FLG_BIT = BIT7;    ///< Indicates word length pixel block.
-        static const constexpr uint16_t BITMAP_DECODE_R_VAL_LOW_BIT_POS = 5; ///< Shift for lower repeated value bits.
-        static const constexpr uint16_t BITMAP_DECODE_R_VAL_LOW_MASK =
+        inline static const constexpr uint8_t BITMAP_DECODE_WORD_FLG_BIT = BIT7;    ///< Indicates word length pixel block.
+        inline static const constexpr uint16_t BITMAP_DECODE_R_VAL_LOW_BIT_POS = 5; ///< Shift for lower repeated value bits.
+        inline static const constexpr uint16_t BITMAP_DECODE_R_VAL_LOW_MASK =
                 (BIT7 | BIT6 | BIT5); ///< Mask for isolating the 3 lsbs of repeated value count with word length pixel block.
-        static const constexpr uint16_t BITMAP_DECODE_R_VAL_B_MASK =
+        inline static const constexpr uint16_t BITMAP_DECODE_R_VAL_B_MASK =
                 (BIT6 | BIT5); ///< Mask for isolating repeated value count with byte length pixel block.
-        static const constexpr uint8_t BITMAP_DECODE_PIXEL_INTENSITY_MASK =
+        inline static const constexpr uint8_t BITMAP_DECODE_PIXEL_INTENSITY_MASK =
                 (BIT4 | BIT3 | BIT2 | BIT1 | BIT0); ///< Mask for isolating grayscale intensity value.
 
         // commands
-        static const constexpr uint8_t CMD_POWER_ON = 0xAF;              ///< Power on command.
-        static const constexpr uint8_t CMD_POWER_OFF = 0xAE;             ///< Power off command.
-        static const constexpr uint8_t CMD_SET_ROW_ADDR = 0xB0;          ///< Set row address command.
-        static const constexpr uint8_t CMD_SCAN_0_TO_N = 0xC0;           ///< Scan from bottom to top command.
-        static const constexpr uint8_t CMD_SCAN_N_TO_0 = 0xC8;           ///< Scan from top to bottom command.
-        static const constexpr uint8_t CMD_NORM_SEG_MAP = 0xA0;          ///< Regular segment driver output pad assignment command.
-        static const constexpr uint8_t CMD_REV_SEG_MAP = 0xA1;           ///< Reversed segment driver output pads assignment command.
-        static const constexpr uint8_t CMD_SET_MULTIPLEX_RATION = 0xA8;  ///< Multiplex ratio set command.
-        static const constexpr uint8_t CMD_SET_DC_DC_CTRL_MOD = 0xAD;    ///< Set onboard oled DC-DC voltage converter status and switch freq command.
-        static const constexpr uint8_t CMD_SET_OSCILLATOR_FREQ = 0xD5;   ///< Set display clock frequency command.
-        static const constexpr uint8_t CMD_SET_DISP_START_LINE = 0x40;   ///< Set display starting row address command.
-        static const constexpr uint8_t CMD_SET_DISP_CONTRAST = 0x81;     ///< Set display contrast command.
-        static const constexpr uint8_t CMD_SET_DISP_OFFSET_MOD = 0xD3;   ///< Set display offset command.
-        static const constexpr uint8_t CMD_SET_PRE_CHARGE_PERIOD = 0xD9; ///< Set precharge period command.
-        static const constexpr uint8_t CMD_SET_VCOM = 0xDB;              ///< Set common pad output voltage at deselect command.
-        static const constexpr uint8_t CMD_SET_VSEG = 0xDC;              ///< Set segment pad output voltage at precharge stage.
-        static const constexpr uint8_t CMD_SET_DISCHARGE_LEVEL = 0x30;   ///< Set segment output discharge voltage level command.
-        static const constexpr uint8_t CMD_SET_NORMAL_DISPLAY = 0xA6;    ///< Set non inverted pixel intensity command.
-        static const constexpr uint8_t CMD_SET_INV_DISPLAY = 0xA7;       ///< Set inverted pixel intensity command.
-        static const constexpr uint8_t CMD_SET_HIGH_COLUMN_ADDR = 0x10;  ///< Set high column address command.
-        static const constexpr uint8_t CMD_SET_LOW_COLUMN_ADDR = 0x00;   ///< Set low column address command.
+        inline static const constexpr uint8_t CMD_POWER_ON = 0xAF;             ///< Power on command.
+        inline static const constexpr uint8_t CMD_POWER_OFF = 0xAE;            ///< Power off command.
+        inline static const constexpr uint8_t CMD_SET_ROW_ADDR = 0xB0;         ///< Set row address command.
+        inline static const constexpr uint8_t CMD_SCAN_0_TO_N = 0xC0;          ///< Scan from bottom to top command.
+        inline static const constexpr uint8_t CMD_SCAN_N_TO_0 = 0xC8;          ///< Scan from top to bottom command.
+        inline static const constexpr uint8_t CMD_NORM_SEG_MAP = 0xA0;         ///< Regular segment driver output pad assignment command.
+        inline static const constexpr uint8_t CMD_REV_SEG_MAP = 0xA1;          ///< Reversed segment driver output pads assignment command.
+        inline static const constexpr uint8_t CMD_SET_MULTIPLEX_RATION = 0xA8; ///< Multiplex ratio set command.
+        inline static const constexpr uint8_t CMD_SET_DC_DC_CTRL_MOD =
+                0xAD; ///< Set onboard oled DC-DC voltage converter status and switch freq command.
+        inline static const constexpr uint8_t CMD_SET_OSCILLATOR_FREQ = 0xD5;   ///< Set display clock frequency command.
+        inline static const constexpr uint8_t CMD_SET_DISP_START_LINE = 0x40;   ///< Set display starting row address command.
+        inline static const constexpr uint8_t CMD_SET_DISP_CONTRAST = 0x81;     ///< Set display contrast command.
+        inline static const constexpr uint8_t CMD_SET_DISP_OFFSET_MOD = 0xD3;   ///< Set display offset command.
+        inline static const constexpr uint8_t CMD_SET_PRE_CHARGE_PERIOD = 0xD9; ///< Set precharge period command.
+        inline static const constexpr uint8_t CMD_SET_VCOM = 0xDB;              ///< Set common pad output voltage at deselect command.
+        inline static const constexpr uint8_t CMD_SET_VSEG = 0xDC;              ///< Set segment pad output voltage at precharge stage.
+        inline static const constexpr uint8_t CMD_SET_DISCHARGE_LEVEL = 0x30;   ///< Set segment output discharge voltage level command.
+        inline static const constexpr uint8_t CMD_SET_NORMAL_DISPLAY = 0xA6;    ///< Set non inverted pixel intensity command.
+        inline static const constexpr uint8_t CMD_SET_INV_DISPLAY = 0xA7;       ///< Set inverted pixel intensity command.
+        inline static const constexpr uint8_t CMD_SET_HIGH_COLUMN_ADDR = 0x10;  ///< Set high column address command.
+        inline static const constexpr uint8_t CMD_SET_LOW_COLUMN_ADDR = 0x00;   ///< Set low column address command.
 
-        static const constexpr char* TAG = "SH1122Oled";
+        inline static const constexpr char* TAG = "SH1122Oled";
 };

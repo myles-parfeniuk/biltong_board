@@ -34,13 +34,16 @@ bool ZeroCross::init()
 
 uint32_t ZeroCross::intensity2ticks(uint8_t new_intensity)
 {
-    float scale_factor = static_cast<float>(new_intensity) / 100.0f;
     int32_t zx_period_us = d.heat_lamps.zx_period_us.get();
-    int32_t new_trig_ticks = 0UL;
+    int32_t new_trig_ticks = 0L;
+    int32_t max_trig_ticks = 0L;
+    int32_t min_trig_ticks = 0L;
 
     if (zx_period_us > 0L)
     {
-        new_trig_ticks = zx_period_us - static_cast<int32_t>(static_cast<float>(zx_period_us) * scale_factor);
+        max_trig_ticks = zx_period_us - 1000L;
+        min_trig_ticks = 1000L; 
+        new_trig_ticks = zx_period_us -  (((new_intensity - 0UL) * (max_trig_ticks - min_trig_ticks)) / (100U - 0U) + min_trig_ticks);
         return static_cast<uint32_t>(new_trig_ticks);
     }
     else
@@ -55,7 +58,7 @@ bool ZeroCross::set_triac_trig_ticks(uint32_t new_trig_ticks)
 {
     int32_t zx_period_us = d.heat_lamps.zx_period_us.get();
 
-    if (new_trig_ticks <= (zx_period_us - (2*TRIAC_TRIGGING_TIME_US)))
+    if (new_trig_ticks <= (zx_period_us - TRIAC_TRIGGING_TIME_US))
     {
         set_zx_timer_triac_trig_ch(new_trig_ticks);
         SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****set_triac_trig_ticks**** new triag trig time: %ld/%d", new_trig_ticks, zx_period_us);

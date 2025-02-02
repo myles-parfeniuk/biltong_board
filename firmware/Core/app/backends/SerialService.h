@@ -71,7 +71,7 @@ class SerialService
         {
             BaseType_t pushed_to_queue = pdFALSE;
             size_t length = 0U;
-            uint8_t str_to_send[STR_BUFF_SZ] = {};
+            static uint8_t str_to_send[STR_BUFF_SZ] = {};
             va_list args;
 
             if (hdl_uart == nullptr)
@@ -99,7 +99,7 @@ class SerialService
                 return false;
 
             // store length
-            str_to_send[MAX_STR_SZ] = static_cast<uint8_t>(length);
+            str_to_send[LENGTH_IDX] = static_cast<uint8_t>(length);
 
             // send message to serial_task via queue_serial
             xQueueSend(queue_serial_hdl, str_to_send, 0UL);
@@ -108,32 +108,20 @@ class SerialService
 
         static bool putchar(uint8_t char2put)
         {
-            HAL_StatusTypeDef tx_res = HAL_ERROR;
-            tx_res = HAL_UART_Transmit(hdl_uart, &char2put, 1, TX_TIMEOUT_TICKS);
-
-            return (tx_res == HAL_OK);
+            return transmit(&char2put, 1);
         }
 
-        static void serial_task(void* arg)
-        {
-            uint8_t str_to_send[STR_BUFF_SZ];
-
-            while (1)
-            {
-                if (xQueueReceive(queue_serial_hdl, str_to_send, portMAX_DELAY) == pdTRUE)
-                    HAL_UART_Transmit(hdl_uart, str_to_send, str_to_send[MAX_STR_SZ], TX_TIMEOUT_TICKS);
-            }
-        }
-
-        static const constexpr size_t MAX_STR_SZ = 100U; ///< max string size in bytes that can be sent over queue
-        static const constexpr size_t STR_BUFF_SZ = 101U;
-        static const constexpr size_t MAX_PENDING_MSGS = 3U; ///< max strings that can be in queue_serial at any given time
+        inline static const constexpr size_t MAX_STR_SZ = 100U; ///< max string size in bytes that can be sent over queue
+        inline static const constexpr size_t MAX_PENDING_MSGS =
+                5U; ///< max strings that can be in queue_serial at any given time (amount of string buffers)
 
     private:
-        static const constexpr char* DEFAULT = "\033[0m"; // white (default)
-        static const constexpr char* GREEN = "\033[32m";  // green (success)
-        static const constexpr char* RED = "\033[31m";    // red (error)
-        static const constexpr char* YELLOW = "\033[33m"; // yellow (warning)
+        inline static const constexpr size_t LENGTH_IDX = MAX_STR_SZ + 1;  ///< index of string buffer of which length of string is stored
+        inline static const constexpr size_t STR_BUFF_SZ = MAX_STR_SZ + 2; ///< size of string buffers
+        inline static const constexpr char* DEFAULT = "\033[0m";           // white (default)
+        inline static const constexpr char* GREEN = "\033[32m";            // green (success)
+        inline static const constexpr char* RED = "\033[31m";              // red (error)
+        inline static const constexpr char* YELLOW = "\033[33m";           // yellow (warning)
 
         template <bb_log_lvl_t level>
         static bool append_color_code(uint8_t* str, size_t& length)
@@ -145,11 +133,7 @@ class SerialService
                                         (level == BB_LL_ERROR) ? RED : 
                                         DEFAULT;
             // clang-format on
-            const size_t escape_code_length = (level == BB_LL_INFO)      ? strlen(DEFAULT)
-                                              : (level == BB_LL_SUCCESS) ? strlen(GREEN)
-                                              : (level == BB_LL_WARNING) ? strlen(YELLOW)
-                                              : (level == BB_LL_ERROR)   ? strlen(RED)
-                                                                         : strlen(DEFAULT);
+            const size_t escape_code_length = strlen(escape_code);
 
             const size_t new_length = length + escape_code_length;
 
@@ -217,6 +201,39 @@ class SerialService
             return false;
         }
 
+        static bool transmit(const uint8_t* str_to_send, const size_t length)
+        {
+            HAL_StatusTypeDef op_success = HAL_BUSY;
+            uint32_t timeout_count_ms = 0UL;
+
+            do
+            {
+                op_success = HAL_UART_Transmit_IT(hdl_uart, str_to_send, length);
+
+                if (op_success == HAL_BUSY)
+                {
+                    vTaskDelay(1 / portTICK_PERIOD_MS);
+                    timeout_count_ms++;
+                }
+
+            } while ((op_success == HAL_BUSY) && (timeout_count_ms < TX_TIMEOUT_MS));
+
+            return (op_success == HAL_OK); 
+        }
+
+        static void serial_task(void* arg)
+        {
+            uint8_t str_to_send[STR_BUFF_SZ];
+
+            while (1)
+            {
+                if (xQueueReceive(queue_serial_hdl, str_to_send, portMAX_DELAY) == pdTRUE)
+                {
+                    transmit(str_to_send, str_to_send[LENGTH_IDX]);
+                }
+            }
+        }
+
         inline static TaskHandle_t task_serial_svc_hdl = NULL; ///< Serial service task handle.
         inline static StaticTask_t task_serial_svc_tcb;
         inline static StackType_t task_serial_svc_stk[BB_SERIAL_SVC_TSK_SZ] = {0UL};
@@ -224,7 +241,7 @@ class SerialService
         inline static StaticQueue_t queue_serial;
         inline static QueueHandle_t queue_serial_hdl = NULL;      ///< Queue for sending data to serial_task()
         inline static UART_HandleTypeDef* hdl_uart = nullptr;     ///< Pointer to stm32CUBE HAL uart handle to use with serial transmissions.
-        static const constexpr uint32_t TX_TIMEOUT_TICKS = 100UL; ///< Uart sending timeout in ms (only in ms if HAL tick is set to 1ms)
+        static const constexpr uint32_t TX_TIMEOUT_MS = 10UL; ///< Uart sending timeout in ms 
 
         static const constexpr char* TAG = "SerialService"; ///< Class tag, used in debub logs.
 };

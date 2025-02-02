@@ -92,7 +92,8 @@
     "cinttypes": "cpp",
     "typeinfo": "cpp",
     "app_main.h": "c",
-    "main.h": "c"
+    "main.h": "c",
+    "stm32g0xx_hal.h": "c"
   },
   "cortex-debug.variableUseNaturalFormat": true,
 }

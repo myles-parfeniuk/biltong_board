@@ -58,7 +58,7 @@ void task_idle(void* arg)
     // create backends and populate with device model
     SwitchDriver switch_driver(d);
     TempRHDriver temp_rh_driver(d, &hi2c2, &hi2c1);
-    HeatLampDriver heat_lamp_driver(d, &htim15);
+    HeatLampDriver heat_lamp_driver(d, &htim15, &hadc1);
 
     // initialize backends
     if (!switch_driver.init())
@@ -145,7 +145,7 @@ void task_idle(void* arg)
                     case SwitchEvent::quick_press:
                         SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "quick_press");
                         d.heat_lamps.intensity.set(pct_intensity);
-                        pct_intensity += 5U;
+                        pct_intensity += 1U;
                         if (pct_intensity > 100U)
                             pct_intensity = 0U;
                         break;

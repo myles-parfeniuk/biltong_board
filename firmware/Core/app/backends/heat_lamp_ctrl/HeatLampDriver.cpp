@@ -1,8 +1,9 @@
 #include "HeatLampDriver.h"
 
-HeatLampDriver::HeatLampDriver(Device& d, TIM_HandleTypeDef* hdl_zx_timer)
+HeatLampDriver::HeatLampDriver(Device& d, TIM_HandleTypeDef* hdl_zx_timer, ADC_HandleTypeDef *hdl_isense_adc)
     : d(d)
     , zero_cross(d, hdl_zx_timer, evt_grp_lamp_ctrl_hdl)
+    , current_sens(hdl_isense_adc)
 {
     // ensure relay is initially closed
     HAL_GPIO_WritePin(PIN_HEAT_LAMP_EN.port, PIN_HEAT_LAMP_EN.num, GPIO_PIN_RESET);
@@ -14,7 +15,7 @@ bool HeatLampDriver::init()
     OPEEngineRes_t op_success = OPEE_OK;
 
     op_success = d.heat_lamps.relay_closed.subscribe<8UL>(
-            [](bool relay_closed)
+            [this](bool relay_closed)
             {
                 if (relay_closed)
                     HAL_GPIO_WritePin(PIN_HEAT_LAMP_EN.port, PIN_HEAT_LAMP_EN.num, GPIO_PIN_SET);

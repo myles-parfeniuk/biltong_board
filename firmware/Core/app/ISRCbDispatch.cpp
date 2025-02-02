@@ -88,7 +88,11 @@ void EXTI2_3_IRQHandler(void)
         ISRCbDispatch::execute_zero_cross_ISR_cb();
 
     if (__HAL_GPIO_EXTI_GET_IT(PIN_SW_UP.num) == SET)
+    {
         ISRCbDispatch::execute_up_switch_ISR_cb();
+        __HAL_GPIO_EXTI_CLEAR_IT(PIN_SW_DOWN.num);
+        __HAL_GPIO_EXTI_CLEAR_IT(PIN_SW_ENTER.num);
+    }
 
     HAL_GPIO_EXTI_IRQHandler(PIN_ZERO_CROSS.num);
     HAL_GPIO_EXTI_IRQHandler(PIN_SW_UP.num);
@@ -100,10 +104,18 @@ void EXTI2_3_IRQHandler(void)
 void EXTI4_15_IRQHandler(void)
 {
     if (__HAL_GPIO_EXTI_GET_IT(PIN_SW_ENTER.num) == SET)
+    {
         ISRCbDispatch::execute_enter_switch_ISR_cb();
+        __HAL_GPIO_EXTI_CLEAR_IT(PIN_SW_DOWN.num);
+        __HAL_GPIO_EXTI_CLEAR_IT(PIN_SW_UP.num);
+    }
 
     if (__HAL_GPIO_EXTI_GET_IT(PIN_SW_DOWN.num) == SET)
+    {
         ISRCbDispatch::execute_down_switch_ISR_cb();
+        __HAL_GPIO_EXTI_CLEAR_IT(PIN_SW_UP.num);
+        __HAL_GPIO_EXTI_CLEAR_IT(PIN_SW_ENTER.num);
+    }
 
     HAL_GPIO_EXTI_IRQHandler(PIN_SW_ENTER.num);
     HAL_GPIO_EXTI_IRQHandler(PIN_SW_DOWN.num);

@@ -49,7 +49,8 @@ set(PROJECT_INCLUDE_DIRECTORIES
     ${PROJECT_DIR}/backends/sh1122_oled
     ${PROJECT_DIR}/backends/switch_driver
     ${PROJECT_DIR}/backends/temp_rh_sens
-    ${PROJECT_DIR}/backends/heat_lamp_ctrl)
+    ${PROJECT_DIR}/backends/heat_lamp_ctrl
+    ${PROJECT_DIR}/backends/current_sensor)
 
 #third party includes
 set(WSEN_HIDS_INCLUDE_DIRECTORIES
@@ -95,7 +96,9 @@ file(GLOB_RECURSE PROJECT_SOURCES FOLLOW_SYMLINKS
     ${PROJECT_DIR}/backends/temp_rh_sens/*.cpp
     ${PROJECT_DIR}/backends/temp_rh_sens/*.c
     ${PROJECT_DIR}/backends/heat_lamp_ctrl/*.cpp
-    ${PROJECT_DIR}/backends/heat_lamp_ctrl/*.c)
+    ${PROJECT_DIR}/backends/heat_lamp_ctrl/*.c
+    ${PROJECT_DIR}/backends/curren_sensor/*.cpp
+    ${PROJECT_DIR}/backends/curren_sensor/*.c)
 #### SOURCES END ####
 
 #### SOURCE EXCLUSIONS ####

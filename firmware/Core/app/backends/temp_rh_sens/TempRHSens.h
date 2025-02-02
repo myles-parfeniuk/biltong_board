@@ -1,13 +1,13 @@
 #pragma once
 
-// std library includes
+// std lib 
 #include <stdint.h>
-// cube mx includes
+// cube-mx
 #include "i2c.h"
-// third-party includes
+// third-party 
 #include "WeSensorsSDK.h"
 #include "WSEN_HIDS_2525020210002.h"
-// in-house includes
+// in-house 
 #include "SerialService.h"
 
 class TempRHSens
@@ -20,8 +20,11 @@ class TempRHSens
         bool get_humidity(int32_t& humidity_raw);
 
     private:
-        static const constexpr TickType_t BOOT_DELAY_MS = 50UL / portTICK_PERIOD_MS;
+        // constants
+        inline static const constexpr TickType_t BOOT_DELAY_MS = 50UL / portTICK_PERIOD_MS;
+
         I2C_HandleTypeDef* hdl_i2c = nullptr;
         WE_sensorInterface_t hids;
-        static const constexpr char* TAG = "TempRHSens";
+
+        inline static const constexpr char* TAG = "TempRHSens";
 };
