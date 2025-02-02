@@ -38,19 +38,19 @@ void task_idle(void* arg)
 
     // initialize serial backend for debug
     SerialService::init(&huart3);
-    SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****init()**** serial_svc success");
+    BB_LOGSUC(TAG, "****init()**** serial_svc success");
 
     // todo: move to backends/gui
     SH1122Oled oled(&hspi1);
 
     if (!oled.init())
-        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "****init()**** oled fail");
+        BB_LOGE(TAG, "****init()**** oled fail");
     else
-        SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****init()**** oled success...");
+        BB_LOGSUC(TAG, "****init()**** oled success...");
 
     // launch OPEEngine
     opee::OPEEngine_init();
-    SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****init()**** OPEEngine success...");
+    BB_LOGSUC(TAG, "****init()**** OPEEngine success...");
 
     // create device model
     static Device d;
@@ -62,25 +62,25 @@ void task_idle(void* arg)
 
     // initialize backends
     if (!switch_driver.init())
-        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "****init()**** switch_driver fail");
+        BB_LOGE(TAG, "****init()**** switch_driver fail");
     else
-        SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****init()**** switch_driver success...");
+        BB_LOGSUC(TAG, "****init()**** switch_driver success...");
 
     if (!temp_rh_driver.init())
-        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "****init()**** temp_rh_driver fail");
+        BB_LOGE(TAG, "****init()**** temp_rh_driver fail");
     else
-        SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****init()**** temp_rh_driver success...");
+        BB_LOGSUC(TAG, "****init()**** temp_rh_driver success...");
 
     if (!heat_lamp_driver.init())
-        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "****init() heat_lamp_driver fail");
+        BB_LOGE(TAG, "****init() heat_lamp_driver fail");
     else
-        SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****init()**** heat_lamp_driver success...");
+        BB_LOGSUC(TAG, "****init()**** heat_lamp_driver success...");
 
     d.heat_lamps.mains_hz.subscribe<8>(
             [](float mains_hz)
             {
                 static constexpr const char* CB_TAG = "MainsFreq";
-                SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "%.4f(Hz)", mains_hz);
+                BB_LOGI(CB_TAG, "%.4f(Hz)", mains_hz);
             });
 
     d.sensors.temperature.celsius.subscribe<16>(
@@ -88,7 +88,7 @@ void task_idle(void* arg)
             {
                 static constexpr const char* CB_TAG = "Temp";
 
-                SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "A: %li B: %li", new_temp.A, new_temp.B);
+                BB_LOGI(CB_TAG, "A: %li B: %li", new_temp.A, new_temp.B);
             });
 
     d.sensors.humidity.relative.subscribe<16>(
@@ -96,7 +96,7 @@ void task_idle(void* arg)
             {
                 static constexpr const char* CB_TAG = "RH";
 
-                SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "A: %li B: %li", new_rh.A, new_rh.B);
+                BB_LOGI(CB_TAG, "A: %li B: %li", new_rh.A, new_rh.B);
             });
 
     d.switches.enter.subscribe<16>(
@@ -107,7 +107,8 @@ void task_idle(void* arg)
                 switch (new_event)
                 {
                     case SwitchEvent::quick_press:
-                        SerialService::LOG_ln<BB_LL_SUCCESS>(CB_TAG, "oled_count_up");
+                        BB_LOGSPEC(CB_TAG, "quick_press");
+                        BB_LOGSUC(CB_TAG, "oled_count_up");
                         oled.load_font(sh1122_font_5x8_tf);
                         oled.clear_buffer();
                         oled.draw_string({0, 0}, SH1122PixIntens::level_7, "press cnt: %d | relay state: %s", qp_cnt,
@@ -117,15 +118,15 @@ void task_idle(void* arg)
                         break;
 
                     case SwitchEvent::long_press:
-                        SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "long_press");
+                        BB_LOGSPEC(CB_TAG, "long_press");
                         break;
 
                     case SwitchEvent::held:
-                        SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "held");
+                        BB_LOGSPEC(CB_TAG, "held");
                         break;
 
                     case SwitchEvent::release:
-                        SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "release");
+                        BB_LOGSPEC(CB_TAG, "release");
                         break;
 
                     default:
@@ -143,7 +144,7 @@ void task_idle(void* arg)
                 switch (new_event)
                 {
                     case SwitchEvent::quick_press:
-                        SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "quick_press");
+                        BB_LOGSPEC(CB_TAG, "quick_press");
                         d.heat_lamps.intensity.set(pct_intensity);
                         pct_intensity += 1U;
                         if (pct_intensity > 100U)
@@ -151,17 +152,17 @@ void task_idle(void* arg)
                         break;
 
                     case SwitchEvent::long_press:
-                        SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "long_press");
+                        BB_LOGSPEC(CB_TAG, "long_press");
                         pct_intensity = 0U;
                         d.heat_lamps.intensity.set(pct_intensity);
                         break;
 
                     case SwitchEvent::held:
-                        SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "held");
+                        BB_LOGSPEC(CB_TAG, "held");
                         break;
 
                     case SwitchEvent::release:
-                        SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "release");
+                        BB_LOGSPEC(CB_TAG, "release");
                         break;
 
                     default:
@@ -181,16 +182,16 @@ void task_idle(void* arg)
                 switch (new_event)
                 {
                     case SwitchEvent::quick_press:
-
+                        BB_LOGSPEC(CB_TAG, "quick_press");
                         if (d.heat_lamps.relay_closed.get())
                         {
-                            SerialService::LOG_ln<BB_LL_WARNING>(CB_TAG, "relay_disable");
+                            BB_LOGW(CB_TAG, "relay_disable");
                             d.heat_lamps.relay_closed.set(false);
                             oled.draw_string({0, 0}, SH1122PixIntens::level_7, "press cnt: %d | relay state: %s", qp_cnt, "open");
                         }
                         else
                         {
-                            SerialService::LOG_ln<BB_LL_WARNING>(CB_TAG, "relay_enable");
+                            BB_LOGW(CB_TAG, "relay_enable");
                             d.heat_lamps.relay_closed.set(true);
                             oled.draw_string({0, 0}, SH1122PixIntens::level_7, "press cnt: %d | relay state: %s", qp_cnt, "closed");
                         }
@@ -200,15 +201,15 @@ void task_idle(void* arg)
                         break;
 
                     case SwitchEvent::long_press:
-                        SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "long_press");
+                        BB_LOGSPEC(CB_TAG, "long_press");
                         break;
 
                     case SwitchEvent::held:
-                        SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "held");
+                        BB_LOGSPEC(CB_TAG, "held");
                         break;
 
                     case SwitchEvent::release:
-                        SerialService::LOG_ln<BB_LL_INFO>(CB_TAG, "release");
+                        BB_LOGSPEC(CB_TAG, "release");
                         break;
 
                     default:

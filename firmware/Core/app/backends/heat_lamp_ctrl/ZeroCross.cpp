@@ -48,7 +48,7 @@ uint32_t ZeroCross::intensity2ticks(uint8_t new_intensity)
     }
     else
     {
-        SerialService::LOG_ln<BB_LL_ERROR>(TAG, "****intensity2ticks**** mains avg period uninit fail");
+        BB_LOGE(TAG, "****intensity2ticks**** mains avg period uninit fail");
     }
 
     return MAX_ZX_TIMER_TICKS;
@@ -61,14 +61,14 @@ bool ZeroCross::set_triac_trig_ticks(uint32_t new_trig_ticks)
     if (new_trig_ticks <= (zx_period_us - TRIAC_TRIGGING_TIME_US))
     {
         set_zx_timer_triac_trig_ch(new_trig_ticks);
-        SerialService::LOG_ln<BB_LL_SUCCESS>(TAG, "****set_triac_trig_ticks**** new triag trig time: %ld/%d", new_trig_ticks, zx_period_us);
+        BB_LOGSUC(TAG, "****set_triac_trig_ticks**** new triag trig time: %ld/%d", new_trig_ticks, zx_period_us);
 
         return true;
     }
     else
     {
         set_zx_timer_triac_trig_ch(MAX_ZX_TIMER_TICKS);
-        SerialService::LOG_ln<BB_LL_WARNING>(TAG, "****set_triac_trig_ticks**** tric dimmer disabled");
+        BB_LOGW(TAG, "****set_triac_trig_ticks**** tric dimmer disabled");
         return false;
     }
 }

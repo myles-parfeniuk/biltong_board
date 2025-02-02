@@ -80,13 +80,13 @@ void TempRHDriver::task_temp_rh()
             if (th_A.get_temp(temp_temp.A))
                 current_temp.A = temp_temp.A;
             else
-                SerialService::LOG_ln<BB_LL_ERROR>(TAG, "FAIL: Read temp sens A");
+                BB_LOGE(TAG, "FAIL: Read temp sens A");
 
             // read temp B
             if (th_B.get_temp(temp_temp.B))
                 current_temp.B = temp_temp.B;
             else
-                SerialService::LOG_ln<BB_LL_ERROR>(TAG, "FAIL: Read temp sens B");
+                BB_LOGE(TAG, "FAIL: Read temp sens B");
 
             // set device model if either temp was successfully read
             if ((temp_temp.A != -1) || (temp_temp.B != -1))
@@ -101,13 +101,13 @@ void TempRHDriver::task_temp_rh()
             if (th_A.get_humidity(temp_rh.A))
                 current_rh.A = temp_rh.A;
             else
-                SerialService::LOG_ln<BB_LL_ERROR>(TAG, "FAIL: Read RH sens A");
+                BB_LOGE(TAG, "FAIL: Read RH sens A");
 
             // read RH B
             if (th_B.get_humidity(temp_rh.B))
                 current_rh.B = temp_rh.B;
             else
-                SerialService::LOG_ln<BB_LL_ERROR>(TAG, "FAIL: Read RH sens B");
+                BB_LOGE(TAG, "FAIL: Read RH sens B");
 
             // set device model if either RH was successfully read
             if ((temp_rh.A != -1) || (temp_rh.B != -1))
