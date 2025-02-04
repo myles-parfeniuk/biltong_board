@@ -51,7 +51,8 @@ set(PROJECT_INCLUDE_DIRECTORIES
     ${PROJECT_DIR}/backends/temp_rh_sens
     ${PROJECT_DIR}/backends/heat_lamp_ctrl
     ${PROJECT_DIR}/backends/current_sensor
-    ${PROJECT_DIR}/backends/serial_service)
+    ${PROJECT_DIR}/backends/serial_service
+    ${PROJECT_DIR}/backends/bb_event_handler)
 
 #third party includes
 set(WSEN_HIDS_INCLUDE_DIRECTORIES
@@ -101,7 +102,9 @@ file(GLOB_RECURSE PROJECT_SOURCES FOLLOW_SYMLINKS
     ${PROJECT_DIR}/backends/current_sensor/*.cpp
     ${PROJECT_DIR}/backends/current_sensor/*.c
     ${PROJECT_DIR}/backends/serial_service/*.cpp
-    ${PROJECT_DIR}/backends/serial_service/*.c)
+    ${PROJECT_DIR}/backends/serial_service/*.c
+    ${PROJECT_DIR}/backends/bb_event_handler/*.cpp
+    ${PROJECT_DIR}/backends/bb_event_handler/*.c)
 #### SOURCES END ####
 
 #### SOURCE EXCLUSIONS ####

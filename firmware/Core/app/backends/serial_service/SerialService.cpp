@@ -51,7 +51,7 @@ bool SerialService::LOG_ln(const bb_log_lvl_t log_lvl, const char* TAG, const ch
     str_to_send[LENGTH_IDX] = static_cast<uint8_t>(length);
 
     // send message to serial_task via queue_serial
-    xQueueSend(queue_serial_hdl, str_to_send, 0UL);
+    xQueueSend(queue_serial_hdl, str_to_send, 10UL);
     return (pushed_to_queue == pdTRUE);
 }
 
@@ -70,8 +70,8 @@ bool SerialService::append_color_code(const bb_log_lvl_t log_lvl, uint8_t* str, 
                                         (log_lvl == BB_LL_SPECIAL) ? BLUE : 
                                         DEFAULT;
     // clang-format on
-    const size_t escape_code_length = strlen(escape_code);
 
+    const size_t escape_code_length = strlen(escape_code);
     const size_t new_length = length + escape_code_length;
 
     if (new_length < MAX_STR_SZ)

@@ -3,39 +3,31 @@
 // cube mx
 #include "gpio.h"
 #include "FreeRTOS.h"
-// third-party 
+// third-party
 #include "task.h"
 #include "event_groups.h"
 // in-house
 #include "bb_pin_defs.h"
 #include "bb_task_defs.h"
 #include "Device.h"
+#include "HeatLampHWTimer.h"
+#include "Triac.h"
 #include "ZeroCross.h"
-#include "NSM201210XXR.h"
 
 class HeatLampDriver
 {
     public:
-        HeatLampDriver(Device& d, TIM_HandleTypeDef* hdl_zx_timer, ADC_HandleTypeDef *hdl_isense_adc);
+        HeatLampDriver(Device& d, TIM_HandleTypeDef* hdl_heat_lamp_timer);
         bool init();
-        static void task_lamp_ctrl_trampoline(void* arg);
-        void task_lamp_ctrl();
 
     private:
-        // constants
-        inline static const constexpr EventBits_t EVT_GRP_LAMP_CTRL_HZ_CALC = (1UL << 0UL);
-        inline static const constexpr EventBits_t EVT_GRP_LAMP_CTRL_ALL = EVT_GRP_LAMP_CTRL_HZ_CALC;
+        uint32_t intensity_2_triac_trig_ticks(uint8_t new_intensity);
+        static void mains_hz_event_cb(void* arg);
 
         Device& d;
+        HeatLampHWTimer hw_timer_heat_lamp;
+        Triac triac;
         ZeroCross zero_cross;
-        NSM201210XXR current_sens;
-
-        inline static TaskHandle_t task_lamp_ctrl_hdl = NULL;
-        inline static StaticTask_t task_lamp_ctrl_tcb;
-        inline static StackType_t task_lamp_ctrl_stk[BB_HL_CTRL_TSK_SZ] = {0UL};
-
-        EventGroupHandle_t evt_grp_lamp_ctrl_hdl = NULL;
-        StaticEventGroup_t evt_grp_lamp_ctrl_buff;
 
         inline static const constexpr char* TAG = "HeatLampDriver";
 };

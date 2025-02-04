@@ -19,7 +19,11 @@ bool TempRHDriver::init()
     if (!th_B.init())
         return false;
 
-    evt_grp_temp_rh_hdl = xEventGroupCreateStatic(&evt_grp_temp_rh_buff);
+    if (BBEventHandler::register_event_cb(BB_EVT_SAMPLE_TEMP, sample_temp_evt_cb, this) != true)
+        return false;
+
+    if (BBEventHandler::register_event_cb(BB_EVT_SAMPLE_RH, sample_rh_evt_cb, this) != true)
+        return false;
 
     timer_temp_hdl = xTimerCreateStatic(
             "Temptimer", d.sensors.temperature.sample_rate.get() / portTICK_PERIOD_MS, pdTRUE, this, timer_temp_cb, &timer_temp_buff);
@@ -37,83 +41,64 @@ bool TempRHDriver::init()
     if (op_success != pdTRUE)
         return false;
 
-    task_temp_rh_hdl = xTaskCreateStatic(task_temp_rh_trampoline, "bbTempRHSmplTsk",  BB_TEMP_RH_TSK_SZ, static_cast<void*>(this), 4, task_temp_rh_stk, &task_temp_rh_tcb);
-
     return true;
 }
 
 void TempRHDriver::timer_temp_cb(TimerHandle_t timer_hdl)
 {
-    TempRHDriver* temp_rh_driver = reinterpret_cast<TempRHDriver*>(timer_hdl);
-    xEventGroupSetBits(temp_rh_driver->evt_grp_temp_rh_hdl, EVT_GRP_TEMP_RH_SAMPLE_TEMP);
+    BBEventHandler::send_event_to_handler(BB_EVT_SAMPLE_TEMP);
 }
 
 void TempRHDriver::timer_rh_cb(TimerHandle_t timer_hdl)
 {
-    TempRHDriver* temp_rh_driver = reinterpret_cast<TempRHDriver*>(timer_hdl);
-    xEventGroupSetBits(temp_rh_driver->evt_grp_temp_rh_hdl, EVT_GRP_TEMP_RH_SAMPLE_RH);
+    BBEventHandler::send_event_to_handler(BB_EVT_SAMPLE_RH);
 }
 
-void TempRHDriver::task_temp_rh_trampoline(void* arg)
+void TempRHDriver::sample_temp_evt_cb(void* arg)
 {
-    TempRHDriver* temp_rh_driver = static_cast<TempRHDriver*>(arg);
-    temp_rh_driver->task_temp_rh();
-}
-
-void TempRHDriver::task_temp_rh()
-{
-    EventBits_t sample_bits = 0UL;
-    temp_data_t temp_temp;
+    TempRHDriver* _driver = static_cast<TempRHDriver*>(arg);
+    temp_data_t new_temp;
     temp_data_t current_temp;
-    rh_data_t temp_rh;
+
+    new_temp = {-1L, -1L};
+
+    // read temp A
+    if (_driver->th_A.get_temp(new_temp.A))
+        current_temp.A = new_temp.A;
+    else
+        BB_LOGE(TAG, "****sample_temp_evt_cb()**** failed to read temp sense A");
+
+    // read temp B
+    if (_driver->th_B.get_temp(new_temp.B))
+        current_temp.B = new_temp.B;
+    else
+        BB_LOGE(TAG, "****sample_temp_evt_cb()**** failed to read temp sense B");
+
+    // set device model if both temps were successfully read
+    if ((new_temp.A != -1) && (new_temp.B != -1))
+        _driver->d.sensors.temperature.celsius.set(current_temp);
+}
+void TempRHDriver::sample_rh_evt_cb(void* arg)
+{
+    TempRHDriver* _driver = static_cast<TempRHDriver*>(arg);
+    rh_data_t new_rh;
     rh_data_t current_rh;
 
-    while (1)
-    {
-        sample_bits = xEventGroupWaitBits(evt_grp_temp_rh_hdl, EVT_GRP_TEMP_RH_ALL, pdFALSE, pdFALSE, portMAX_DELAY);
+    new_rh = {-1L, -1L};
 
-        if (sample_bits & EVT_GRP_TEMP_RH_SAMPLE_TEMP)
-        {
-            temp_temp = {-1L, -1L};
+    // read RH A
+    if (_driver->th_A.get_humidity(new_rh.A))
+        current_rh.A = new_rh.A;
+    else
+        BB_LOGE(TAG, "****task_temp_rh()**** failed to read RH sense A");
 
-            // read temp A
-            if (th_A.get_temp(temp_temp.A))
-                current_temp.A = temp_temp.A;
-            else
-                BB_LOGE(TAG, "FAIL: Read temp sens A");
+    // read RH B
+    if (_driver->th_B.get_humidity(new_rh.B))
+        current_rh.B = new_rh.B;
+    else
+        BB_LOGE(TAG, "****task_temp_rh()**** failed to read RH sense B");
 
-            // read temp B
-            if (th_B.get_temp(temp_temp.B))
-                current_temp.B = temp_temp.B;
-            else
-                BB_LOGE(TAG, "FAIL: Read temp sens B");
-
-            // set device model if either temp was successfully read
-            if ((temp_temp.A != -1) || (temp_temp.B != -1))
-                d.sensors.temperature.celsius.set(current_temp);
-        }
-
-        if (sample_bits & EVT_GRP_TEMP_RH_SAMPLE_RH)
-        {
-            temp_rh = {-1L, -1L};
-
-            // read RH A
-            if (th_A.get_humidity(temp_rh.A))
-                current_rh.A = temp_rh.A;
-            else
-                BB_LOGE(TAG, "FAIL: Read RH sens A");
-
-            // read RH B
-            if (th_B.get_humidity(temp_rh.B))
-                current_rh.B = temp_rh.B;
-            else
-                BB_LOGE(TAG, "FAIL: Read RH sens B");
-
-            // set device model if either RH was successfully read
-            if ((temp_rh.A != -1) || (temp_rh.B != -1))
-                d.sensors.humidity.relative.set(current_rh);
-        }
-
-        xEventGroupClearBits(evt_grp_temp_rh_hdl, EVT_GRP_TEMP_RH_ALL);
-    }
+    // set device model if both RH were successfully read
+    if ((new_rh.A != -1) && (new_rh.B != -1))
+        _driver->d.sensors.humidity.relative.set(current_rh);
 }
