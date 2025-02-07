@@ -51,7 +51,7 @@ bool SerialService::LOG_ln(const bb_log_lvl_t log_lvl, const char* TAG, const ch
     str_to_send[LENGTH_IDX] = static_cast<uint8_t>(length);
 
     // send message to serial_task via queue_serial
-    xQueueSend(queue_serial_hdl, str_to_send, 10UL);
+    xQueueSend(queue_serial_hdl, str_to_send, SERIAL_QUEUE_TIMEOUT_MS);
     return (pushed_to_queue == pdTRUE);
 }
 

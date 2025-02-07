@@ -36,12 +36,12 @@ bool HeatLampHWTimer::restart()
     return true;
 }
 
-uint32_t HeatLampHWTimer::get_ticks()
+uint16_t HeatLampHWTimer::get_ticks()
 {
     return HW_TIM->CNT;
 }
 
-uint32_t HeatLampHWTimer::get_triac_trig_ticks()
+uint16_t HeatLampHWTimer::get_triac_trig_ticks()
 {
     return HW_TIM->CCR1;
 }

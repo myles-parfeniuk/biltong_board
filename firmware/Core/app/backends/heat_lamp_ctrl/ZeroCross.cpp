@@ -10,8 +10,8 @@ ZeroCross::ZeroCross(Device& d, HeatLampHWTimer& hw_timer_heat_lamp)
 bool ZeroCross::init()
 {
     ISRCbDispatch::register_zero_cross_ISR_cb(zero_cross_ISR_cb, this);
-    sample_window = mains_hz_window_a;
-    proc_window = mains_hz_window_b;
+    sample_window = window_a;
+    proc_window = window_b;
 
     return true;
 }
@@ -21,11 +21,11 @@ int32_t ZeroCross::avg_window()
     int32_t result = 0UL;
 
     // sum the window
-    for (size_t i = 0UL; i < MAINS_HZ_WINDOW_SZ; i++)
+    for (size_t i = 0UL; i < ZX_PERIOD_SAMPLE_WINDOW_SZ; i++)
         result += proc_window[i];
 
     // take the average
-    result /= MAINS_HZ_WINDOW_SZ;
+    result /= ZX_PERIOD_SAMPLE_WINDOW_SZ;
 
     return result;
 }
@@ -41,15 +41,7 @@ float ZeroCross::hz_calc(int32_t window_avg)
     return result;
 }
 
-uint32_t ZeroCross::grab_sample_and_reset_zx_timer(ZeroCross* _zx)
-{
-    uint32_t sample = _zx->hw_timer_heat_lamp.get_ticks();
-    _zx->hw_timer_heat_lamp.restart();
-
-    return sample;
-}
-
-void ZeroCross::mv_hz_smpl_to_window(ZeroCross* _zx, const uint32_t sample)
+void ZeroCross::mv_zx_period_smpl_to_window(ZeroCross* _zx, const uint16_t sample)
 {
     _zx->sample_window[_zx->window_pos] = sample;
     _zx->window_pos++;
@@ -57,15 +49,16 @@ void ZeroCross::mv_hz_smpl_to_window(ZeroCross* _zx, const uint32_t sample)
 
 void ZeroCross::window_swp(ZeroCross* _zx)
 {
-    if (_zx->sample_window == _zx->mains_hz_window_a)
+
+    if (_zx->sample_window == _zx->window_a)
     {
-        _zx->sample_window = _zx->mains_hz_window_b;
-        _zx->proc_window = _zx->mains_hz_window_a;
+        _zx->sample_window = _zx->window_b;
+        _zx->proc_window = _zx->window_a;
     }
     else
     {
-        _zx->sample_window = _zx->mains_hz_window_a;
-        _zx->proc_window = _zx->mains_hz_window_b;
+        _zx->sample_window = _zx->window_b;
+        _zx->proc_window = _zx->window_a;
     }
     _zx->window_pos = 0U;
 }
@@ -78,37 +71,29 @@ void ZeroCross::hz_calc_evt(ZeroCross* _zx)
 void ZeroCross::zero_cross_ISR_cb(void* arg)
 {
     ZeroCross* _zx = static_cast<ZeroCross*>(arg);
-    const ZxSampleState state = _zx->state;
-    static uint32_t mains_hz_sample = 0UL;
+    static uint16_t zx_period_sample = 0UL;
+    static bool uninit = true;
 
-    if (state == ZxSampleState::SAMPLING)
-        mains_hz_sample = grab_sample_and_reset_zx_timer(_zx);
-
-    switch (state)
+    if (!uninit)
     {
-        case ZxSampleState::INACTIVE:
-            _zx->state = ZxSampleState::START;
-            break;
 
-        case ZxSampleState::START:
-            _zx->hw_timer_heat_lamp.restart();
-            _zx->state = ZxSampleState::SAMPLING;
-            break;
+        zx_period_sample = _zx->hw_timer_heat_lamp.get_ticks();
+        _zx->hw_timer_heat_lamp.restart();
 
-        case ZxSampleState::SAMPLING:
-
-            if (_zx->window_pos > MAINS_HZ_WINDOW_SZ)
-            {
-                window_swp(_zx);
-                mv_hz_smpl_to_window(_zx, mains_hz_sample);
-                hz_calc_evt(_zx);
-            }
-            else
-            {
-                mv_hz_smpl_to_window(_zx, mains_hz_sample);
-            }
-
-        default:
-            break;
+        if (_zx->window_pos > ZX_PERIOD_SAMPLE_WINDOW_SZ)
+        {
+            window_swp(_zx);
+            mv_zx_period_smpl_to_window(_zx, zx_period_sample);
+            hz_calc_evt(_zx);
+        }
+        else
+        {
+            mv_zx_period_smpl_to_window(_zx, zx_period_sample);
+        }
+    }
+    else
+    {
+           _zx->hw_timer_heat_lamp.restart();
+           uninit = false; 
     }
 }

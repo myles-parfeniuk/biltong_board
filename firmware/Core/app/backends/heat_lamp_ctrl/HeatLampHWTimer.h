@@ -12,8 +12,8 @@ class HeatLampHWTimer
         bool stop(); 
         bool start();
         bool restart(); 
-        uint32_t get_ticks(); 
-        uint32_t get_triac_trig_ticks(); 
+        uint16_t get_ticks(); 
+        uint16_t get_triac_trig_ticks(); 
         void set_triac_trig_OC_ch(uint32_t oc_ticks);
 
         static const constexpr uint32_t MAX_HEAT_LAMP_TIMER_TICKS = 65535UL;

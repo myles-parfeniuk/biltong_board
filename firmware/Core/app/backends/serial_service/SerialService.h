@@ -71,11 +71,13 @@ class SerialService
     private:
         inline static const constexpr size_t LENGTH_IDX = MAX_STR_SZ + 1;  ///< index of string buffer of which length of string is stored
         inline static const constexpr size_t STR_BUFF_SZ = MAX_STR_SZ + 2; ///< size of string buffers
-        inline static const constexpr char* DEFAULT = "\033[0m";           // white (default) BB_LOGI
-        inline static const constexpr char* GREEN = "\033[32m";            // green (success) BB_LOGSC
-        inline static const constexpr char* RED = "\033[31m";              // red (error) BB_LOGE
-        inline static const constexpr char* YELLOW = "\033[33m";           // yellow (warning) BB_LOGW
-        inline static const constexpr char* BLUE = "\033[1;34m";           // blue (special) BB_LOGSP
+        inline static const constexpr char* DEFAULT = "\033[0m";           ///< white (default) BB_LOGI
+        inline static const constexpr char* GREEN = "\033[32m";            ///< green (success) BB_LOGSC
+        inline static const constexpr char* RED = "\033[31m";              ///< red (error) BB_LOGE
+        inline static const constexpr char* YELLOW = "\033[33m";           ///< yellow (warning) BB_LOGW
+        inline static const constexpr char* BLUE = "\033[1;34m";           ///< blue (special) BB_LOGSP
+
+        inline static const constexpr TickType_t SERIAL_QUEUE_TIMEOUT_MS = 10UL / portTICK_PERIOD_MS; 
 
         static bool append_color_code(const bb_log_lvl_t log_lvl, uint8_t* str, size_t& length);
         static bool append_tag(uint8_t* str, size_t& length, const char* TAG);

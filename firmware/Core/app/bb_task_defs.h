@@ -11,5 +11,4 @@ const constexpr size_t _1KB = 128UL;
 const constexpr size_t BB_IDLE_TSK_SZ = _1KB * 5UL;
 const constexpr size_t BB_EVT_HANDLER_TSK_SZ = 2 * _1KB;
 const constexpr size_t BB_SW_SCAN_TSK_SZ = _1KB + (_1KB / 2UL);
-const constexpr size_t BB_HL_CTRL_TSK_SZ = _1KB + (_1KB / 2UL);
 const constexpr size_t BB_SERIAL_SVC_TSK_SZ = _1KB * 1UL;
