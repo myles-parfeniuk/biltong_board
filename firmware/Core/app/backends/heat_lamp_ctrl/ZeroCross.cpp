@@ -50,16 +50,10 @@ void ZeroCross::mv_zx_period_smpl_to_window(ZeroCross* _zx, const uint16_t sampl
 void ZeroCross::window_swp(ZeroCross* _zx)
 {
 
-    if (_zx->sample_window == _zx->window_a)
-    {
-        _zx->sample_window = _zx->window_b;
-        _zx->proc_window = _zx->window_a;
-    }
-    else
-    {
-        _zx->sample_window = _zx->window_b;
-        _zx->proc_window = _zx->window_a;
-    }
+    volatile uint16_t* temp = _zx->sample_window;
+    _zx->sample_window = _zx->proc_window;
+    _zx->proc_window = temp;
+
     _zx->window_pos = 0U;
 }
 
@@ -72,28 +66,18 @@ void ZeroCross::zero_cross_ISR_cb(void* arg)
 {
     ZeroCross* _zx = static_cast<ZeroCross*>(arg);
     static uint16_t zx_period_sample = 0UL;
-    static bool uninit = true;
 
-    if (!uninit)
+    zx_period_sample = _zx->hw_timer_heat_lamp.get_ticks();
+    _zx->hw_timer_heat_lamp.restart();
+
+    if (_zx->window_pos > ZX_PERIOD_SAMPLE_WINDOW_SZ)
     {
-
-        zx_period_sample = _zx->hw_timer_heat_lamp.get_ticks();
-        _zx->hw_timer_heat_lamp.restart();
-
-        if (_zx->window_pos > ZX_PERIOD_SAMPLE_WINDOW_SZ)
-        {
-            window_swp(_zx);
-            mv_zx_period_smpl_to_window(_zx, zx_period_sample);
-            hz_calc_evt(_zx);
-        }
-        else
-        {
-            mv_zx_period_smpl_to_window(_zx, zx_period_sample);
-        }
+        window_swp(_zx);
+        mv_zx_period_smpl_to_window(_zx, zx_period_sample);
+        hz_calc_evt(_zx);
     }
     else
     {
-           _zx->hw_timer_heat_lamp.restart();
-           uninit = false; 
+        mv_zx_period_smpl_to_window(_zx, zx_period_sample);
     }
 }

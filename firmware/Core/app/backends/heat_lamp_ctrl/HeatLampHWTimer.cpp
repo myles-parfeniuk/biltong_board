@@ -41,7 +41,7 @@ uint16_t HeatLampHWTimer::get_ticks()
     return HW_TIM->CNT;
 }
 
-uint16_t HeatLampHWTimer::get_triac_trig_ticks()
+uint16_t HeatLampHWTimer::get_triac_trig_OC_ticks()
 {
     return HW_TIM->CCR1;
 }

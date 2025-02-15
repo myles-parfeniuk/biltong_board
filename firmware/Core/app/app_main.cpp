@@ -142,26 +142,28 @@ void task_idle(void* arg)
             [](SwitchEvent new_event)
             {
                 static constexpr const char* CB_TAG = "DownSwitch";
-                static uint8_t pct_intensity = 0U;
+                static uint8_t on_time = 0U;
 
                 switch (new_event)
                 {
                     case SwitchEvent::quick_press:
                         BB_LOGSP(CB_TAG, "quick_press");
-                        d.heat_lamps.intensity.set(pct_intensity);
-                        pct_intensity += 1U;
-                        if (pct_intensity > 100U)
-                            pct_intensity = 0U;
+                        d.heat_lamps.triac_on_time_pct.set(on_time);
+                        on_time += 1U;
+                        if (on_time > 100U)
+                            on_time = 0U;
                         break;
 
                     case SwitchEvent::long_press:
                         BB_LOGSP(CB_TAG, "long_press");
-                        pct_intensity = 0U;
-                        d.heat_lamps.intensity.set(pct_intensity);
                         break;
 
                     case SwitchEvent::held:
                         BB_LOGSP(CB_TAG, "held");
+                        d.heat_lamps.triac_on_time_pct.set(on_time);
+                        on_time += 1U;
+                        if (on_time > 100U)
+                            on_time = 0U;
                         break;
 
                     case SwitchEvent::release:

@@ -18,6 +18,7 @@ class Triac
         Triac(Device& d, HeatLampHWTimer& hw_timer_heat_lamp);
         bool init();
         bool set_trig_ticks(uint32_t new_trig_ticks);
+        uint32_t on_time_pct_2_ticks(uint8_t on_time_pct);
 
     private:
         static void triac_trig_ISR_cb(void* arg);

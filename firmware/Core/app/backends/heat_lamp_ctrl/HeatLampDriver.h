@@ -21,7 +21,6 @@ class HeatLampDriver
         bool init();
 
     private:
-        uint32_t intensity_2_triac_trig_ticks(uint8_t new_intensity);
         static void mains_hz_event_cb(void* arg);
 
         Device& d;

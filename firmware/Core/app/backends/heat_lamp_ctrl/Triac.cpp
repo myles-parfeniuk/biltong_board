@@ -16,34 +16,37 @@ bool Triac::init()
     ISRCbDispatch::register_triac_trig_ISR_cb(triac_trig_ISR_cb, this);
     hw_timer_heat_lamp.set_triac_trig_OC_ch(HeatLampHWTimer::MAX_HEAT_LAMP_TIMER_TICKS); // should never execute ccr1 isr until set by user
 
-    return true; 
+    return true;
+}
+
+uint32_t Triac::on_time_pct_2_ticks(uint8_t on_time_pct)
+{
+    const constexpr uint32_t PCT_MIN = 1UL;
+    const constexpr uint32_t PCT_MAX = 100UL;
+    const constexpr uint32_t TICKS_MIN = (40UL * TRIAC_TRIGGING_TIME_US);
+
+    int32_t zx_period_us = d.heat_lamps.zx_period_us.get();
+    const uint32_t ticks_max = zx_period_us;
+    uint32_t trig_ticks = 0UL;
+
+    if (on_time_pct == 0)
+    {
+        trig_ticks = HeatLampHWTimer::MAX_HEAT_LAMP_TIMER_TICKS;
+    }
+    else
+    {
+        trig_ticks = (on_time_pct - PCT_MIN) * (ticks_max - TICKS_MIN) / (PCT_MAX - PCT_MIN) + TICKS_MIN;
+        trig_ticks = zx_period_us - trig_ticks;
+    }
+
+    BB_LOGSC(TAG, "****on_time_pct_2_ticks**** new triac trig time pct: %u delay: %lu/%ld", on_time_pct, trig_ticks, zx_period_us);
+    return trig_ticks;
 }
 
 bool Triac::set_trig_ticks(uint32_t new_trig_ticks)
 {
-    int32_t zx_period_us = d.heat_lamps.zx_period_us.get();
-
-    hw_timer_heat_lamp.stop();
-    triggering = false;
-    SET_TRIAC_TRIGGER_INACTIVE();
-
-    if (new_trig_ticks <= (zx_period_us - TRIAC_TRIGGING_TIME_US))
-    {
-        trig_ticks = new_trig_ticks; 
-        BB_LOGSC(TAG, "****set_trig_ticks**** new triag trig time: %ld/%d", new_trig_ticks, zx_period_us);
-    }
-    else
-    {
-        trig_ticks = HeatLampHWTimer::MAX_HEAT_LAMP_TIMER_TICKS;
-        BB_LOGW(TAG, "****set_trig_ticks**** tric dimmer disabled");
-    }
-
+    trig_ticks = new_trig_ticks;
     hw_timer_heat_lamp.set_triac_trig_OC_ch(trig_ticks);
-
-    if(!hw_timer_heat_lamp.start())
-        return false;
-    else
-        return true; 
 }
 
 void Triac::triac_trig_ISR_cb(void* arg)
